@@ -47,7 +47,10 @@ CREATE TABLE IF NOT EXISTS `commission` (
 DROP TABLE IF EXISTS `commission_member`;
 CREATE TABLE IF NOT EXISTS `commission_member` (
   `com_uuid` varchar(36) NOT NULL,
-  `user_uuid` varchar(36) NOT NULL
+  `com_user_uuid` int(11) NOT NULL,
+  `com_debut`  Date,
+  `com_fin` Date,
+  FOREIGN KEY (user_uuid) REFERENCES user (user_pk)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
