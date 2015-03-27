@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_surname` varchar(20) NOT NULL,
   `user_is_admin` tinyint(1) NOT NULL,
   `user_is_member` tinyint(1) NOT NULL,
+  `user_function` text NOT NULL,
   `user_subscription_date` date NOT NULL,
   `user_renew_date` date NOT NULL,
   `user_access_app` tinyint(1) NOT NULL,
