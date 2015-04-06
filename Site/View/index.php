@@ -40,9 +40,8 @@
 
 
 				<?php 
-				$link = mysqli_connect('localhost','root','',"jcef-bdd"); 
-				$sql=mysqli_query($link,"SELECT * FROM user");
-					while($row = mysqli_fetch_array($sql))
+				$sql=mysql_query("SELECT * FROM user");
+					while($row = mysql_fetch_array($sql))
 					{
 					    print $row['user_name']." - ".$row['user_password'];
 					}
