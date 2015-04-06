@@ -25,6 +25,75 @@ USE `jcef-bdd`;
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `commission`
+--
+
+DROP TABLE IF EXISTS `commission`;
+CREATE TABLE IF NOT EXISTS `commission` (
+  `com_pk` int(11) NOT NULL AUTO_INCREMENT,
+  `com_uuid` varchar(36) NOT NULL DEFAULT 'GUUID()',
+  `com_name` varchar(50) NOT NULL,
+  `com_description` text NOT NULL,
+  `com_picture` varchar(100) NOT NULL,
+  PRIMARY KEY (`com_pk`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commission_member`
+--
+
+DROP TABLE IF EXISTS `commission_member`;
+CREATE TABLE IF NOT EXISTS `commission_member` (
+  `com_uuid` varchar(36) NOT NULL,
+  `com_user_uuid` int(11) NOT NULL,
+  `com_debut`  Date,
+  `com_fin` Date,
+  FOREIGN KEY (user_uuid) REFERENCES user (user_pk)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `ev_uuid` varchar(36) NOT NULL DEFAULT 'UUID()',
+  `com_uuid` varchar(36) NOT NULL,
+  `ev_name` varchar(50) NOT NULL,
+  `ev_date` date NOT NULL,
+  `ev_description` text NOT NULL,
+  `ev_picture` varchar(100) NOT NULL,
+  `ev_max_participants` int(11) NOT NULL,
+  `ev_nb_subscribed` int(11) NOT NULL,
+  `ev_pk` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ev_pk`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `notification`
+--
+
+DROP TABLE IF EXISTS `notification`;
+CREATE TABLE IF NOT EXISTS `notification` (
+  `notif_pk` int(11) NOT NULL AUTO_INCREMENT,
+  `notif_guuid` varchar(36) NOT NULL DEFAULT 'UUID()',
+  `notif_message` text NOT NULL,
+  `notif_date` date NOT NULL,
+  `notif_read` tinyint(1) NOT NULL DEFAULT '0',
+  `notif_reader` int(11),
+  PRIMARY KEY (`notif_pk`),
+  FOREIGN KEY (notif_reader) REFERENCES user (user_pk)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -33,32 +102,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_name` varchar(20) NOT NULL,
   `user_surname` varchar(20) NOT NULL,
   `user_is_admin` tinyint(1) NOT NULL,
-  `user_birth` date NOT NULL,
-  `user_sex` char(1) NOT NULL,
-  `user_nation` varchar(8) NOT NULL,
-  `user_user_type` tinyint(1) NOT NULL,
-  `user_member_type` tinyint(1) NOT NULL,
-  `user_jcef_function` varchar(16) NOT NULL,
-  `user_status` varchar(16) NOT NULL,
-  `user_company` varchar(16) NOT NULL,
-  `user_company_title` varchar(16) NOT NULL,
-  `user_cell_phone` varchar(15) NOT NULL,
-  `user_land_phone` varchar(15) NOT NULL,
+  `user_is_member` tinyint(1) NOT NULL,
+  `user_function` text NOT NULL,
   `user_subscription_date` date NOT NULL,
   `user_renew_date` date NOT NULL,
-  `user_last_amount` int(6) NOT NULL DEFAULT '0',
+  `user_access_app` tinyint(1) NOT NULL,
   `user_picture` varchar(100) NOT NULL,
   `user_uuid` varchar(36) NOT NULL DEFAULT 'UUID()',
   `user_pk` int(11) NOT NULL AUTO_INCREMENT,
   `user_password` varchar(15) NOT NULL,
-  `user_email_jcef` varchar(30) NOT NULL,
-  `user_email_company` varchar(30) NOT NULL,
-  `user_email_perso` varchar(30) NOT NULL,
-  `user_weixin` varchar(15) NOT NULL,
-  `user_skype` varchar(15) NOT NULL,
-  `user_qr_code_url` varchar(200) NOT NULL,
-  `user_address` varchar(100) NOT NULL, /* dav j'ai pas mis de champ composé vu qu'on est tous sur shanghai */
-  `user_comment` varchar(300) NOT NULL, 
+  `user_email` varchar(30) NOT NULL,
+  `user_is_comm_pres` tinyint(1) NOT NULL,
   PRIMARY KEY (`user_pk`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -97,80 +151,6 @@ CREATE TABLE IF NOT EXISTS `participant` (
 
 -- --------------------------------------------------------
 
-
---
--- Structure de la table `commission`
---
-
-DROP TABLE IF EXISTS `commission`;
-CREATE TABLE IF NOT EXISTS `commission` (
-  `com_pk` int(11) NOT NULL AUTO_INCREMENT,
-  `com_uuid` varchar(36) NOT NULL DEFAULT 'GUUID()',
-  `com_name` varchar(50) NOT NULL,
-  `com_description` text NOT NULL,
-  `com_picture` varchar(100) NOT NULL,
-  PRIMARY KEY (`com_pk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `commission_member`
---
-
-DROP TABLE IF EXISTS `commission_member`;
-CREATE TABLE IF NOT EXISTS `commission_member` (
-  `comm_uuid` varchar(36) NOT NULL,
-  `comm_user_uuid` int(11) NOT NULL,
-  `comm_debut`  Date,
-  `comm_fin` Date,
-  FOREIGN KEY (comm_user_uuid) REFERENCES user (user_pk)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `event`
---
-
-DROP TABLE IF EXISTS `event`;
-CREATE TABLE IF NOT EXISTS `event` (
-  `ev_uuid` varchar(36) NOT NULL DEFAULT 'UUID()',
-  `ev_name` varchar(50) NOT NULL,
-  `ev_address` varchar(100) NOT NULL,
-  `ev_date` date NOT NULL,
-  `ev_description` text NOT NULL,
-  `ev_picture` varchar(100) NOT NULL,
-  `ev_max_participants` SMALLINT(11) NOT NULL,
-  `ev_participants` SMALLINT(11) NOT NULL,
-  `ev_price` SMALLINT(11) NOT NULL,
-  `ev_nb_subscribed` SMALLINT(11) NOT NULL,
-  `ev_charged_member` int(11),
-  `ev_com_linked` int(11),
-  PRIMARY KEY (`ev_uuid`),
-  FOREIGN KEY (ev_charged_member) REFERENCES user (user_pk),
-  FOREIGN KEY (ev_com_linked) REFERENCES commission (com_pk)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `notification`
---
-
-DROP TABLE IF EXISTS `notification`;
-CREATE TABLE IF NOT EXISTS `notification` (
-  `notif_pk` int(11) NOT NULL AUTO_INCREMENT,
-  `notif_guuid` varchar(36) NOT NULL DEFAULT 'UUID()',
-  `notif_message` text NOT NULL,
-  `notif_date` date NOT NULL,
-  `notif_read` tinyint(1) NOT NULL DEFAULT '0',
-  `notif_reader` int(11),
-  PRIMARY KEY (`notif_pk`),
-  FOREIGN KEY (notif_reader) REFERENCES user (user_pk)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
