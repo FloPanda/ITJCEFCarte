@@ -2,7 +2,7 @@
 <html>
 
 <?php
-	include 'header.php';
+	include 'header.html';
 	include 'head.html';
 	include 'dashboard.html';
 	require ('../DAL/sql_connect.php');
@@ -37,7 +37,6 @@
 							print $row['user_name']." - ".$row['user_password'];
 						}
 					?>
-					
 
 					<center>
 					
@@ -56,7 +55,7 @@
 						</script>
 					
 					
-						<form action="index.php" method="POST">
+						<form action="login.php" method="POST">
 							USERNAME : <input type="text" name="uname">
 							PASSWORD : <input type="password" name="pass">
 							<input type="submit" value="login" name="submit">

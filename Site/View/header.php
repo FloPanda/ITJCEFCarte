@@ -257,20 +257,39 @@
 							</ul>
 						</li><!-- /settings -->
 						
+						
+						
 						<!-- account -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								
+									
 								<?php
 								
-									if (!empty($_POST))
+									if (isset($_POST))
 									{
-											$uname=$_POST['uname'];
-											echo $uname;
-											
-									)
+										if(!empty($_POST))
+										{
+										$uname=$_POST['uname'];
+										
+										$link = mysqli_connect('localhost','root','',"jcef-bdd"); 
+										$chaine="SELECT * FROM user WHERE user_name='".$uname."'";
+										$sql=mysqli_query($link,$chaine);
+
+										
+										while($row = mysqli_fetch_array($sql))
+										{
+											print $row['user_name']." - ".$row['user_password'];
+										}
+										
+										}	
+										
+									}
+									else
+									{
+										echo "charlie";
+									}
 								?>
-									
-								
 								
 								<script>
 								if(localStorage.getItem('username')===null)
