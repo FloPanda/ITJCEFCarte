@@ -30,11 +30,12 @@
 
 					<?php 
 					
-					$link = mysqli_connect('localhost','root','',"jcef-bdd"); 
-					$sql=mysqli_query($link,"SELECT * FROM user");
-						while($row = mysqli_fetch_array($sql))
+					$link = mysqli_connect('localhost','root','',"jcef-bdd"); // DAL
+					$sql=mysqli_query($link,"SELECT * FROM user");	// DAL
+						while($row = mysqli_fetch_array($sql)) 
 						{
-							print $row['user_name']." - ".$row['user_password'];
+						// BUS
+							print $row['user_name']." - ".$row['user_password']; // mettre le résultat dans un objet datamodel, renvoyer le joyeux bordel au controleur
 						}
 					?>
 					
@@ -56,7 +57,7 @@
 						</script>
 					
 					
-						<form action="index.php" method="POST">
+						<form action="index.php" method="POST"> <!--controleur-->
 							USERNAME : <input type="text" name="uname">
 							PASSWORD : <input type="password" name="pass">
 							<input type="submit" value="login" name="submit">
