@@ -12,13 +12,12 @@
 	// }
 	
 	
-	require( '../Model/DataModel/user_list_trombinoscope.php');
-	
+	require( '../Model/ViewModel/user_list_trombinoscope.php');
 	include '../View/header.php';
 	include '../View/head.html';
 	include '../View/dashboard.html';
 	require ('../DAL/sql_connect.php');
-	$T1='JCEF Login';
+	//$T1='JCEF Login';
 ?>
 
 	<body>
@@ -26,13 +25,13 @@
 	<section class="section-content">
  
  
-    <div class="content" >
+    <div class="content">
 		<table height="100%" width=100%>
 				<td>
 					<h1 style="text-align:center">
 						<span style="background:gainsboro;padding:4px">
 							<?php 
-								echo"$T1 ";
+								//echo"$T1 ";
 							?>
 						</span>
 					</h1>

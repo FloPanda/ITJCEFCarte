@@ -12,9 +12,7 @@ class user_list_trombinoscope
 	$user_array=null;
 
 	include 'user_trombinoscope.php';
-	include '../Bus/bus_trombi_1.php';
-	
-	//$this->user_list=$user_array;
+	include '../DAL/user_full.php';
 	
 	foreach($user_array as $value)
 	{
