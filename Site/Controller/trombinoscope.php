@@ -19,44 +19,37 @@
 	require ('../DAL/sql_connect.php');
 	//$T1='JCEF Login';
 ?>
-
+	<script src="../JS/bootbox.js"></script>
 	<body>
-	
+
 	<section class="section-content">
  
  
     <div class="content">
-		<table height="100%" width=100%>
-				<td>
-					<h1 style="text-align:center">
-						<span style="background:gainsboro;padding:4px">
-							<?php 
-								//echo"$T1 ";
-							?>
-						</span>
-					</h1>
-
-					<br/>
-
-				
-				<center>
+		<div class="container-fluid">
+				<div class="row">
 				
 					<?php 
 					
 					$test=new user_list_trombinoscope();
+					
+					//header('Content-type: image/jpeg');
 					foreach($test->user_list as $value)
-					{
-						echo $value->user_name;
-						echo $value->user_surname;
+					{	
+						echo "<div class='col-md-1'><center>";
+						echo "<img style='display:block; width:100px;height:100px;' src=".$value->user_picture." class='img-rounded'>";
+						//file_get_contents($value->user_picture);					
+						echo $value->user_surname." ";
+						echo $value->user_name."<br>";
 						echo $value->user_jcef_function;
-						echo "</br>";
+						echo "</center></div>";
+						//bootbox.alert("Hello world!");
 						
 					}
 					?>
-					
-				</center>
-			</td>
-		</table>
+
+					</div>
+					</div>
     </div>
 
 
