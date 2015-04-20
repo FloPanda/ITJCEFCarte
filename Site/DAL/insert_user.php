@@ -54,7 +54,7 @@
 			"01/01/1991",
 			"100",
 			"'.$us->user_picture.'",
-			"test",
+			"'.$us->user_uuid.'",
 			"'.$us->user_password.'",
 			"test",
 			"'.$us->user_email_company.'",

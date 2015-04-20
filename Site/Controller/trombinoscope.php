@@ -49,7 +49,7 @@
 						    </div>
 						</div>
 						');					
-						echo "<div class='col-md-4'>";
+						echo "<div class='col-md-4' style='width:140px'>";
 						echo '<div type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
 						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
 						echo '<h5 class="modal-title">'.$value->user_surname." ";

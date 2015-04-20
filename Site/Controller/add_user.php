@@ -45,28 +45,23 @@ else
 	include('../Model/ViewModel/user_list_uuid.php');
 	
 	$uuid_list=new user_list_uuid();
-	$uniqueid=true;
 	
-	do  //uuid unique
-    {
-		$us->user_uuid=round(rand()*100000000);
-		$uniqueid=true;
+	
+	
+		$us->user_uuid=round(rand()*100000);
+		
 		
 		foreach($uuid_list->user_list_uuid as $value)
 		{
 			if($us->user_uuid==$value->user_uuid)
 			{
-				$uniqueid=false;
+				$us->user_uuid=round(rand()*100000);
 			}
 			
 		}
 		
-		if($uniqueid==true)
-		{
-			break;
-		}
-	}
-	while (true);
+		
+	
 	
 	include('../DAL/insert_user.php');
 
