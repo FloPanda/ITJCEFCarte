@@ -23,7 +23,7 @@
 						$count++;
 						$titlecontent=($value->user_surname.' '.$value->user_name);
 						echo ('
-						<td><div id="myModal"'.$count.' class="modal fade" style="display: none;>
+						<td><div id="myModal'.$count.'" class="modal fade" style="display: none;>
 						    <div class="modal-dialog">
 						        <div class="modal-content">
 						            <div class="modal-header">
@@ -50,7 +50,7 @@
 						</div>
 						');					
 						echo "<div class='col-md-4'>";
-						echo '<div type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">';
+						echo '<div type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
 						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
 						echo '<h5 class="modal-title">'.$value->user_surname." ";
 						echo $value->user_name."</h5>";
