@@ -52,7 +52,7 @@ class user_full
 	$this->user_subscription_date=null;
 	$this->user_renew_date=null;
 	$this->user_last_amount=null;
-	$this->user_picture="../../Ressources/Images/nopic.jpg";
+	$this->user_picture="../Ressources/Images/nopic.jpg";
 	$this->user_uuid=null;
 	$this->user_password="achanger";
 	$this->user_email_jcef=null;

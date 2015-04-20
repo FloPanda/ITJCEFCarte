@@ -21,7 +21,19 @@
 	$us->user_company_title=$_POST['user_company_title'];
 	$us->user_cell_phone=$_POST['user_cell_phone'];
 	$us->user_land_phone=$_POST['user_land_phone'];
+
+if(isset($_POST['user_picture']))
+{
 	$us->user_picture=$_POST['user_picture'];
+	
+}
+else
+{
+	$us->user_picture="../Ressources/Images/nopic.jpg";
+}
+
+
+	
 	$us->user_email_company=$_POST['user_email_company'];
 	$us->user_email_perso=$_POST['user_email_perso'];
 	$us->user_weixin=$_POST['user_weixin'];

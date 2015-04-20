@@ -129,7 +129,7 @@
 										Photo :
 									</td>
 									<td>
-										<input type="text" name="user_picture">
+										<input type="file" name="user_picture">
 									</td>
 								</tr>
 								<!--<tr>

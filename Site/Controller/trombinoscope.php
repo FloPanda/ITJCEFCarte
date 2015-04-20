@@ -12,14 +12,18 @@
     		<div class="content">
 				<div class="container-fluid">
 				<h1 class="modal-title" align=center>Trombinoscope</h1>
-					<div class="row">		
+					<div class="row">
+					<table>
+					<tr>		
 					<?php 
+					$count=0;
 					$test=new user_list_trombinoscope();					
 					foreach($test->user_list as $value)
 					{	
+						$count++;
 						$titlecontent=($value->user_surname.' '.$value->user_name);
 						echo ('
-						<div id="myModal" class="modal fade">
+						<td><div id="myModal"'.$count.' class="modal fade" style="display: none;>
 						    <div class="modal-dialog">
 						        <div class="modal-content">
 						            <div class="modal-header">
@@ -49,11 +53,12 @@
 						echo '<div type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">';
 						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
 						echo '<h5 class="modal-title">'.$value->user_surname." ";
-						echo $value->user_name."<br></h5>";
+						echo $value->user_name."</h5>";
 						echo '<h6 class="modal-title">'.$value->user_jcef_function."</h6>";
-						echo "</center></div></div>";												
+						echo "</center></div></div></td>";												
 					}
 					?>
+					</tr></table>
 				</div>
 			</div>
 	    </div>
