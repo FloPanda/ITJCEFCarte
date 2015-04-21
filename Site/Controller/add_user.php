@@ -44,6 +44,7 @@
 	
 		do  //uuid unique
 		{
+			$us->user_uuid=round(rand (1000000000, 9999999999)); // a remplacer par un intervalle
 			$uniqueid=true;
 		
 		
