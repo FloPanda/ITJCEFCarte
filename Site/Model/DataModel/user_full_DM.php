@@ -33,8 +33,45 @@ class user_full
 
   
 
-    public function __construct() 
+  public function __construct($uuid=null) 
   {
+  
+  if($uuid!=null)
+  {
+  include '../DAL/user_full_from_id.php';
+  
+	$this->user_name=$user_array[0]['user_name'];
+	$this->user_surname=$user_array[0]['user_surname'];
+	$this->user_is_admin=$user_array[0]['user_is_admin'];
+	$this->user_birth=$user_array[0]['user_birth'];
+	$this->user_sex=$user_array[0]['user_sex'];
+	$this->user_nation=$user_array[0]['user_nation'];
+	$this->user_user_type=$user_array[0]['user_user_type'];
+	$this->user_member_type=$user_array[0]['user_member_type'];
+	$this->user_jcef_function=$user_array[0]['user_jcef_function'];
+	$this->user_status=$user_array[0]['user_status'];
+	$this->user_company=$user_array[0]['user_company'];
+	$this->user_company_title=$user_array[0]['user_company_title'];
+	$this->user_cell_phone=$user_array[0]['user_cell_phone'];
+	$this->user_land_phone=$user_array[0]['user_land_phone'];
+	$this->user_subscription_date=$user_array[0]['user_subscription_date'];
+	$this->user_renew_date=$user_array[0]['user_renew_date'];
+	$this->user_last_amount=$user_array[0]['user_last_amount'];
+	$this->user_picture=$user_array[0]['user_picture'];
+	$this->user_uuid=$user_array[0]['user_uuid'];
+	$this->user_password=$user_array[0]['user_password'];
+	$this->user_email_jcef=$user_array[0]['user_email_jcef'];
+	$this->user_email_company=$user_array[0]['user_email_company'];
+	$this->user_email_perso=$user_array[0]['user_email_perso'];
+	$this->user_weixin=$user_array[0]['user_weixin'];
+	$this->user_skype=$user_array[0]['user_skype'];
+	$this->user_qr_code_url=$user_array[0]['user_qr_code_url'];
+	$this->user_address=$user_array[0]['user_address'];
+	$this->user_comment=$user_array[0]['user_comment'];
+	}
+	else
+	{
+  
 	$this->user_name=null;
 	$this->user_surname=null;
 	$this->user_is_admin=null;
@@ -63,7 +100,7 @@ class user_full
 	$this->user_qr_code_url=null;
 	$this->user_address=null;
 	$this->user_comment=null;
-
+	}
   }
   
   

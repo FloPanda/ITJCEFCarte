@@ -58,25 +58,4 @@
 	include('../DAL/insert_user.php');
 
 
-	
-
-// //EMAIL plus tard
-// // the message
-// $msg = "Bienvenue à la JCEF!\nMerci de redéfinir votre mot de passe en cliquant sur le lien suivant : ".$randid;
-// // use wordwrap() if lines are longer than 70 characters
-// $msg = wordwrap($msg,70);
-// // send email
-// mail("nom_du_mail_à_tester@free.fr","Votre nouveau compte",$msg);
-
-
-
-	// if (isset($_POST['submit']))
-	// {
-
-		// $mdpwd=md5($us->upassword);
-		// $user_qr_code_url="www.jcef/user/".$randid;
-		
-
-
-	// }
 ?>
