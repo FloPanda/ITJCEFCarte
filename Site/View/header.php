@@ -16,8 +16,7 @@
 				
 				<!-- Your brand here, images or text -->
 				<a class="brand" href="index.html">
-					<!-- just a sample brand, replace with your own -->
-					 JCEF 
+					<img src="..\Ressources\Images\JCEF_logo_blanc vecto.png"  height="70%" width="70%">
 				</a>
 				
 				<!-- Un-collapse nav -->
