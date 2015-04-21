@@ -102,10 +102,9 @@ CREATE TABLE IF NOT EXISTS `participant` (
 -- Structure de la table `commission`
 --
 
-DROP TABLE IF EXISTS `commission`;
+DROP TABLE IF EXISTS `commission` CASCADE CONSTRAINTS;
 CREATE TABLE IF NOT EXISTS `commission` (
   `com_pk` int(11) NOT NULL AUTO_INCREMENT,
-  `com_uuid` varchar(36) NOT NULL DEFAULT 'GUUID()',
   `com_name` varchar(50) NOT NULL,
   `com_description` text NOT NULL,
   `com_picture` varchar(100) NOT NULL,
@@ -135,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `commission_member` (
 
 DROP TABLE IF EXISTS `event`;
 CREATE TABLE IF NOT EXISTS `event` (
-  `ev_uuid` varchar(36) NOT NULL DEFAULT 'UUID()',
+  `ev_pk` varchar(36) NOT NULL NOT NULL AUTO_INCREMENT,
   `ev_name` varchar(50) NOT NULL,
   `ev_address` varchar(100) NOT NULL,
   `ev_date` date NOT NULL,

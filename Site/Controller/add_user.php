@@ -22,15 +22,7 @@
 	$us->user_cell_phone=$_POST['user_cell_phone'];
 	$us->user_land_phone=$_POST['user_land_phone'];
 
-if(isset($_POST['user_picture']))
-{
-	$us->user_picture=$_POST['user_picture'];
-	
-}
-else
-{
-	$us->user_picture="../Ressources/Images/nopic.jpg";
-}
+
 
 
 	

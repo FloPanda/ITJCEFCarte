@@ -15,7 +15,7 @@
 				</a>
 				
 				<!-- Your brand here, images or text -->
-				<a class="brand" href="index.html">
+				<a class="brand" href="index.php">
 					<img src="..\Ressources\Images\JCEF_logo_blanc vecto.png"  height="70%" width="70%">
 				</a>
 				
