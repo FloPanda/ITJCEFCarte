@@ -5,8 +5,6 @@
 	include 'header.php';
 	include 'head.html';
 	include 'dashboard.html';
-	
-	$T1='JCEF Add User';
 ?>
 
 	<body>
@@ -19,9 +17,6 @@
 				<td>
 					<h1 style="text-align:center">
 						<span style="background:gainsboro;padding:4px">
-							<?php 
-								echo"$T1 ";
-							?>
 						</span>
 					</h1>
 
@@ -70,7 +65,7 @@
 										Sexe :
 									</td>
 									<td> 
-										<input type="radio" name="user_sex" value="male"> homme<br>
+										<input type="radio" name="user_sex" checked="checked" value="male"> homme<br>
 										<input type="radio" name="user_sex" value "female"> femme
 									</td>
 								</tr>
@@ -87,7 +82,7 @@
 										Type d'adhésion : 
 									</td>
 									<td>
-										<input type="radio" name="user_member_type" value="2"> Membre<br>
+										<input type="radio" name="user_member_type" checked="checked" value="2"> Membre<br>
 										<input type="radio" name="user_member_type" value "1"> Pengyou
 									</td>
 								</tr>

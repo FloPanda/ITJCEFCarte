@@ -40,17 +40,28 @@
 	
 	
 	
-		$us->user_uuid=round(rand()*100000);
-		
-		
-		foreach($uuid_list->user_list_uuid as $value)
+		$uniqueid=true;
+	
+		do  //uuid unique
 		{
-			if($us->user_uuid==$value->user_uuid)
+			$uniqueid=true;
+		
+		
+			foreach($uuid_list->user_list_uuid as $value)
 			{
-				$us->user_uuid=round(rand()*100000);
+				if($us->user_uuid==$value->user_uuid)
+				{
+					$uniqueid=false;
+				}
+				
 			}
-			
+		
+			if($uniqueid==true)
+			{
+				break;
+			}
 		}
+		while (true);
 		
 		
 	
