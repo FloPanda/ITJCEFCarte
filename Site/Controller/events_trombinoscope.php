@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php	
-		require( '../Model/ViewModel/user_list_trombinoscope.php');
+		require( '../Model/ViewModel/ev_list_trombinoscope.php');
 		include '../View/header.php';
 		include '../View/head.html';
 		include '../View/dashboard.html';
@@ -18,30 +18,30 @@
                         <div class="content-inner">
 
 				<div class="container-fluid">
-				<h1 class="modal-title" align=center>Trombinoscope</h1>
+				<h1 class="modal-title" align=center>Events trombinoscope</h1>
 					<div class="row-fluid">
 					<div class="span8">
 							
 					<?php 
 					$count=0;
-					$test=new user_list_trombinoscope();
+					$test=new ev_list_trombinoscope();
 					echo "<table>";					
-					foreach($test->user_list as $value)
+					foreach($test->ev_list as $value)
 					{	
 						if($count%6==0)
 						{
 							echo "<tr>";
 						}
 						$count++;
-						$titlecontent=($value->user_surname.' '.$value->user_name);
-						echo ('
+						
+						/*echo ('
 						<div id="myModal'.$count.'" class="modal fade" style="display: none;>
 						    <div class="modal-dialog">
 						        <div class="modal-content">
 						            <div class="modal-header">
 						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						                <img style="display:block; width:100px;height:100px;" src='.$value->user_picture.' class="img-rounded">
-						                <h4 class="modal-title">'.$titlecontent.'</h4>
+						                <h4 class="modal-title">'.$value->ev_name.'</h4>
 						            </div>
 						            <div class="modal-body">
 						                <p>Fonction : '.$value->user_jcef_function.'</p>
@@ -61,16 +61,16 @@
 						        </div>
 						    </div>
 						</div>
-						');					
+						');	*/				
 						echo "<td><!--<div class='col-md-1'>-->";
-						
-						echo '<div style="height:150px;width:150px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
-						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
-						echo '<h5 class="modal-title">'.$value->user_surname." ";
-						echo $value->user_name."</h5>";
-						echo '<h6 class="modal-title">'.$value->user_jcef_function."</h6>";
-						echo "</center></div>";
-						echo "<!--</div>--></td>";
+						echo "<form action='../View/event_profil.php' method='POST'>";
+						echo '<div style="height:150px;width:150px;" type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
+						//echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
+						echo '<h5 class="modal-title">'.$value->ev_name." ";
+						echo "</h5>";
+						//echo '<h6 class="modal-title">'.$value->user_jcef_function."</h6>";
+						echo "</div>";
+						echo "</form></td>";
 						if($count%6==0)
 						{
 							echo "</tr>";
