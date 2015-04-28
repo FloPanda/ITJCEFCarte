@@ -24,9 +24,14 @@
 							
 					<?php 
 					$count=0;
-					$test=new user_list_trombinoscope();					
+					$test=new user_list_trombinoscope();
+					echo "<table>";					
 					foreach($test->user_list as $value)
 					{	
+						if($count%6==0)
+						{
+							echo "<tr>";
+						}
 						$count++;
 						$titlecontent=($value->user_surname.' '.$value->user_name);
 						echo ('
@@ -44,7 +49,7 @@
 						                <p>Entreprise : '.$value->user_company.'</p>
 						                <p>Inscription : '.$value->user_subscription_date.'</p>
 						                <p>Email JCEF : '.$value->user_email_jcef.'</p>
-						                <p>QRcode : '.$value->user_qr_code_url.'</p>						       
+						                						       
 						            </div>
 						            <div class="modal-footer">
 						                <form action="./user_profile.php">
@@ -57,7 +62,7 @@
 						    </div>
 						</div>
 						');					
-						echo "<div class='col-md-1'>";
+						echo "<td><!--<div class='col-md-1'>-->";
 						
 						echo '<div style="height:150px;width:150px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
 						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
@@ -65,8 +70,13 @@
 						echo $value->user_name."</h5>";
 						echo '<h6 class="modal-title">'.$value->user_jcef_function."</h6>";
 						echo "</center></div>";
-						echo "</div>";												
+						echo "<!--</div>--></td>";
+						if($count%6==0)
+						{
+							echo "</tr>";
+						}												
 					}
+					echo "</table>";
 					?>
 					</div>
 				</div>
