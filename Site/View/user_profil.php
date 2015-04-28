@@ -15,8 +15,7 @@
     <div class="content" >
 		<table height="100%" width=100%>
 					<td>
-					<h1 style="text-align:center">
-					</h1>
+					<h1 style="text-align:center">kjbjbkj</h1>
 
 					<br/>
 

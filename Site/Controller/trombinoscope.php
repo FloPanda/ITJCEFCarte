@@ -52,9 +52,9 @@
 						                						       
 						            </div>
 						            <div class="modal-footer">
-						                <form action="./user_profile.php">
-						                	<input type="hidden" name="user_uuid" value='.$value->user_uuid.'"> 
-										    <input class="btn btn-primary" type="submit" value="Voir Profil">
+						                <form action="./user_profil.php" method="POST">
+						                	<input type="hidden" name="user_uuid" value="'.$value->user_uuid.'"> 
+										    <input class="btn btn-primary" type="submit" name="submit" value="Voir Profil">
 										    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
 										</form>
 									</div>

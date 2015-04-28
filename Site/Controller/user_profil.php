@@ -4,7 +4,7 @@
 
 include '..\Model\DataModel\user_full_DM.php';
 
-$user_concerned=new user_full(892300000);
+$user_concerned=new user_full($_POST['user_uuid']);
 
 echo $user_concerned->user_name;
 echo $user_concerned->user_surname;

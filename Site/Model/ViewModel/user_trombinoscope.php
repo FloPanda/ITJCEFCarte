@@ -23,6 +23,7 @@ class user_trombinoscope
 	$this->user_company=$value['user_company'];
 	$this->user_email_jcef=$value['user_email_jcef'];
 	$this->user_subscription_date=$value['user_subscription_date'];
+	$this->user_uuid=$value['user_uuid'];
 
   }
   
