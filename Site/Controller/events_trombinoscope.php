@@ -34,42 +34,17 @@
 						}
 						$count++;
 						
-						/*echo ('
-						<div id="myModal'.$count.'" class="modal fade" style="display: none;>
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-header">
-						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						                <img style="display:block; width:100px;height:100px;" src='.$value->user_picture.' class="img-rounded">
-						                <h4 class="modal-title">'.$value->ev_name.'</h4>
-						            </div>
-						            <div class="modal-body">
-						                <p>Fonction : '.$value->user_jcef_function.'</p>
-						                <p>Pays : '.$value->user_nation.'</p>
-						                <p>Entreprise : '.$value->user_company.'</p>
-						                <p>Inscription : '.$value->user_subscription_date.'</p>
-						                <p>Email JCEF : '.$value->user_email_jcef.'</p>
-						                						       
-						            </div>
-						            <div class="modal-footer">
-						                <form action="../View/user_profil.php" method="POST">
-						                	<input type="hidden" name="user_uuid" value="'.$value->user_uuid.'"> 
-										    <input class="btn btn-primary" type="submit" name="submit" value="Voir Profil">
-										    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-										</form>
-									</div>
-						        </div>
-						    </div>
-						</div>
-						');	*/				
+								
 						echo "<td><!--<div class='col-md-1'>-->";
 						echo "<form action='../View/event_profil.php' method='POST'>";
-						echo '<div style="height:150px;width:150px;" type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
-						//echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
+						echo '<p class="bg-info">';
+						echo '<input type="hidden" name="ev_pk" value="'.$value->ev_pk.'">';
+						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->ev_picture." class='img-circle'>";											
 						echo '<h5 class="modal-title">'.$value->ev_name." ";
 						echo "</h5>";
+						echo '<input class="btn btn-primary" type="submit" name="submit" value="Voir">';
 						//echo '<h6 class="modal-title">'.$value->user_jcef_function."</h6>";
-						echo "</div>";
+						echo "</p>";
 						echo "</form></td>";
 						if($count%6==0)
 						{
