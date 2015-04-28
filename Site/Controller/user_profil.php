@@ -1,12 +1,13 @@
 <?php	
 
-//"892300000"
 
 include '..\Model\DataModel\user_full_DM.php';
 
+
 $user_concerned=new user_full($_POST['user_uuid']);
 
-echo $user_concerned->user_name;
+
+/*echo $user_concerned->user_name;
 echo $user_concerned->user_surname;
 echo $user_concerned->user_is_admin;
 echo $user_concerned->user_birth;
@@ -33,8 +34,9 @@ echo $user_concerned->user_weixin;
 echo $user_concerned->user_skype;
 echo $user_concerned->user_qr_code_url;
 echo $user_concerned->user_address;
-echo $user_concerned->user_comment;
+echo $user_concerned->user_comment;*/
 
-
+//$_SESSION['user_concerned'] = $user_concerned;
+//header('Location: ..\View\user_profil.php' ) ;
 
 ?>
