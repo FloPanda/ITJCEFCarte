@@ -72,18 +72,18 @@ class user_full
 	else
 	{
   
-	$this->user_name=null;
-	$this->user_surname=null;
+	$this->user_name="non specifie";
+	$this->user_surname="non specifie";
 	$this->user_is_admin=null;
 	$this->user_birth=null;
 	$this->user_sex=null;
-	$this->user_nation=null;
+	$this->user_nation="non specifie";
 	$this->user_user_type=null;
 	$this->user_member_type=null;
-	$this->user_jcef_function=null;
-	$this->user_status=null;
-	$this->user_company=null;
-	$this->user_company_title=null;
+	$this->user_jcef_function="non specifie";
+	$this->user_status="non specifie";
+	$this->user_company="non specifie";
+	$this->user_company_title="non specifie";
 	$this->user_cell_phone=null;
 	$this->user_land_phone=null;
 	$this->user_subscription_date=null;
@@ -92,13 +92,13 @@ class user_full
 	$this->user_picture="../Ressources/Images/nopic.jpg";
 	$this->user_uuid=null;
 	$this->user_password="achanger";
-	$this->user_email_jcef=null;
-	$this->user_email_company=null;
-	$this->user_email_perso=null;
-	$this->user_weixin=null;
-	$this->user_skype=null;
+	$this->user_email_jcef="non specifie";
+	$this->user_email_company="non specifie";
+	$this->user_email_perso="non specifie";
+	$this->user_weixin="non specifie";
+	$this->user_skype="non specifie";
 	$this->user_qr_code_url=null;
-	$this->user_address=null;
+	$this->user_address="non specifie";
 	$this->user_comment=null;
 	}
   }
