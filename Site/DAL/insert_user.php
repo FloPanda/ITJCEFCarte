@@ -38,32 +38,51 @@
 			(
 			"'.$us->user_name.'",
 			"'.$us->user_surname.'",
-			"0",
-			"null",
+			"'.$us->user_is_admin.'",
+			"'.$us->user_birth.'",
 			"'.$us->user_sex.'",
 			"'.$us->user_nation.'",
-			"0",
+			"'.$us->user_user_type.'",
 			"'.$us->user_member_type.'",
-			"test",
-			"test",
+			"'.$us->user_jcef_function.'",
+			"'.$us->user_status.'",
 			"'.$us->user_company.'",
 			"'.$us->user_company_title.'",
 			"'.$us->user_cell_phone.'",
 			"'.$us->user_land_phone.'",
-			"01/01/1991",
-			"01/01/1991",
-			"100",
+			"'.$us->user_subscription_date.'",
+			"'.$us->user_renew_date.'",
+			"'.$us->user_last_amount.'",
 			"'.$us->user_picture.'",
 			"'.$us->user_uuid.'",
 			"'.$us->user_password.'",
-			"test",
+			"'.$us->user_email_jcef.'",
 			"'.$us->user_email_company.'",
 			"'.$us->user_email_perso.'",
 			"'.$us->user_weixin.'",
 			"'.$us->user_skype.'",
-			"test",
+			"'.$us->user_qr_code_url.'",
 			"'.$us->user_address.'",
 			"'.$us->user_comment.'"
+			)');
+			
+	$query = mysqli_query($link,
+	'INSERT INTO `periode` 
+			(
+			`periode_user`,
+			`periode_debut`,
+			`periode_fin`
+			
+			)
+			VALUES
+			(
+			(SELECT user_pk
+			   FROM user
+			   WHERE user_uuid = '.$us->user_uuid.'
+			  ),
+			NOW(),
+			null
+			
 			)');
 
 
