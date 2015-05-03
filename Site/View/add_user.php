@@ -124,7 +124,7 @@
 										Photo :
 									</td>
 									<td>
-										<input type="file" name="user_picture">
+										<input type="file" class="file" name="user_picture" accept="image/*">
 									</td>
 								</tr>
 								<!--<tr>
@@ -167,14 +167,7 @@
 										<input type="text" name="user_skype">
 									</td>
 								</tr>
-								<tr>
-									<td>
-										QR code :
-									</td>
-									<td>
-										<input type="text" name="user_qr_code_url">
-									</td>
-								</tr>
+								
 								<tr>
 									<td>
 										Adresse : 
@@ -188,7 +181,7 @@
 										Commentaire : 
 									</td>
 									<td>
-										<input type="text" name="user_comment">
+										<textarea name="user_comment"> </textarea>
 									</td>	
 								</tr>
 								<tr>

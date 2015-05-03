@@ -46,7 +46,7 @@ class event_full
 		$this->ev_address="non specifie";
 		$this->ev_date="1900-01-01";
 		$this->ev_description="non specifie";
-		$this->ev_picture="..\..\Ressources\Images\nopic_event.jpg";
+		$this->ev_picture="../Ressources/Images/nopic.jpg";
 		$this->ev_max_participants=0;
 		$this->ev_participants=0;
 		$this->ev_price=0;

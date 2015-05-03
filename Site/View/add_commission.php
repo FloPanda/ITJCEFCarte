@@ -51,7 +51,7 @@
 										Description : 		
 									</td>
 									<td>
-										<input type="text" name="com_description" >
+										<textarea name="com_description"></textarea>  
 									<td>
 								</tr>
 								
