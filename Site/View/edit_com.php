@@ -48,6 +48,7 @@ echo('
 						            </div>
 						            <div class="modal-body">
 						            <form method="POST" action="../Controller/test.php">
+						            	<input type="hidden" name="com_pk" value="'.$com_concerned->com_pk.'">
 						            	<p>Photo : <input type="file" name="com_picture" value="'.$com_concerned->com_picture.'"</p> 
 						                <p>Description : <textarea name="com_description" >'.$com_concerned->com_description.'</textarea></p>
 						                

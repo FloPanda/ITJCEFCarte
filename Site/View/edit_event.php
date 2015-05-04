@@ -49,7 +49,7 @@ echo('
 						            <div class="modal-body">
 						            <form method="POST" action="../Controller/test.php"> 
 						                
-
+						            	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'">
 						            	<p>Photo : <input type="file" name="ev_picture" value="'.$event_concerned->ev_picture.'"</p>
 						                <p>Lieu : <input type="text" name="ev_address" value="'.$event_concerned->ev_address.'"</p>
 						            	<p>Date : <input type="text" name="ev_date" value="'.$event_concerned->ev_date.'"</p>

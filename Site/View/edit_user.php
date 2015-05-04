@@ -50,6 +50,7 @@ echo('
 						                <h4 class="modal-title">'.$titlecontent.'</h4> <input class="btn btn-primary" type="submit" name="submit" value="Sauvegarder">
 						            </div>
 						            <div class="modal-body">
+						            	<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'">
 						             	<p>Photo : <input type="file" name="user_picture" value="'.$user_concerned->user_picture.'"</p>
 						                <p>Fonction : <input type="text" name="user_jcef_function" value="'.$user_concerned->user_jcef_function.'"</p>
 						                <p>Pays : <input type="text" name="user_nation" value="'.$user_concerned->user_nation.'"</p>
