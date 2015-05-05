@@ -23,7 +23,7 @@ class commission_full
 	{
 		$this->com_name="non specifie";
 		$this->com_description="non specifie";
-		$this->com_picture="..\..\Ressources\Images\nopic_event.jpg";
+		$this->com_picture="../Ressources/Images/nopic.jpg";
 	}
   
 

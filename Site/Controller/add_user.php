@@ -22,7 +22,7 @@
 	$us->user_cell_phone=$_POST['user_cell_phone'];
 	$us->user_land_phone=$_POST['user_land_phone'];
 
-
+	$us->user_picture=$_POST['user_picture'];
 
 
 	

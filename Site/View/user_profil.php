@@ -45,9 +45,19 @@ echo('
 						            <div class="modal-header">
 						                
 						                <img style="display:block; width:150px;height:150px;" src='.$user_concerned->user_picture.' class="img-rounded">
-						                <h4 class="modal-title">'.$titlecontent.'</h4>
+						                <h4 class="modal-title">'.$titlecontent.'</h4> 
+
+						                <form action="./edit_user.php" method="POST">
+						                	<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
+										    <input class="btn btn-primary" type="submit" name="submit" value="Editer">
+										</form>
+
+
+
+
+						               
 						            </div>
-						            <div class="modal-body">
+						            <div class="modal-body"> 
 						                <p>Fonction : '.$user_concerned->user_jcef_function.'</p>
 						                <p>Pays : '.$user_concerned->user_nation.'</p>
 						                <p>Entreprise : '.$user_concerned->user_company.'</p>
@@ -56,7 +66,7 @@ echo('
 						                <p>Naissance : '.$user_concerned->user_birth.'</p>
 						                <p>Sexe : '.$user_concerned->user_sex.'</p>
 						                <p>QR Code : '.$user_concerned->user_qr_code_url.'
-						                <a rel="nofollow" href="http://www.qrcode-generator.de" border="0" style="cursor:default"><img src="https://chart.googleapis.com/chart?cht=qr&chl='.$user_concerned->user_qr_code_url.'&chs=100x100&choe=UTF-8&chld=L|2" alt=""></a>
+						                <img src="https://chart.googleapis.com/chart?cht=qr&chl='.$user_concerned->user_qr_code_url.'&chs=100x100&choe=UTF-8&chld=L|2" alt="">
 						                </p>
 						                <p>Skype : '.$user_concerned->user_skype.'</p>
 						                <p>WeChat : '.$user_concerned->user_weixin.'</p>

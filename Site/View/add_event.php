@@ -67,7 +67,7 @@
 										Description : 
 									</td>
 									<td>
-										<input type="text" name="ev_description" >
+										<textarea name="ev_description" ></textarea>
 									</td>
 								</tr>
 								<tr>										
