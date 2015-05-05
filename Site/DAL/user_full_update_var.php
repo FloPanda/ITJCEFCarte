@@ -36,7 +36,8 @@
 	user_qr_code_url = "'.$_POST['user_qr_code_url'].'",
 	user_address = "'.$_POST['user_address'].'",
 	user_comment = "'.$_POST['user_address'].'"
-	WHERE user_uuid = "'.$_POST['user_uuid'].'" '
+	WHERE user_uuid = "'.$_POST['user_uuid'].'" 
+	'
 	);	
 
 

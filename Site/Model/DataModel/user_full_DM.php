@@ -77,7 +77,7 @@ class user_full
 	$this->user_is_admin=null;
 	$this->user_birth=null;
 	$this->user_sex=null;
-	$this->user_nation="non specifie";
+	$this->user_nation="inconnu";
 	$this->user_user_type=null;
 	$this->user_member_type=null;
 	$this->user_jcef_function="non specifie";
@@ -97,9 +97,9 @@ class user_full
 	$this->user_email_perso="non specifie";
 	$this->user_weixin="non specifie";
 	$this->user_skype="non specifie";
-	$this->user_qr_code_url=null;
+	$this->user_qr_code_url="non specifie";
 	$this->user_address="non specifie";
-	$this->user_comment=null;
+	$this->user_comment="non specifie";
 	}
   }
   
