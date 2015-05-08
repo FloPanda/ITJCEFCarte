@@ -59,6 +59,9 @@
 			}
 		}
 		while (true);
+
+		$us->user_qr_code_url='https://appli.jcef-shanghai/user_profil.php?user='.$us->user_uuid.';
+		//echo($us->user_uuid);
 		
 		
 	

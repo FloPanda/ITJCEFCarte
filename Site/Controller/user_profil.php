@@ -3,8 +3,14 @@
 
 include '..\Model\DataModel\user_full_DM.php';
 
-
-$user_concerned=new user_full($_POST['user_uuid']);
+if(isset($_POST['user_uuid']))
+{
+	$user_concerned=new user_full($_POST['user_uuid']);
+}
+else
+{
+	$user_concerned=new user_full($_GET['user_uuid']);
+}
 
 echo('
 					</h1>
@@ -52,7 +58,7 @@ echo('
 						                <p>Email JCEF : '.$user_concerned->user_email_jcef.'</p>
 						                <p>Naissance : '.$user_concerned->user_birth.'</p>
 						                <p>Sexe : '.$user_concerned->user_sex.'</p>
-						                <p>QR Code : '.$user_concerned->user_qr_code_url.'
+						                <p>QR Code : 
 						                <img src="https://chart.googleapis.com/chart?cht=qr&chl='.$user_concerned->user_qr_code_url.'&chs=100x100&choe=UTF-8&chld=L|2" alt="">
 						                </p>
 						                <p>Skype : '.$user_concerned->user_skype.'</p>

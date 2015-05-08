@@ -57,6 +57,11 @@
 										    <input class="btn btn-primary" type="submit" name="submit" value="Voir Profil">
 										    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
 										</form>
+										<!--<form action="../View/user_profil.php" method="GET">
+											<input type="hidden" name="user_uuid" value="'.$value->user_uuid.'">
+										    <input class="btn btn-primary" type="submit" name="submitt" value="Voir GET">
+										    
+										</form>--!>
 									</div>
 						        </div>
 						    </div>
