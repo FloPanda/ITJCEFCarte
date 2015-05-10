@@ -60,7 +60,7 @@ echo('
 						            	<p>Prix : '.$event_concerned->ev_price.'</p>
 						            	<p>Nombre d\'inscrits : '.$event_concerned->ev_nb_subscribed.'</p>
 						            	<p>Responsable : '.$event_concerned->ev_charged_member.'</p>
-						            	<p>Lien avec la comission : '.$event_concerned->ev_com_linked.'</p>
+						            	<p>Lien avec la commission : '.$event_concerned->ev_com_linked.'</p>
 						                						       
 						            </div>
 						            <div class="modal-footer">

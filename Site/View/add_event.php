@@ -91,7 +91,7 @@
 										Photo :
 									</td>
 									<td>
-										<input type="file" name="ev_picture">
+										<input type="text" name="ev_picture">
 									</td>
 								</tr>
 								<tr>
