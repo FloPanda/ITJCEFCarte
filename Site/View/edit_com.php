@@ -16,12 +16,12 @@
     <div class="content" >
 		<table height="100%" width="100%">
 					<td>
-					<h1 style="text-align:center">
+					<h1 style="text-align:center"></h1>
 
 					<?php 
 							include '..\Controller\edit_commission.php';
 					?>
-					</h1>
+					
 
 					<br/>
 

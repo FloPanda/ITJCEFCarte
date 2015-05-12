@@ -43,7 +43,7 @@ echo('
 						    <div class="modal-dialog">
 						        <div class="modal-content">
 						            <div class="modal-header">
-						                <img style="display:block; width:150px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
+						                <img style="display:block; width:250px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$event_concerned->ev_name.'</h4>
 						                <form action="./edit_event.php" method="POST">
 						                	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 

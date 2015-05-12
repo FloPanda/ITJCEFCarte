@@ -6,7 +6,7 @@
 	include 'head.html';
 	include 'dashboard.html';
 	require ('../DAL/sql_connect.php');
-	$T1='JCEF Login';
+	
 ?>
 
 	<body>
@@ -18,26 +18,14 @@
 		<table height="100%" width=100%>
 				<td>
 					<h1 style="text-align:center">
-						<span style="background:gainsboro;padding:4px">
-							<?php 
-								echo"$T1 ";
-							?>
+						Connexion
 						</span>
 					</h1>
 
 					<br/>
 
 
-					<?php 
 					
-					$link = mysqli_connect('localhost','root','',"jcef-bdd"); // DAL
-					$sql=mysqli_query($link,"SELECT * FROM user");	// DAL
-						while($row = mysqli_fetch_array($sql)) 
-						{
-						// BUS
-							print $row['user_name']." - ".$row['user_password']; // mettre le résultat dans un objet datamodel, renvoyer le joyeux bordel au controleur
-						}
-					?>
 					
 
 					<center>
@@ -57,10 +45,14 @@
 						</script>
 					
 					
-						<form action="index.php" method="POST"> <!--controleur-->
-							USERNAME : <input type="text" name="uname">
-							PASSWORD : <input type="password" name="pass">
-							<input type="submit" value="login" name="submit">
+						<form action="../Controller/index.php" method="POST"> <!--controleur-->
+							<table>
+						<tr>
+						 <!--controleur-->
+							<td>Identifiant : </td><td><input type="text" name="user_uuid"></td></tr><tr>
+							<td>Mot de Passe : </td><td><input type="password" name="user_password"></td></tr>
+						</table>
+						<input type="submit" value="login" name="submit">
 						</form>	
 						
 				</center>

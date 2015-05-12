@@ -6,7 +6,6 @@
 	include 'head.html';
 	include 'dashboard.html';
 	
-	$T1='JCEF Add User';
 ?>
 
 	<body>
@@ -18,8 +17,7 @@
 		<table height="100%" width=100%>
 				<td>
 					<h1 style="text-align:center">
-						<span style="background:gainsboro;padding:4px">
-						</span>
+						Nouvel Evenement
 					</h1>
 
 					<br/>
@@ -91,7 +89,7 @@
 										Photo :
 									</td>
 									<td>
-										<input type="text" name="ev_picture">
+										<input type="file" name="ev_picture">
 									</td>
 								</tr>
 								<tr>

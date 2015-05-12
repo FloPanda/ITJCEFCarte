@@ -24,6 +24,10 @@
 		$ev->ev_picture=$_POST['ev_picture'];
 	
 	}
+	else
+	{
+		$ev->ev_picture='../Ressources/Images/nopic_default.jpg';
+	}
 	if(isset($_POST['ev_max_participants'])&& $_POST['ev_max_participants']!=null   )
 	{$ev->ev_max_participants=$_POST['ev_max_participants'];}
 	if(isset($_POST['ev_price'])&& $_POST['ev_price']!=null   )

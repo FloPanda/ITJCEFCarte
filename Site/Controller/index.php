@@ -17,7 +17,7 @@
 	include '../View/head.html';
 	include '../View/dashboard.html';
 	require ('../DAL/sql_connect.php');
-	$T1='JCEF Login';
+	
 ?>
 
 	<body>
@@ -28,29 +28,14 @@
     <div class="content" >
 		<table height="100%" width=100%>
 				<td>
-					<h1 style="text-align:center">
-						<span style="background:gainsboro;padding:4px">
-							<?php 
-								echo"$T1 ";
-							?>
-						</span>
-					</h1>
+					
+							<h1 class="modal-title" align=center>Connexion</h1>
+						
 
 					<br/>
 
 
-					<?php 
-					// $test=new user_list_trombinoscope();
-					// $link = mysqli_connect('localhost','root','',"jcef-bdd"); // DAL
-					// $sql=mysqli_query($link,"SELECT * FROM user");	// DAL
-						// while($row = mysqli_fetch_array($sql)) 
-						// {
-						// // BUS
-							// print $row['user_name']." - ".$row['user_password']; // mettre le résultat dans un objet datamodel, renvoyer le joyeux bordel au controleur
-						// }
-						
 					
-					?>
 					
 
 					<center>
@@ -64,16 +49,20 @@
 						}
 						else 
 						{
-							var toto = localStorage.username;
-							document.write("Bonjour,".toto);
+							var username = localStorage.username;
+							document.write("Bonjour,".username);
 						}
 						</script>
 					
 					
-						<form action="index.php" method="POST"> <!--controleur-->
-							USERNAME : <input type="text" name="uname">
-							PASSWORD : <input type="password" name="pass">
-							<input type="submit" value="login" name="submit">
+						<form action="index.php" method="POST">
+						<table>
+						<tr>
+						 <!--controleur-->
+							<td>Nom d'Utilisateur : </td><td><input type="text" name="uname"></td></tr><tr>
+							<td>Mot de Passe : </td><td><input type="password" name="pass"></td></tr>
+						</table>
+						<input type="submit" value="login" name="submit">
 						</form>	
 						
 				</center>

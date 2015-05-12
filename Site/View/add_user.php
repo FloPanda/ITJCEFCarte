@@ -16,8 +16,7 @@
 		<table height="100%" width=100%>
 				<td>
 					<h1 style="text-align:center">
-						<span style="background:gainsboro;padding:4px">
-						</span>
+						Nouvel utilisateur
 					</h1>
 
 					<br/>

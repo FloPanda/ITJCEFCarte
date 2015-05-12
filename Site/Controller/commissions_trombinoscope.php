@@ -18,7 +18,7 @@
                         <div class="content-inner">
 
 				<div class="container-fluid">
-				<h1 class="modal-title" align=center>Commissions trombinoscope</h1>
+				<h1 class="modal-title" align=center>Commissions</h1>
 					<div class="row-fluid">
 					<div class="span8">
 							
@@ -39,7 +39,7 @@
 						echo "<form action='../View/com_profil.php' method='POST'>";
 						echo '<p class="bg-info">';
 						echo '<input type="hidden" name="com_pk" value="'.$value->com_pk.'">';
-						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->com_picture." class='img-circle'>";											
+						echo "<center><img style='display:block; width:150px;height:100px;' src=".$value->com_picture." class='img-circle'>";											
 						echo '<h5 class="modal-title">'.$value->com_name." ";
 						echo "</h5>";
 						echo '<input class="btn btn-primary" type="submit" name="submit" value="Voir">';

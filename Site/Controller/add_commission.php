@@ -16,7 +16,13 @@
 	if(isset($_POST['com_description']))
 	{$co->com_description=$_POST['com_description'];}
 	if(isset($_POST['com_picture']))
-	{$co->com_picture=$_POST['com_picture'];}
+	{
+		$co->com_picture=$_POST['com_picture'];
+	}
+	else
+	{
+		$co->com_picture='../Ressources/Images/nopic_default.jpg';
+	}
 	
 	
 	

@@ -1,5 +1,5 @@
 <?php
-
+ob_start( );
 	include '../View/header.php';
 	include '../View/head.html';
 	include '../View/dashboard.html';
@@ -60,7 +60,7 @@
 		}
 		while (true);
 
-		$us->user_qr_code_url='https://appli.jcef-shanghai/user_profil.php?user='.$us->user_uuid.';
+		$us->user_qr_code_url='https://appli.jcef-shanghai/user_profil.php?user='.$us->user_uuid;
 		//echo($us->user_uuid);
 		
 		
@@ -68,5 +68,13 @@
 	
 	include('../DAL/insert_user.php');
 
+	if(isset($us->user_qr_code_url))
+	{
+		ob_end_clean( );
+		header('Location: .\user_profil.php?user='.$us->user_uuid);
+		exit;
+	}
+	//header( 'Location: https://appli.jcef-shanghai/user_profil.php?user='.$us->user_uuid);
 
+ob_end_flush( );
 ?>

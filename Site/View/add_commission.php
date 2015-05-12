@@ -18,8 +18,7 @@
 		<table height="100%" width=100%>
 				<td>
 					<h1 style="text-align:center">
-						<span style="background:gainsboro;padding:4px">
-						</span>
+						Nouvelle Commission
 					</h1>
 
 					<br/>

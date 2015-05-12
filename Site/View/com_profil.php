@@ -43,7 +43,7 @@ echo('
 						    <div class="modal-dialog">
 						        <div class="modal-content">
 						            <div class="modal-header">
-						                <img style="display:block; width:150px;height:150px;" src='.$com_concerned->com_picture.' class="img-rounded">
+						                <img style="display:block; width:250px;height:150px;" src='.$com_concerned->com_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$com_concerned->com_name.'</h4>
 						                <form action="./edit_com.php" method="POST">
 						                	<input type="hidden" name="com_pk" value="'.$com_concerned->com_pk.'"> 

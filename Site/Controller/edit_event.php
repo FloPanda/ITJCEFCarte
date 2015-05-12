@@ -19,14 +19,14 @@ echo('
 						        <div class="modal-content">
 						            <div class="modal-header">
 						               <form method="POST" action="../Controller/event_update.php"> 
-						                <img style="display:block; width:150px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
+						                <img style="display:block; width:250px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$event_concerned->ev_picture.'</h4> <input class="btn btn-primary" type="submit" name="submit" value="Sauvegarder">
 						            </div>
 						            <div class="modal-body">
 						            
 						                
 						            	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'">
-						            	<p>Photo : <input type="text" name="ev_picture" value="'.$event_concerned->ev_picture.'"</p>
+						            	<p>Photo : <input type="file" name="ev_picture" value="'.$event_concerned->ev_picture.'"</p>
 						                <p>Lieu : <input type="text" name="ev_address" value="'.$event_concerned->ev_address.'"</p>
 						            	<p>Date : <input type="text" name="ev_date" value="'.$event_concerned->ev_date.'"</p>
 						            	<p>Description : <textarea name="ev_description">'.$event_concerned->ev_description.'</textarea></p>
