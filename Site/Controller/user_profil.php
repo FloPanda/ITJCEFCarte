@@ -44,6 +44,10 @@ echo('
 						                	<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
 										    <input class="btn btn-primary" type="submit" name="submit" value="Editer">
 										</form>
+										<form action=".././Controller/delete_user.php" method="POST">
+						                	<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
+										    <input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet utilisateur">
+										</form>
 
 
 
