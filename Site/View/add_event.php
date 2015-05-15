@@ -94,7 +94,24 @@
 								</tr>
 								<tr>
 									<td>
-											<input type="submit" value="Valider" name="submit">
+										Membre en charge :
+									</td>
+									<td>
+										<?php include  '..\Controller\user_list.php'; ?>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Commission en charge :
+									</td>
+									<td>
+										<?php include  '..\Controller\com_list.php'; ?>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<input type="submit" value="Valider" name="submit">
 									</td>
 								</tr>
 						</table>

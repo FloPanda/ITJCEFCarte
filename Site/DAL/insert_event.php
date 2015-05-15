@@ -17,7 +17,9 @@ error_reporting(E_ALL);
 			`ev_max_participants`,
 			`ev_participants`,
 			`ev_price`,
-			`ev_nb_subscribed`
+			`ev_nb_subscribed`,
+			`ev_charged_member`,
+			`ev_com_linked`
 			)
 			VALUES
 			(
@@ -29,8 +31,17 @@ error_reporting(E_ALL);
 			'.$ev->ev_max_participants.',
 			0,
 			'.$ev->ev_price.',
-			0
+			0,
+			  (SELECT user_pk
+			   FROM user
+			   WHERE user_uuid = '.$ev->ev_charged_member.'
+			),
+			  (SELECT com_pk
+			   FROM commission
+			   WHERE com_pk = '.$ev->ev_com_linked.'
+			  )
 			)');
+			
 			echo 'INSERT INTO `event` 
 			(
 			`ev_name`,
@@ -41,7 +52,9 @@ error_reporting(E_ALL);
 			`ev_max_participants`,
 			`ev_participants`,
 			`ev_price`,
-			`ev_nb_subscribed`
+			`ev_nb_subscribed`,
+			`ev_charged_member`,
+			`ev_com_linked`
 			)
 			VALUES
 			(
@@ -53,8 +66,16 @@ error_reporting(E_ALL);
 			'.$ev->ev_max_participants.',
 			0,
 			'.$ev->ev_price.',
-			0
-			)'
+			0,
+			  (SELECT user_pk
+			   FROM user
+			   WHERE user_uuid = '.$ev->ev_charged_member.'
+			),
+			  (SELECT com_pk
+			   FROM commission
+			   WHERE com_pk = '.$ev->ev_com_linked.'
+			  )';
+			
 		// ev_nb_subscribed: LES GENS AYANT PAYE
 
 ?>

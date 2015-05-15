@@ -32,10 +32,12 @@
 	{$ev->ev_max_participants=$_POST['ev_max_participants'];}
 	if(isset($_POST['ev_price'])&& $_POST['ev_price']!=null   )
 	{$ev->ev_price=$_POST['ev_price'];}
-	//$ev->ev_charged_member=$_POST['ev_charged_member'];
-	//$ev->ev_com_linked=$_POST['ev_com_linked'];
+	if(isset($_POST['user_list'])&& $_POST['user_list']!=null   )
+	{$ev->ev_charged_member=$_POST['user_list'];}
+	if(isset($_POST['com_list'])&& $_POST['com_list']!=null   )
+	{$ev->ev_com_linked=$_POST['com_list'];}
 
-
+	
 	
 	include('../DAL/insert_event.php');
 
