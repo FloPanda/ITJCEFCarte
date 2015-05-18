@@ -71,7 +71,7 @@ ob_start( );
 	if(isset($us->user_qr_code_url))
 	{
 		ob_end_clean( );
-		header('Location: .\user_profil.php?user='.$us->user_uuid);
+		header('Location: ..\View\user_profil.php?user='.$us->user_uuid);
 		exit;
 	}
 	//header( 'Location: https://appli.jcef-shanghai/user_profil.php?user='.$us->user_uuid);

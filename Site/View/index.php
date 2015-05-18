@@ -32,17 +32,7 @@
 					
 						<title>JCEF Login Page</title>
 					
-						<script>
-						if(localStorage.getItem('username')===null)
-						{
-							document.write("Bonjour Invite!");
-						}
-						else 
-						{
-							var toto = localStorage.username;
-							document.write("Bonjour,".toto);
-						}
-						</script>
+					
 					
 					
 						<form action="../Controller/index.php" method="POST"> <!--controleur-->

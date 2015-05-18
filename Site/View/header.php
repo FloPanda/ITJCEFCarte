@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!-- start header-->
 <header class="header">
 	<!-- start navbar, this navbar on top -->
@@ -15,7 +19,7 @@
 				</a>
 				
 				<!-- Your brand here, images or text -->
-				<a class="brand" href="..\View\index.php">
+				<a class="brand" href="#">
 					<img src="..\Ressources\Images\JCEF_logo_blanc vecto.png"  height="70%" width="70%">
 				</a>
 				
@@ -40,6 +44,7 @@
 
 					<!-- pull right menu-->
 					<ul class="nav pull-right">
+					<?php if(isset($_SESSION['user_uuid'])){echo('
 						<!-- notification -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -255,48 +260,42 @@
 								</li>
 							</ul>
 						</li><!-- /settings -->
-						
+						');}?>
 						
 						
 						<!-- account -->
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<li class="dropdown"><?php
+						if(isset($_SESSION['user_uuid']))
+									{echo('
+										
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.
+								
 								
 									
-								<?php
-								
-									
+												$_SESSION['user_surname'].'<i class="aweso-angle-down"></i></a>');
+									}
+									else
+									{
+										echo("<li><a tabindex='-1' href='http://localhost/ITJCEFCarte/Site/View/index.php'>Login</a></li>");
+									}
 								?>
 								
-								<script>
-								if(localStorage.getItem('username')===null)
-								{
-									document.write("Invite");
-								}
-								else 
-								{
-									var username = localStorage.username;
-									document.write("Bonjour,".username);
-								}
-								</script>
-								
-								<i class="aweso-angle-down"></i>
 								
 								
-							</a>
+								
+							
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 							
-								<script>
-								if(localStorage.getItem('username')===null)
-								{
-									document.write("<li><a tabindex='-1' href='#'>Login</a></li>");
-								}
-								else 
-								{
-									var username = localStorage.username;
-									document.write("<li><a tabindex='-1' href='#'>P</a></li><li class='divider'></li><li><a tabindex='-1' href='page-login.html'>Logout</a></li>");
-								}
-								</script>
+								<?php
+									//echo($_SESSION['user_surname']);
+									if(isset($_SESSION['user_surname']))
+									{
+										$uuid=$_SESSION['user_uuid'];
+										echo("<li><a tabindex='-1' href='http://localhost/ITJCEFCarte/Site/View/user_profil.php?user=$uuid'>Profil</a></li>");
+										echo("<li><a tabindex='-1' href='../Controller/logout.php'>Logout</a></li>");
+									}
+									
+								?>
 							
 								
 							</ul>
