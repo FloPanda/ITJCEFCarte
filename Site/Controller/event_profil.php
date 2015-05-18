@@ -3,8 +3,14 @@
 
 include '..\Model\DataModel\event_full_DM.php';
 
-
-$event_concerned=new event_full($_POST['ev_pk']);
+if(isset($_GET['event']))
+{
+	$event_concerned=new event_full($_GET['event']);
+}
+else
+{
+	$event_concerned=new event_full($_POST['ev_pk']);
+}
 
 echo('
 

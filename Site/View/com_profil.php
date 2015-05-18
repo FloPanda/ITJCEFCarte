@@ -16,14 +16,12 @@
     <div class="content" >
 		<table height="100%" width="100%">
 					<td>
-					<h1 style="text-align:center">
+					
 
 					<?php 
 						include '..\Controller\com_profil.php';	
 					?>
-					</h1>
-
-					<br/>
+					
 					
 					</td>
 		</table>
