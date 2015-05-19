@@ -10,8 +10,8 @@ $event_array['ev_max_participants']=$_POST['ev_max_participants'];
 $event_array['ev_participants']=$_POST['ev_participants'];
 $event_array['ev_price']=$_POST['ev_price'];
 $event_array['ev_nb_subscribed']=$_POST['ev_nb_subscribed'];
-$event_array['ev_charged_member']=$_POST['ev_charged_member'];
-$event_array['ev_com_linked']=$_POST['ev_com_linked'];
+$event_array['ev_charged_member']=$_POST['user_list'];
+$event_array['ev_com_linked']=$_POST['com_list'];
 
 include '../DAL/event_profil_update_var.php';
 
@@ -26,7 +26,7 @@ echo('
 		</form>
 		
 		<script language="JavaScript">
-		document.pk.submit();
+			
 		</script>
 	</body>
 </html>

@@ -10,7 +10,11 @@ $user_concerned=new user_full($event_concerned->ev_charged_member);
 					
 $titlecontent=$event_concerned->ev_name;
 
+/*
 
+IL EST IMPOSSIBLE DE CHARGER UN TYPE FILE PAR DEFAUT. DONC ON LE LAISSE EN TEXT ET ON LE CHANGE PLUS TARD. MERCI D AVANCE :) 
+
+*/
 
 echo('
 
@@ -29,7 +33,7 @@ echo('
 						            
 						                
 						            	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'">
-						            	<p>Photo : <input type="file" name="ev_picture" value="'.$event_concerned->ev_picture.'"</p>
+						            	<p>Photo : <input type="text" name="ev_picture" value="'.$event_concerned->ev_picture.'"</p>
 						                <p>Lieu : <input type="text" name="ev_address" value="'.$event_concerned->ev_address.'"</p>
 						            	<p>Date : <input type="text" name="ev_date" value="'.$event_concerned->ev_date.'"</p>
 						            	<p>Description : <textarea name="ev_description">'.$event_concerned->ev_description.'</textarea></p>
