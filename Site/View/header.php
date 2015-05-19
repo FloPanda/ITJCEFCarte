@@ -1,3 +1,4 @@
+<html>
 <?php
 	session_start();
 ?>
@@ -276,7 +277,7 @@
 									}
 									else
 									{
-										echo("<li><a tabindex='-1' href='http://localhost/ITJCEFCarte/Site/View/index.php'>Login</a></li>");
+										echo("<li><a tabindex='-1' href='../View/index.php'>Login</a></li>");
 									}
 								?>
 								
@@ -288,10 +289,10 @@
 							
 								<?php
 									//echo($_SESSION['user_surname']);
-									if(isset($_SESSION['user_surname']))
+									if(isset($_SESSION['user_uuid']))
 									{
 										$uuid=$_SESSION['user_uuid'];
-										echo("<li><a tabindex='-1' href='http://localhost/ITJCEFCarte/Site/View/user_profil.php?user=$uuid'>Profil</a></li>");
+										echo("<li><a tabindex='-1' href='../View/user_profil.php?user=$uuid'>Profil</a></li>");
 										echo("<li><a tabindex='-1' href='../Controller/logout.php'>Logout</a></li>");
 									}
 									
@@ -311,3 +312,4 @@
 		
 	</div> <!--/ navbar-->
 </header> <!--/ end header-->
+</html>

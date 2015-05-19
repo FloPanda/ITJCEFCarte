@@ -5,7 +5,7 @@
 
 	include 'header.php';
 	include 'head.html';
-	include 'dashboard.html';
+	include 'dashboard.php';
 ?>
 
 	<body>

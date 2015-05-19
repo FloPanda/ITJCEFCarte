@@ -4,7 +4,7 @@
 		require( '../Model/ViewModel/ev_list_trombinoscope.php');
 		include '../View/header.php';
 		include '../View/head.html';
-		include '../View/dashboard.html';
+		include '../View/dashboard.php';
 		
 	?>
 	<body>
@@ -29,7 +29,6 @@
 
 					$today = date("Y-m-d");
 
-					echo '<tr>Evenements actuels</tr>';
 					
 					foreach($test->ev_list as $value)
 					{	
@@ -63,7 +62,7 @@
 					}
 					echo "</table>";
 					
-					echo 'Evenements passes:';
+					echo '<br><br><br>Evenements passes :<br><br>';
 					echo '<ul>';
 					foreach($test->ev_list as $value)
 					{	

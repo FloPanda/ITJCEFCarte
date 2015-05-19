@@ -2,7 +2,7 @@
 ob_start( );
 	include '../View/header.php';
 	include '../View/head.html';
-	include '../View/dashboard.html';
+	include '../View/dashboard.php';
 	
 	include( '../Model/DataModel/user_full_DM.php');
 
