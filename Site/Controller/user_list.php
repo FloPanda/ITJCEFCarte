@@ -7,7 +7,14 @@ $liste=new user_list_trombinoscope();
 
 foreach($liste->user_list as $value)
 {
-	echo "<OPTION VALUE=".$value->user_uuid.">".$value->user_surname.' '.$value->user_name;
+	if(isset($user_concerned)&&$user_concerned->user_uuid==$value->user_uuid)
+	{
+		echo "<OPTION  SELECTED VALUE=".$value->user_uuid.">".$value->user_surname.' '.$value->user_name;
+	}
+	else
+	{
+		echo "<OPTION VALUE=".$value->user_uuid.">".$value->user_surname.' '.$value->user_name;
+	}
 	
 }
 ?>

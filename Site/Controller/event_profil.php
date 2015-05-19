@@ -2,6 +2,8 @@
 
 
 include '..\Model\DataModel\event_full_DM.php';
+include '..\Model\DataModel\commission_full_DM.php';
+include '..\Model\DataModel\user_full_DM_pk.php';
 
 if(isset($_GET['event']))
 {
@@ -11,6 +13,9 @@ else
 {
 	$event_concerned=new event_full($_POST['ev_pk']);
 }
+
+$com_concerned=new commission_full($event_concerned->ev_com_linked);
+$user_concerned=new user_full($event_concerned->ev_charged_member);
 
 echo('
 
@@ -41,8 +46,9 @@ echo('
 						            	<p>Participants : '.$event_concerned->ev_participants.'</p>
 						            	<p>Prix : '.$event_concerned->ev_price.'</p>
 						            	<p>Nombre d\'inscrits : '.$event_concerned->ev_nb_subscribed.'</p>
-						            	<p>Responsable : '.$event_concerned->ev_charged_member.'</p>
-						            	<p>Lien avec la commission : '.$event_concerned->ev_com_linked.'</p>
+										<p>Responsable : '.$user_concerned->user_name." ".$user_concerned->user_surname.'</p>
+						            	<p>Lien avec la commission : '.$com_concerned->com_name.'</p>
+
 						                						       
 						            </div>
 						            <div class="modal-footer">

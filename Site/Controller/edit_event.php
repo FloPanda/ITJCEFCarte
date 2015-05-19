@@ -1,9 +1,12 @@
 <?php 
 
 include '..\Model\DataModel\event_full_DM.php';
-
+include '..\Model\DataModel\commission_full_DM.php';
+include '..\Model\DataModel\user_full_DM_pk.php';
 
 $event_concerned=new event_full($_POST['ev_pk']);
+$com_concerned=new commission_full($event_concerned->ev_com_linked);
+$user_concerned=new user_full($event_concerned->ev_charged_member);
 					
 $titlecontent=$event_concerned->ev_name;
 
@@ -34,8 +37,11 @@ echo('
 						            	<p>Participants : <input type="text" name="ev_participants" value="'.$event_concerned->ev_participants.'"</p>
 						            	<p>Prix : <input type="text" name="ev_price" value="'.$event_concerned->ev_price.'"</p>
 						            	<p>Nombre d\'inscrits : <input type="text" name="ev_nb_subscribed" value="'.$event_concerned->ev_nb_subscribed.'"</p>
-						            	<p>Responsable : <input type="text" name="ev_charged_member" value="'.$event_concerned->ev_charged_member.'"</p>
-						            	<p>Lien avec la comission : <input type="text" name="ev_com_linked" value="'.$event_concerned->ev_com_linked.'"</p>
+						            	
+										<p>Responsable : ');  include  '..\Controller\user_list.php' ; echo('</p>
+										<p>Lien avec la commission : ');  include  '..\Controller\com_list.php' ; echo('</p>
+										
+										
 
 						                						       
 						            </div>
@@ -46,4 +52,8 @@ echo('
 						    </div>
 						</div>
 						');
-?>
+
+						/* <p>Responsable : <input type="text" name="ev_charged_member" value="'.$user_concerned->user_name." ".$user_concerned->user_surname.'"</p>
+						            	<p>Lien avec la commission : <input type="text" name="ev_com_linked" value="'.$com_concerned->com_name.'"</p>
+									*/
+						?>

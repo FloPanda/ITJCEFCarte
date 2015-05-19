@@ -6,7 +6,7 @@
 	$compte=0;
 	while($row = mysqli_fetch_array($sql)) 
 	{
-		if($row['user_uuid']==$uuid)
+		if($row['user_pk']==$pk)
 		{
 			$user_array[$compte]['user_user_type']=$row['user_user_type'];
 			$user_array[$compte]['user_name']=$row['user_name'];
@@ -45,8 +45,7 @@
 
 	if ($compte==0)
 	{
-	 echo "fail ici: ".$uuid;
+	 echo "fail ici: ".$pk;
 	}
 
 ?>
-

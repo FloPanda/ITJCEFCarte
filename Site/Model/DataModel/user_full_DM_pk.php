@@ -33,16 +33,16 @@ class user_full
 
   
 
-  public function __construct($uuid=null) 
+  public function __construct($pk=null) 
   {
   
-  if($uuid!=null)
+  if($pk!=null)
   {
   
 	if(!isset($user_array))
 	{ $user_array=null; }
   
-	include '../DAL/user_full_from_id.php';
+	include '../DAL/user_full_from_pk.php';
 	
 	
   

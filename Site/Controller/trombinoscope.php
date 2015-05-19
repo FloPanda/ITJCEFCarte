@@ -4,26 +4,9 @@
 		require( '../Model/ViewModel/user_list_trombinoscope.php');
 		include '../View/header.php';
 		include '../View/head.html';
-		include '../View/dashboard.php';
+		include '../View/dashboard.html';
 		require ('../DAL/sql_connect.php');
 	?>
-
-	<script>
-		var newcontent = '<br><br><br><br><br><ul class="nav nav-list"><h4>Filtres</h4><form action="">\
-			<label class="checkbox">\
- 				<input type="checkbox" id="usr_flt1" value="responsable"> Responsable de Commission\
-			</label>\
-			<label class="checkbox">\
- 				<input type="checkbox" id="usr_flt2" value="membre"> Membre\
-			</label>\
-			<label class="checkbox">\
- 				<input type="checkbox" id="usr_flt3" value="pengyou"> Pengyou\
-			</label>\
-		</form></ul>';
-		var div = document.getElementById('navside');
-		div.innerHTML += newcontent;
-	</script>
-
 	<body>
 		<section class="section-content">
     		<div class="content">

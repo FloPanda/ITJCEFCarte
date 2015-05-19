@@ -19,7 +19,7 @@
 
 	if ($compte==0)
 	{
-	 echo "fail ici comm";
+	 echo "fail ici (commission): ".$pk;
 	}
 
 ?>

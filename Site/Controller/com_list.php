@@ -7,7 +7,15 @@ $liste=new com_list_trombinoscope();
 
 foreach($liste->com_list as $value)
 {
-	echo "<OPTION VALUE=".$value->com_pk.">".$value->com_name;
+	if(isset($com_concerned)&&$com_concerned->com_pk==$value->com_pk)
+	{
+		echo "<OPTION  SELECTED VALUE=".$value->com_pk.">".$value->com_name;
+	}
+	else
+	{
+		echo "<OPTION VALUE=".$value->com_pk.">".$value->com_name;
+	}
+	
 	
 }
 ?>

@@ -11,6 +11,10 @@ class commission_full
   {
 	if($pk!=null)
 	{
+		
+		if(!isset($com_array))
+		{ $com_array=null; }
+	
 		include '../DAL/commission_full_from_pk.php';
 		
 		$this->com_pk=$com_array[0]['com_pk'];
