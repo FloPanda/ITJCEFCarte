@@ -26,7 +26,7 @@ echo('
 		</form>
 		
 		<script language="JavaScript">
-			
+			document.pk.submit();
 		</script>
 	</body>
 </html>
