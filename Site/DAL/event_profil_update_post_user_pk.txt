@@ -50,6 +50,3 @@
 	WHERE ev_pk = "'.$_POST['ev_pk'].'" ');
 
 ?>
-<!--,
-	ev_charged_member = "'.$event_array['ev_charged_member'].'",
-	ev_com_linked = "'.$event_array['ev_com_linked'].'"-->

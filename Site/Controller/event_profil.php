@@ -36,6 +36,10 @@ echo('
 						                	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 										    <input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet evenement">
 										</form>
+										<form action=".././Controller/attend_event.php" method="POST">
+						                	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
+										    <input class="btn btn-primary" type="submit" name="submit" value="Je participe à cet evenement">
+										</form>
 						            </div>
 						            <div class="modal-body">
 						                

@@ -13,7 +13,15 @@ $event_array['ev_nb_subscribed']=$_POST['ev_nb_subscribed'];
 $event_array['ev_charged_member']=$_POST['user_list'];
 $event_array['ev_com_linked']=$_POST['com_list'];
 
-include '../DAL/event_profil_update_var.php';
+if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
+{ 
+	$event_array['ev_pk']=$_POST['ev_pk'];
+	$event_array['participant']=$_POST['attender'];
+	include '../DAL/event_profil_update_post_user_pk.php'; 
+	include '../DAL/insert_participant.php'; 
+}
+else
+{ include '../DAL/event_profil_update_var.php'; }
 
 echo('
 <html>
