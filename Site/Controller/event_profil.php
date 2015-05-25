@@ -28,6 +28,11 @@ echo('
 						            <div class="modal-header">
 						                <img style="display:block; width:250px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$event_concerned->ev_name.'</h4>
+');
+if(isset($_SESSION['user_uuid']))
+{
+
+echo('
 						                <form action="./edit_event.php" method="POST">
 						                	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 										    <input class="btn btn-primary" type="submit" name="submit" value="Editer">
@@ -36,10 +41,29 @@ echo('
 						                	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 										    <input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet evenement">
 										</form>
-										<form action=".././Controller/attend_event.php" method="POST">
-						                	<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
-										    <input class="btn btn-primary" type="submit" name="submit" value="Je participe à cet evenement">
-										</form>
+');
+										include '..\DAL\participe_ev_pk_user_uuid.php';
+										
+										if(isset($part_array[0]['part_ev_pk']))
+										{
+											echo('
+											<form action=".././Controller/unsuscribe_event.php" method="POST">
+												<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
+												<input class="btn btn-primary" type="submit" name="submit" value="Je ne participe plus à cet evenement">
+											</form>
+											');
+										}
+										else
+										{
+											echo ('
+											<form action=".././Controller/attend_event.php" method="POST">
+												<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
+												<input class="btn btn-primary" type="submit" name="submit" value="Je participe à cet evenement">
+											</form>
+										');
+										}
+}
+echo('
 						            </div>
 						            <div class="modal-body">
 						                

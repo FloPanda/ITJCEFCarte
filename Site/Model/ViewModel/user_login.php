@@ -18,6 +18,7 @@ class user_login
 	$this->user_name=$value['user_name'];
 	$this->user_surname=$value['user_surname'];
 	$this->user_uuid=$value['user_uuid'];
+	$this->user_pk=$value['user_pk'];
 	$this->user_password=$value['user_password'];
 	$this->user_is_admin=$value['user_is_admin'];
 

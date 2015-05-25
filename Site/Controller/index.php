@@ -16,7 +16,6 @@
 	include '../View/header.php';
 	include '../View/head.html';
 	include '../View/dashboard.php';
-	require ('../DAL/sql_connect.php');
 	include('../Model/ViewModel/user_list_login.php');
 
 
@@ -37,7 +36,7 @@
 					$_SESSION['user_surname'] = $value->user_surname;
 					$_SESSION['user_uuid'] = $value->user_uuid;
 					$_SESSION['user_is_admin'] = $value->user_is_admin;
-
+					$_SESSION['user_pk'] = $value->user_pk;
 					ob_end_clean();
 					header('Location: .\events_trombinoscope.php');
 

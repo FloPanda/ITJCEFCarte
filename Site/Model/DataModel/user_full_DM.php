@@ -3,6 +3,7 @@
 class user_full
 {
 	var $user_name;
+	var $user_pk;
 	var $user_surname;
 	var $user_is_admin;
 	var $user_birth;
@@ -74,6 +75,7 @@ class user_full
 	$this->user_qr_code_url=$user_array[0]['user_qr_code_url'];
 	$this->user_address=$user_array[0]['user_address'];
 	$this->user_comment=$user_array[0]['user_comment'];
+	$this->user_pk=$user_array[0]['user_pk'];
 	}
 	else
 	{

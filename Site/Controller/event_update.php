@@ -20,6 +20,13 @@ if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
 	include '../DAL/event_profil_update_post_user_pk.php'; 
 	include '../DAL/insert_participant.php'; 
 }
+else if(isset($_POST['is_attend'])&&$_POST['is_attend']==0)
+{ 
+	$event_array['ev_pk']=$_POST['ev_pk'];
+	$event_array['participant']=$_POST['attender'];
+	include '../DAL/event_profil_update_post_user_pk.php'; 
+	include '../DAL/delete_participant.php'; 
+}
 else
 { include '../DAL/event_profil_update_var.php'; }
 
