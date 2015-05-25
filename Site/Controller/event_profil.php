@@ -4,6 +4,7 @@
 include '..\Model\DataModel\event_full_DM.php';
 include '..\Model\DataModel\commission_full_DM.php';
 include '..\Model\DataModel\user_full_DM_pk.php';
+include '..\Model\ViewModel\participant_list.php';
 
 if(isset($_GET['event']))
 {
@@ -76,8 +77,29 @@ echo('
 						            	<p>Nombre d\'inscrits : '.$event_concerned->ev_nb_subscribed.'</p>
 										<p>Responsable : '.$user_concerned->user_name." ".$user_concerned->user_surname.'</p>
 						            	<p>Lien avec la commission : '.$com_concerned->com_name.'</p>
+										
+										<p>----------------------------------<p>
+										Liste des participants:</br>
+										<font color="green"> A payé - Fut présent </font></br>
+										<font color="orange"> A payé </font></br>
+										<font color="red"> N a pas payé </font></br>
+										</br>
+										
+										');
+										
+										$test=new participant_list($event_concerned->ev_pk);
 
-						                						       
+										
+										foreach($test->participant_list as $value)
+										{	
+											 $user_concerned=new user_full($value->part_user_pk);
+											 if($value->part_subscribed==1&&$value->part_present==1){ echo ('<p> - <font color="green">'); }
+											 if($value->part_subscribed==1&&$value->part_present==0){ echo ('<p> - <font color="orange">'); }
+											 if($value->part_subscribed==0&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
+											 echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </font></p>');					
+										}
+
+						            echo ('  						       
 						            </div>
 						            <div class="modal-footer">
 						                
