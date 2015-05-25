@@ -13,18 +13,20 @@
 	
 	ob_start( );
 	include '..\Model\DataModel\user_full_DM.php';
-	include '../View/header.php';
-	include '../View/head.html';
-	include '../View/dashboard.php';
 	include('../Model/ViewModel/user_list_login.php');
 
 
 	
 	$toto=new user_list_login();
+	
+	if(!($_POST['user_uuid']))
+	{
+		header('Location: ' . '..\View\index.php', true);
+		die();
+	}
+	
 	//$user_concerned=new user_full(null);
-
-		echo($_POST['user_uuid']);
-		echo($_POST['user_password']);
+	
 			foreach($toto->user_list as $value)
 			{
 				if($_POST['user_uuid']==$value->user_uuid && $_POST['user_password']==$value->user_password)
@@ -41,13 +43,13 @@
 					header('Location: .\events_trombinoscope.php');
 
 					break;
-				}
+				}/*
 				else
 				{
 					echo($value->user_uuid);
 					echo($value->user_password);
 					echo ("NON.");
-				}
+				}*/
 			}
 ob_end_flush( );	
 ?>

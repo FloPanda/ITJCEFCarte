@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html>
+
 	<?php	
 		require( '../Model/ViewModel/user_list_trombinoscope.php');
-		include '../View/header.php';
-		include '../View/head.html';
-		include '../View/dashboard.php';
-	?>
-	<body>
-		<section class="section-content">
-    		<div class="content">
 
-    		<!-- content page -->
-                <article class="content-page">
-                    <!-- main page, you're application here -->
-                    <div class="main-page">
-                        <div class="content-inner">
-
-				<div class="container-fluid">
-				<h1 class="modal-title" align=center>Trombinoscope</h1>
-					<div class="row-fluid">
-					<div class="span8">
-							
-					<?php 
+		
 					$count=0;
 					$test=new user_list_trombinoscope();
 					echo "<table>";					
@@ -82,22 +63,4 @@
 					}
 					echo "</table>";
 					?>
-					</div>
-				</div>
-			</div>
-
-			</div>
-			</div>
-			</article>
-
-
-
-	    </div>
-	</section>
-	<!-- /end section content-->	
-	</body>
-	<?php
-		include '../View/footer.html';
-	 ?>
-
-</html>
+					

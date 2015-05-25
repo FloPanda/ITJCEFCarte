@@ -2,9 +2,6 @@
 <html>
 	<?php	
 		require( '../Model/ViewModel/ev_list_trombinoscope.php');
-		include '../View/header.php';
-		include '../View/head.html';
-		include '../View/dashboard.php';
 		
 	?>
 	<body>

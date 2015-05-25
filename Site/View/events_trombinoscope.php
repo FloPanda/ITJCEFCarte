@@ -6,8 +6,8 @@
 	include 'head.html';
 	include 'dashboard.php';
 
-	include '..\Controller\edit_user.php';
-	
+	include '..\Controller\events_trombinoscope.php';
+						
 	include 'footer.html';
 ?>
 </html>

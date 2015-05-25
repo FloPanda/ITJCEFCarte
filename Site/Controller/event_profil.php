@@ -20,13 +20,6 @@ $user_concerned=new user_full($event_concerned->ev_charged_member);
 
 echo('
 
-					
-
-
-					<div id="myModal"  ;>
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-header">
 						                <img style="display:block; width:250px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$event_concerned->ev_name.'</h4>
 ');
@@ -98,14 +91,5 @@ echo('
 											 if($value->part_subscribed==0&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
 											 echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </font></p>');					
 										}
-
-						            echo ('  						       
-						            </div>
-						            <div class="modal-footer">
-						                
-									</div>
-						        </div>
-						    </div>
-						</div>
-						');
+										
 ?>

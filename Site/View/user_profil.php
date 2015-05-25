@@ -7,38 +7,44 @@
 	include 'dashboard.php';
 ?>
 
-	<body>
-	
+<body>
+
+					
 	<section class="section-content">
- 
- 
-    <div class="content" >
-		<table height="100%" width="100%">
-					<td>
-					<h1 style="text-align:center">
+			<div class="content">
 
-					<?php 
+			<!-- content page -->
+			<article class="content-page">
+				<!-- main page, you're application here -->
+				<div class="main-page">
 
-						
-						include '..\Controller\user_profil.php';
-						
-					
-					?>
-
-					
-					</td>
-		</table>
-    </br></br>
-    </div>
-</br></br>
-
-
-</section>
-<!-- /end section content-->
-	
-</body>
-
+						<div id="myModal"  ;>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
 <?php
-		include 'footer.html';
+
+	include '..\Controller\user_profil.php';
+	
+?>
+						
+
+													       
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					
+				</div>
+			</article>
+
+
+
+	    </div>
+	</section>
+</body>						
+						
+<?php
+						include 'footer.html';
 ?>
 </html>

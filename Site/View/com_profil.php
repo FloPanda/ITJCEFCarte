@@ -2,40 +2,48 @@
 <html>
 
 <?php
-	
 	include 'header.php';
 	include 'head.html';
 	include 'dashboard.php';
 ?>
 
-	<body>
-	
+<body>
+
+					
 	<section class="section-content">
- 
- 
-    <div class="content" >
-		<table height="100%" width="100%">
-					<td>
-					
+			<div class="content">
 
-					<?php 
-						include '..\Controller\com_profil.php';	
-					?>
-					
-					
-					</td>
-		</table>
-    </br></br>
-    </div>
-</br></br>
+			<!-- content page -->
+			<article class="content-page">
+				<!-- main page, you're application here -->
+				<div class="main-page">
 
-
-</section>
-<!-- /end section content-->
-	
-</body>
-
+						<div id="myModal"  ;>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
 <?php
-		include 'footer.html';
+						include '..\Controller\com_profil.php';	
+
+?>
+						
+
+													       
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					
+				</div>
+			</article>
+
+
+
+	    </div>
+	</section>
+</body>						
+						
+<?php
+						include 'footer.html';
 ?>
 </html>

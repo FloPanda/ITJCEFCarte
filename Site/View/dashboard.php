@@ -33,9 +33,9 @@
 				}
 			?>
 
-			<li><a href="../Controller/trombinoscope.php">Trombinoscope</a></li>
-			<li><a href="../Controller/events_trombinoscope.php">Events</a></li>
-			<li><a href="../Controller/commissions_trombinoscope.php">Commissions</a></li>
+			<li><a href="../View/trombinoscope.php">Trombinoscope</a></li>
+			<li><a href="../View/events_trombinoscope.php">Events</a></li>
+			<li><a href="../View/commissions_trombinoscope.php">Commissions</a></li>
 			
 		</ul><!-- /nav -->
 	</div><!-- /side left-->

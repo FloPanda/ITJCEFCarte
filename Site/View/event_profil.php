@@ -2,49 +2,48 @@
 <html>
 
 <?php
-	
 	include 'header.php';
 	include 'head.html';
 	include 'dashboard.php';
 ?>
 
-	<body>
-	
+<body>
+
+					
 	<section class="section-content">
- 
- 
-    <div class="content" >
-		<table height="100%" width="100%">
+			<div class="content">
+
+			<!-- content page -->
+			<article class="content-page">
+				<!-- main page, you're application here -->
+				<div class="main-page">
+
+						<div id="myModal"  ;>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+<?php
+
+	include '..\Controller\event_profil.php';
+
+?>
+
+													       
+						            </div>
+						        </div>
+						    </div>
+						</div>
 					
-
-					<?php 
-
-						include '..\Controller\event_profil.php';
-					
-					?>
-					
-					
-						
-						
+				</div>
+			</article>
 
 
 
-
-
-					
-					</td>
-		</table>
-    </br></br>
-    </div>
-</br></br>
-
-
-</section>
-<!-- /end section content-->
-	
+	    </div>
+	</section>
 </body>
 
 <?php
-		include 'footer.html';
+	include 'footer.html';
 ?>
 </html>

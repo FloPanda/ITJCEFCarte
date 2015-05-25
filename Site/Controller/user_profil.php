@@ -28,14 +28,6 @@ echo('
 
 
 echo('
-
-					
-
-
-					<div id="myModal"  ;>
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-header">
 						                
 						                <img style="display:block; width:150px;height:150px;" src='.$user_concerned->user_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$titlecontent.'</h4> 
@@ -66,12 +58,7 @@ echo('
 
 						                						       
 						            </div>
-						            <div class="modal-footer">
 						                
-									</div>
-						        </div>
-						    </div>
-						</div>
 						');
 
 
