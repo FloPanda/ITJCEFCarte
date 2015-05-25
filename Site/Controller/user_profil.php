@@ -30,15 +30,19 @@ echo('
 echo('
 						                
 						                <img style="display:block; width:150px;height:150px;" src='.$user_concerned->user_picture.' class="img-rounded">
-						                <h4 class="modal-title">'.$titlecontent.'</h4> 
+						                <h4 class="modal-title">'.$titlecontent.'</h4> ');
+										
+										if(isset($_SESSION['user_uuid'])&&($_SESSION['user_uuid']==$user_concerned->user_uuid||$_SESSION['user_is_admin']==1))
+										{
+											echo('
+												<form action="./edit_user.php" method="POST">
+													<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
+													<input class="btn btn-primary" type="submit" name="submit" value="Editer">
+												</form>
+											');
+										}
 
-						                <form action="./edit_user.php" method="POST">
-						                	<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
-										    <input class="btn btn-primary" type="submit" name="submit" value="Editer">
-										</form>
-
-
-
+									echo('
 
 						               
 						            </div>

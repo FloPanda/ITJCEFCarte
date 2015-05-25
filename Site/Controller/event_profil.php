@@ -81,15 +81,20 @@ echo('
 										');
 										
 										$test=new participant_list($event_concerned->ev_pk);
-
+										if($test->participant_list!=null)
+										{
 										
-										foreach($test->participant_list as $value)
-										{	
-											 $user_concerned=new user_full($value->part_user_pk);
-											 if($value->part_subscribed==1&&$value->part_present==1){ echo ('<p> - <font color="green">'); }
-											 if($value->part_subscribed==1&&$value->part_present==0){ echo ('<p> - <font color="orange">'); }
-											 if($value->part_subscribed==0&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
-											 echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </font></p>');					
+											foreach($test->participant_list as $value)
+											{	
+												 $user_concerned=new user_full($value->part_user_pk);
+												 if($value->part_subscribed==1&&$value->part_present==1){ echo ('<p> - <font color="green">'); }
+												 if($value->part_subscribed==1&&$value->part_present==0){ echo ('<p> - <font color="orange">'); }
+												 if($value->part_subscribed==0&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
+												 echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </font></p>');					
+											}
+										
 										}
+										else
+										{ echo 'Pas encore de membre inscrit.'; }
 										
 ?>

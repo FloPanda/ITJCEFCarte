@@ -14,12 +14,15 @@ class participant_list
 	include 'participant_listing.php';
 	include '../DAL/participant_full_from_event_pk.php';
 	
-	foreach($part_array as $value)
+	if($part_array!=null)
 	{
-		
-		array_push($this->participant_list, new participant_listing($value));
-		$count++;
+		foreach($part_array as $value)
+		{
+			
+			array_push($this->participant_list, new participant_listing($value));
+			$count++;
 
+		}
 	}
   
   
