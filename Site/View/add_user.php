@@ -185,6 +185,12 @@
 								</tr>
 								<tr>
 									<td>
+										<p>Lien avec la commission : <?php include  '..\Controller\com_list.php' ; echo('</p>'); ?>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
 											<input type="submit" value="Valider" name="submit">
 									</td>
 								</tr>

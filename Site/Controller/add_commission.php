@@ -22,5 +22,5 @@
 	
 	
 	include('../DAL/insert_commission.php');
-
+	header('Location: ../View/commissions_trombinoscope.php'); 
 ?>

@@ -36,6 +36,7 @@
 	
 	
 	include('../DAL/insert_event.php');
+	header('Location: ../View/events_trombinoscope.php'); 
 
 
 ?>

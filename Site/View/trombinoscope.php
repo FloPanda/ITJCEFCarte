@@ -21,8 +21,6 @@
 							<div class="row-fluid">
 								<div class="span8"><center>
 <?php
-	
-	
 	include '..\Controller\trombinoscope.php';
 ?>
 

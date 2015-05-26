@@ -1,5 +1,6 @@
 <html>
 <?php
+	header('Content-type: text/html; charset=UTF-8');
 	session_start();
 ?>
 
@@ -27,7 +28,7 @@
 				<!-- Un-collapse nav -->
 				<div class="nav-uncollapse">
 					<!-- pull left menu-->
-					<ul class="nav pull-left hidden-phone">
+					<!--<ul class="nav pull-left hidden-phone">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<i class="aweso-plus-sign aweso-large"></i> &nbsp;Create <i class="aweso-angle-down"></i>
@@ -47,7 +48,7 @@
 					<ul class="nav pull-right">
 					<?php if(isset($_SESSION['user_uuid'])){echo('
 						<!-- notification -->
-						<li class="dropdown">
+						<!--<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<div class="label">3</div>
 								<i class="aweso-bell-alt"></i>

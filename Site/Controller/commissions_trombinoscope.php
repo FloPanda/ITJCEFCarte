@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<?php	
-		require( '../Model/ViewModel/com_list_trombinoscope.php');
-	?>
-	<body>
-		<section class="section-content">
-    		<div class="content">
+<?php	
+	require( '../Model/ViewModel/com_list_trombinoscope.php');
+?>
 
-    		<!-- content page -->
-                <article class="content-page">
-                    <!-- main page, you're application here -->
-                    <div class="main-page">
-                        <div class="content-inner">
-
-				<div class="container-fluid">
 				<h1 class="modal-title" align=center>Commissions</h1>
 					<div class="row-fluid">
 					<div class="span8">
@@ -49,22 +39,3 @@
 					}
 					echo "</table>";
 					?>
-					</div>
-				</div>
-			</div>
-
-			</div>
-			</div>
-			</article>
-
-
-
-	    </div>
-	</section>
-	<!-- /end section content-->	
-	</body>
-	<?php
-		include '../View/footer.html';
-	 ?>
-
-</html>
