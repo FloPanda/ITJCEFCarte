@@ -111,11 +111,13 @@ INSERT INTO `commission` (`com_pk`, `com_name`, `com_description`, `com_picture`
 DROP TABLE IF EXISTS `commission_member`;
 CREATE TABLE IF NOT EXISTS `commission_member` (
   `comm_pk` int(11) NOT NULL AUTO_INCREMENT,
-  `comm_user_uuid` int(11) NOT NULL,
+  `comm_user_pk` int(11) NOT NULL,
+  `comm_com_pk` int(11) NOT NULL,
   `comm_debut`  Date,
   `comm_fin` Date,
   PRIMARY KEY (`comm_pk`),
-  FOREIGN KEY (comm_user_uuid) REFERENCES user (user_pk) ON DELETE CASCADE
+  FOREIGN KEY (comm_user_pk) REFERENCES user (user_pk) ON DELETE CASCADE,
+  FOREIGN KEY (comm_com_pk) REFERENCES commission (com_pk) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

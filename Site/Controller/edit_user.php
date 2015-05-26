@@ -5,11 +5,11 @@ include '..\Model\DataModel\user_full_DM.php';
 
 $user_concerned=new user_full($_POST['user_uuid']);
 					
-						$titlecontent=$user_concerned->user_surname." ".$user_concerned->user_name;
-						$qrcode=$user_concerned->user_qr_code_url;
+$titlecontent=$user_concerned->user_surname." ".$user_concerned->user_name;
+$qrcode=$user_concerned->user_qr_code_url;
 
 
-
+//affichage pré-rempli des informations à modifier
 echo('
 						            <form method="POST" action="../Controller/user_update.php">    
 						                <img style="display:block; width:150px;height:150px;" src='.$user_concerned->user_picture.' class="img-rounded">
@@ -27,11 +27,30 @@ echo('
 						                <p>Email JCEF : <input type="text" name="user_email_jcef" value="'.$user_concerned->user_email_jcef.'"</p>
 						                <p>Naissance : <input type="date" name="user_birth" value="'.$user_concerned->user_birth.'"</p>
 						                <p>Sexe : <input type="text" name="user_sex" value="'.$user_concerned->user_sex.'"</p>
-						                commissions
-						       
-					
 						                <p>Skype : <input type="text" name="user_skype" value="'.$user_concerned->user_skype.'"</p>
 						                <p>WeChat : <input type="text" name="user_weixin" value="'.$user_concerned->user_weixin.'"</p>
-
-						');
+										');
+										
+										include  '..\DAL\commission_member_from_user_pk.php' ;
+										
+										// gestion des droits
+										if(isset($_SESSION['user_is_admin'])&&$_SESSION['user_is_admin']==1) //TODO||(isset($_SESSION['user_type'])&&$_SESSION['user_type']==1)
+										{
+											echo('
+											<p>Lien avec la commission :'); 
+											/* Chargement de la commission attachée à l'utilisateur dans la base et création d'une liste déroulante avec 
+											la commission déjà selectionnée */
+											
+											include  '..\Controller\com_list.php' ;
+											
+											if (isset($cm_array[0]['comm_pk'])) 
+											{ 
+												// On garde l'ancienne commission pour gérer un probable update de celle ci à la prochaine page
+												$previous_com=$cm_array[0]['comm_pk']; 
+												echo('
+												<input type="hidden" name="previous_com" value="'.$previous_com.'">
+												<input type="hidden" name="user_pk" value="'.$user_concerned->user_pk.'">');
+											}								
+											echo('</p>');
+										}
 ?>

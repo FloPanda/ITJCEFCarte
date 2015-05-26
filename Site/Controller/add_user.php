@@ -26,7 +26,6 @@ ob_start( );
 	if(isset($_POST['user_skype'])&&$_POST['user_skype']!=null  )  { $us->user_skype=$_POST['user_skype'] ;}
 	if(isset($_POST['user_address'])&&$_POST['user_address']!=null  )  { $us->user_address=$_POST['user_address'] ;}
 	if(isset($_POST['user_comment'])&&$_POST['user_comment']!=null  )  { $us->user_comment=$_POST['user_comment'] ;}
-
 	
 	include('../Model/ViewModel/user_list_uuid.php');
 	
@@ -65,6 +64,11 @@ ob_start( );
 	
 	
 	include('../DAL/insert_user.php');
+	
+	if(isset($_POST['com_list']))
+	{
+		include('../DAL/insert_commission_member.php');
+	}
 
 	if(isset($us->user_qr_code_url))
 	{

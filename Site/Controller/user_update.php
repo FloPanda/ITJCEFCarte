@@ -12,8 +12,24 @@ $user_array['user_birth']=$_POST['user_birth'];
 $user_array['user_sex']=$_POST['user_sex'];
 $user_array['user_skype']=$_POST['user_skype'];
 $user_array['user_weixin']=$_POST['user_weixin'];
-
+//envoi des informations pour update user
 include '../DAL/user_profil_update_var.php';
+
+if(isset($_POST['com_list']))
+{
+	// nouvelle commission
+	if(!isset($_POST['previous_com']))
+	{
+		include('../DAL/insert_commission_member_user_post.php');
+	}
+	// commission différente
+	else if(!isset($_POST['previous_com'])||$_POST['previous_com']!=$_POST['com_list'])
+	{
+		// modification de l'ancienne information
+		include('../DAL/update_commission_member.php');
+		include('../DAL/insert_commission_member_user_post.php');
+	}
+}
 
 echo('
 <html>
