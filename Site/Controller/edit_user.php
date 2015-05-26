@@ -51,6 +51,6 @@ echo('
 												<input type="hidden" name="previous_com" value="'.$previous_com.'">
 												<input type="hidden" name="user_pk" value="'.$user_concerned->user_pk.'">');
 											}								
-											echo('</p>');
+											echo('</p>'); 
 										}
 ?>
