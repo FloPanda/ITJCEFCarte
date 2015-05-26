@@ -35,7 +35,7 @@ echo('
 										if(isset($_SESSION['user_uuid'])&&($_SESSION['user_uuid']==$user_concerned->user_uuid||$_SESSION['user_is_admin']==1))
 										{
 											echo('
-												<form action="./edit_user.php" method="POST">
+												<form action="../View/edit_user.php" method="POST">
 													<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
 													<input class="btn btn-primary" type="submit" name="submit" value="Editer">
 												</form>

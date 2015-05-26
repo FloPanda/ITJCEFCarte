@@ -11,14 +11,6 @@ $user_concerned=new user_full($_POST['user_uuid']);
 
 
 echo('
-
-					
-
-
-					<div id="myModal"  ;>
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-header">
 						            <form method="POST" action="../Controller/user_update.php">    
 						                <img style="display:block; width:150px;height:150px;" src='.$user_concerned->user_picture.' class="img-rounded">
 
@@ -41,13 +33,5 @@ echo('
 						                <p>Skype : <input type="text" name="user_skype" value="'.$user_concerned->user_skype.'"</p>
 						                <p>WeChat : <input type="text" name="user_weixin" value="'.$user_concerned->user_weixin.'"</p>
 
-						                						       
-						            </div>
-						            <div class="modal-footer">
-						                
-									</div>
-						        </div>
-						    </div>
-						</div>
 						');
 ?>

@@ -11,13 +11,6 @@ $titlecontent=$com_concerned->com_name;
 
 echo('
 
-					
-
-
-					<div id="myModal"  ;>
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-header">
 						               <form method="POST" action="../Controller/commission_update.php"> 
 						                <img style="display:block; width:250px;height:150px;" src='.$com_concerned->com_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$com_concerned->com_picture.'</h4> <input class="btn btn-primary" type="submit" name="submit" value="Sauvegarder">
@@ -32,11 +25,5 @@ echo('
 
 						                						       
 						            </div>
-						            <div class="modal-footer">
-						                
-									</div>
-						        </div>
-						    </div>
-						</div>
 						');
 ?>
