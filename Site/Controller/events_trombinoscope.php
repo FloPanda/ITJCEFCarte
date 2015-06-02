@@ -4,7 +4,6 @@
 	require( '../Model/ViewModel/ev_list_trombinoscope.php');
 ?>
 
-				<h1 class="modal-title" align=center>Evenements</h1>
 							
 					<?php 
 					$count=0;

@@ -1,4 +1,8 @@
 <?php
+
+include '../Model/DataModel/user_full_DM_pk.php';
+
+
 // if var required
 $user_array=null;
 
@@ -12,8 +16,26 @@ $user_array['user_birth']=$_POST['user_birth'];
 $user_array['user_sex']=$_POST['user_sex'];
 $user_array['user_skype']=$_POST['user_skype'];
 $user_array['user_weixin']=$_POST['user_weixin'];
+$user_array['user_member_type']=$_POST['user_member_type'];
+
+$user_concerned=new user_full($_POST['user_pk']);
+if($user_concerned->user_member_type!=$_POST['user_member_type'])
+{	//si ce membre devient pengyou ou ancien, sa période d'adhésion s'arrête s'il était membre avant
+	if(($_POST['user_member_type']==2||$_POST['user_member_type']==3)&&$user_concerned->user_member_type==1) 
+	{
+		include '../DAL/update_periode.php';
+	}
+	else if($_POST['user_member_type']==1) //cas inverse, s'il devient membre, sa période commence.
+	{
+		$us->user_uuid=$user_concerned->user_uuid;
+		include '../DAL/insert_periode.php';
+	}
+}
+
 //envoi des informations pour update user
 include '../DAL/user_profil_update_var.php';
+
+
 
 if(isset($_POST['com_list']))
 {
@@ -31,6 +53,7 @@ if(isset($_POST['com_list']))
 	}
 }
 
+//transmission des infos
 echo('
 <html>
 <head>

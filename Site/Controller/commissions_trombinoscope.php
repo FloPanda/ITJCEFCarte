@@ -4,7 +4,6 @@
 	require( '../Model/ViewModel/com_list_trombinoscope.php');
 ?>
 
-				<h1 class="modal-title" align=center>Commissions</h1>
 					<div class="row-fluid">
 					<div class="span8">
 							

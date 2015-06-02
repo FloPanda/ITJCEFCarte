@@ -66,24 +66,7 @@
 			"'.$us->user_comment.'"
 			)');
 			
-	$query = mysqli_query($link,
-	'INSERT INTO `periode` 
-			(
-			`periode_user`,
-			`periode_debut`,
-			`periode_fin`
-			
-			)
-			VALUES
-			(
-			(SELECT user_pk
-			   FROM user
-			   WHERE user_uuid = '.$us->user_uuid.'
-			  ),
-			NOW(),
-			null
-			
-			)');
+	
 
 
 ?>

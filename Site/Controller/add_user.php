@@ -62,8 +62,11 @@ ob_start( );
 		
 		
 	
-	
 	include('../DAL/insert_user.php');
+	
+	// Si c'est un membre, sa période d'adhésion commence
+	if($_POST['user_member_type']==1) { include ('../DAL/insert_periode.php');}
+	
 	
 	if(isset($_POST['com_list']))
 	{
