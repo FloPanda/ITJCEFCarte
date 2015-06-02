@@ -1,6 +1,6 @@
-	<?php	
-		require( '../Model/DataModel/user_full_DM.php');
-		require ('../DAL/sql_connect.php');
-		$user=new user_full();
-		echo json_encode($user);	
-	?>
+require( '../Model/DataModel/user_full_DM_pk.php');
+require ('../DAL/sql_connect.php');
+$userJSON = json_encode(new user_full(1));
+
+
+
