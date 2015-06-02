@@ -64,8 +64,13 @@
 										Sexe :
 									</td>
 									<td> 
+<<<<<<< HEAD
 										<input type="radio" name="user_sex" value="m" checked> homme<br>
 										<input type="radio" name="user_sex" value "f"> femme
+=======
+										<input type="radio" name="user_sex" checked="checked" value="male"> homme<br>
+										<input type="radio" name="user_sex" value="female"> femme
+>>>>>>> origin/master
 									</td>
 								</tr>
 								<tr>
@@ -81,9 +86,14 @@
 										Type d'adhésion : 
 									</td>
 									<td>
+<<<<<<< HEAD
 										<input type="radio" name="user_member_type" checked="checked" value="1"> Membre<br>
 										<input type="radio" name="user_member_type" value="2"> Pengyou <br>
 										<input type="radio" name="user_member_type" value="3"> Ancien
+=======
+										<input type="radio" name="user_member_type" checked="checked" value="2"> Membre<br>
+										<input type="radio" name="user_member_type" value="1"> Pengyou
+>>>>>>> origin/master
 									</td>
 								</tr>
 								<tr>
