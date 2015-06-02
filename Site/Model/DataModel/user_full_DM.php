@@ -86,7 +86,7 @@ class user_full
 	$this->user_birth=null;
 	$this->user_sex=null;
 	$this->user_nation="inconnu";
-	$this->user_user_type=null;
+	$this->user_user_type=4;
 	$this->user_member_type=null;
 	$this->user_jcef_function="non specifie";
 	$this->user_status="non specifie";

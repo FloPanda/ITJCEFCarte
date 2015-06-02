@@ -19,6 +19,7 @@ echo('
 						            </div>
 						            <div class="modal-body">
 						            	<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'">
+										<input type="hidden" name="user_pk" value="'.$user_concerned->user_pk.'">
 										<p>Photo : <input type="text" name="user_picture" value="'.$user_concerned->user_picture.'"</p>
 						                <p>Fonction : <input type="text" name="user_jcef_function" value="'.$user_concerned->user_jcef_function.'"</p>
 						                <p>Pays : <input type="text" name="user_nation" value="'.$user_concerned->user_nation.'"</p>
@@ -30,13 +31,12 @@ echo('
 						                <p>Skype : <input type="text" name="user_skype" value="'.$user_concerned->user_skype.'"</p>
 						                <p>WeChat : <input type="text" name="user_weixin" value="'.$user_concerned->user_weixin.'"</p>
 										<p> Type adhésion:
-							<form method="POST" name="user_member_type">
-							<input type="radio" name="1"'); if($user_concerned->user_member_type==1){echo('checked="checked"');} echo(' value="1"> Membre <br>
-							<input type="radio" name="2"'); if($user_concerned->user_member_type==2){echo('checked="checked"');} echo(' value="2"> Pengyou <br>
-							<input type="radio" name="3"'); if($user_concerned->user_member_type==3){echo('checked="checked"');} echo(' value="3"> Ancien
-							</form> 	</p>
+							<input type="radio" name="user_member_type"'); if($user_concerned->user_member_type==1){echo('checked="checked"');} echo(' value="1"> Membre <br>
+							<input type="radio" name="user_member_type"'); if($user_concerned->user_member_type==2){echo('checked="checked"');} echo(' value="2"> Pengyou <br>
+							<input type="radio" name="user_member_type"'); if($user_concerned->user_member_type==3){echo('checked="checked"');} echo(' value="3"> Ancien
+								</p>
 										
-										<input type="hidden" name="user_pk" value="'.$user_concerned->user_pk.'">
+										
 										');
 										
 										include  '..\DAL\commission_member_from_user_pk.php' ;
@@ -59,6 +59,6 @@ echo('
 												<input type="hidden" name="previous_com" value="'.$previous_com.'">
 												');
 											}								
-											echo('</p>'); 
+											echo('</p></form>'); 
 										}
 ?>

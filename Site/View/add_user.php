@@ -64,13 +64,8 @@
 										Sexe :
 									</td>
 									<td> 
-<<<<<<< HEAD
-										<input type="radio" name="user_sex" value="m" checked> homme<br>
-										<input type="radio" name="user_sex" value "f"> femme
-=======
 										<input type="radio" name="user_sex" checked="checked" value="male"> homme<br>
 										<input type="radio" name="user_sex" value="female"> femme
->>>>>>> origin/master
 									</td>
 								</tr>
 								<tr>
@@ -86,14 +81,9 @@
 										Type d'adhésion : 
 									</td>
 									<td>
-<<<<<<< HEAD
 										<input type="radio" name="user_member_type" checked="checked" value="1"> Membre<br>
 										<input type="radio" name="user_member_type" value="2"> Pengyou <br>
 										<input type="radio" name="user_member_type" value="3"> Ancien
-=======
-										<input type="radio" name="user_member_type" checked="checked" value="2"> Membre<br>
-										<input type="radio" name="user_member_type" value="1"> Pengyou
->>>>>>> origin/master
 									</td>
 								</tr>
 								<tr>
@@ -199,7 +189,11 @@
 										<p>Lien avec la commission : <?php include  '..\Controller\com_list.php' ; echo('</p>'); ?>
 									</td>
 								</tr>
-								
+								<tr>
+									<td>
+									<input type="hidden" name="user_user_type" value="4" /><!-- admin = 1, dir com =2, membre = 3, en attente = 4 -->
+									</td>
+								</tr>
 								<tr>
 									<td>
 											<input type="submit" value="Valider" name="submit">

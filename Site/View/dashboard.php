@@ -24,9 +24,12 @@
 								<li><a href="../View/add_event.php">Ajout Evenement</a></li>
 								<li><a href="../View/add_commission.php">Ajout Commission</a></li>
 								<li><a href="../Controller/statistiques.php">Statistiques</a></li>
+								<li><a href="../Controller/statistiques.php">Statistiques</a></li>
+								<li><a href="../View/user_confirm.php">Utilisateurs en attente</a></li>
 								<!--<li><a href="../Controller/user_profil.php">page test</a></li>
 								<li><a href="../Controller/event_detailled.php">page test</a></li>
 								<li><a href="../Controller/commission_detailled.php">page test</a></li>-->
+								
 							</ul>
 						</li>
 						');

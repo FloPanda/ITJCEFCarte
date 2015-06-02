@@ -7,8 +7,22 @@
 	UPDATE 
 	user
 	SET 
+	user_picture = "'.$user_array['user_picture'].'",
+	user_jcef_function = "'.$user_array['user_jcef_function'].'",
+	user_nation = "'.$user_array['user_nation'].'",
+	user_company = "'.$user_array['user_company'].'",
+	user_subscription_date = "'.$user_array['user_subscription_date'].'",
+	user_email_jcef = "'.$user_array['user_email_jcef'].'",
+	user_birth = "'.$user_array['user_birth'].'",
+	user_sex = "'.$user_array['user_sex'].'",
+	user_skype = "'.$user_array['user_skype'].'",
+	user_weixin = "'.$user_array['user_weixin'].'"
+	WHERE user_uuid = "'.$_POST['user_uuid'].'" 
+	');	
+
+
 	
-    user_name = "'.$_POST['user_name'].'",
+	/*user_name = "'.$_POST['user_name'].'",
     user_surname = "'.$_POST['user_surname'].'",
     user_is_admin = "'.$_POST['user_is_admin'].'",
     user_birth = "'.$_POST['user_birth'].'",
@@ -42,4 +56,3 @@
 
 
 ?>
-
