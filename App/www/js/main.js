@@ -122,23 +122,36 @@ function openUserProfil(){
     $.mobile.pageContainer.pagecontainer('change', "#user_profil");   
 }
 
+function openEventProfil(){
+    WSevent_profil();
+    $.mobile.pageContainer.pagecontainer('change', "#event_profil");   
+}
+
+function openCommissionProfil(){
+    WScommission_profil();
+    $.mobile.pageContainer.pagecontainer('change', "#commission_profil");   
+}
+
 function openEditUserProfil(){
     WSedit_user();
     $.mobile.pageContainer.pagecontainer('change', "#edit_user");   
 }
 
 //fonction appelée ailleurs pour ouvrir proprement la page trombinoscope
-function openTrombi() {
-    $.mobile.pageContainer.pagecontainer('change', "#trombinoscope");
+function openUsrTrombi() {
+    WStrombinoscope_users();
+    $.mobile.pageContainer.pagecontainer('change', "#users_trombinoscope");
 }
 
 //fonction appelée ailleurs pour ouvrir proprement la page events_trombinoscope
 function openEvTrombi() {
+    WStrombinoscope_events();
     $.mobile.pageContainer.pagecontainer('change', "#events_trombinoscope");
 }
 
 //fonction appelée ailleurs pour ouvrir proprement la page commissions_trombinoscope
 function openComTrombi() {
+  WStrombinoscope_commissions();
     $.mobile.pageContainer.pagecontainer('change', "#commissions_trombinoscope");
 }
 
@@ -262,8 +275,64 @@ function login(){
 }
 
 //A MODIF. Affiche trombi user.
-function WStrombinoscope(){
+function WStrombinoscope_users(){
+    var URL = "http://localhost/ITJCEFCarte/Site/Controller/WStrombinoscope.php";
+    var contentElem;
     
+        $.ajax({
+            //type: 'POST',
+            //url: URL +"?user="+user_uuid,
+            url: URL,
+            //contentType: "application/json",
+            dataType: "json",
+            beforeSend: setHeader,
+            //data: data,
+            async: false,
+            statusCode: {
+                200: function (res) {
+                    var obj = JSON.parse(res);
+                    
+                    var strObj = JSON.stringify(res);
+                    //console.log(obj);                  
+
+
+                   $("#users_trombinoscope > #trombiUsers").append('GGHYGFHIUUTFGHJ');
+                   
+
+                    },
+                400: function(){
+                    self.showAlert(current, "votre champs ISBN ne contient pas un ISBN valide", "erreur");
+                    },
+                401: function(){
+                    self.showAlert(current, "Connexion impossible, Vous avez été déconnecté", "erreur");
+                    if (checkPreAuth()) {
+                        self.showAlert(current, "reconnecté ! réessayez", "information");
+                    } else {
+                        self.showAlert(current, "reconnexion impossible, vérifiez vos identifiants","erreur");
+                        logout();
+                        }
+                    },
+                404: function(){
+                    //je teste si ma zone de stockage pour ISBNNoContentList a été initialisée
+                    if (window.sessionStorage["ISBNNoContentList"]!= undefined){
+                        //Si oui alors j'ajoute le nouvel ISBN à mon tableau
+                        var ISBNNoContentList = JSON.parse(window.sessionStorage["ISBNNoContentList"]);
+                        ISBNNoContentList.push(i);
+                        window.sessionStorage["ISBNNoContentList"]=JSON.stringify(ISBNNoContentList);
+                    } else {
+                    //Sinon j'initialise
+                        window.sessionStorage["ISBNNoContentList"]=JSON.stringify([i]);
+                    }
+                    },
+                500: function(){
+                    self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
+                    }
+                    }
+            });
+    //} else {
+      //  $("#submit").removeAttr("disabled");
+    //}
+    return false;
 }
 
 //A MODIF. Affiche trombi commissions.
