@@ -11,6 +11,12 @@ class user_trombinoscope
 	var $user_surname;
 	var $user_jcef_function;
 	var $user_picture;
+	var $user_nation;
+	var $user_company;
+	var $user_email_jcef;
+	var $user_subscription_date;
+	var $user_user_type;
+	var $user_member_type;
 
   public function __construct(array $value) 
   {
@@ -25,6 +31,7 @@ class user_trombinoscope
 	$this->user_subscription_date=$value['user_subscription_date'];
 	$this->user_uuid=$value['user_uuid'];
 	$this->user_user_type=$value['user_user_type'];
+	$this->user_member_type=$value['user_member_type'];
 
   }
   

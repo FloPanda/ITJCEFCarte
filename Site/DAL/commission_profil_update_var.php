@@ -10,7 +10,8 @@
 	
 	com_picture = "'.$com_array['com_picture'].'",
 	com_description = "'.$com_array['com_description'].'",
-	com_name="'.$com_array['com_name'].'"
+	com_name="'.$com_array['com_name'].'",
+	com_is_open="'.$com_array['com_is_open'].'"
 	WHERE com_pk = "'.$_POST['com_pk'].'" 
 	');	
 

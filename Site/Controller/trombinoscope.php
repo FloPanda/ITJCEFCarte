@@ -1,11 +1,15 @@
-
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 	<?php	
 		require( '../Model/ViewModel/user_list_trombinoscope.php');
 
 		
 					$count=0;
 					$test=new user_list_trombinoscope();
-					echo "<table>";					
+					echo "<table id='table_trombi'>";					
 					foreach($test->user_list as $value)
 					{	
 						if($count%6==0)

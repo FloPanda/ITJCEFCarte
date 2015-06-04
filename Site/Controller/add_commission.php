@@ -10,6 +10,8 @@
 	{$co->com_name=$_POST['com_name'];}
 	if(isset($_POST['com_description']))
 	{$co->com_description=$_POST['com_description'];}
+	if(isset($_POST['com_is_open']))
+	{$co->com_is_open=$_POST['com_is_open'];}
 	if(isset($_POST['com_picture']))
 	{
 		$co->com_picture=$_POST['com_picture'];

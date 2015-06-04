@@ -24,6 +24,8 @@ echo('
 						     
 						            	<p>Description : '.$com_concerned->com_description.'</p>
 						            	
+										<p>Commission actuellement '); if($com_concerned->com_is_open==1){echo('ouverte.</p>');}else{echo('fermée.</p>');}
+										echo('
 						                						       
 						            </div>
 						');

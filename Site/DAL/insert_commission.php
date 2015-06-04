@@ -11,13 +11,15 @@ error_reporting(E_ALL);
 			(
 			`com_name`,
 			`com_description`,
-			`com_picture`
+			`com_picture`,
+			`com_is_open`
 			)
 			VALUES
 			(
 			"'.$co->com_name.'",
 			"'.$co->com_description.'",
-			"'.$co->com_picture.'"
+			"'.$co->com_picture.'",
+			"'.$co->com_is_open.'"
 			)');
 
 ?>

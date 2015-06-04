@@ -64,9 +64,19 @@
 								</tr>
 								<tr>
 									<td>
+										Commission ouverte :
+									</td>
+									<td> 
+										<input type="radio" name="com_is_open" checked="checked" value="1"> Oui<br>
+										<input type="radio" name="com_is_open" value="0"> Non
+									</td>
+								</tr>
+								<tr>
+									<td>
 											<input type="submit" value="Valider" name="submit">
 									</td>
 								</tr>
+								
 						</table>
 					</form>	
 						
