@@ -290,13 +290,30 @@ function WStrombinoscope_users(){
             async: false,
             statusCode: {
                 200: function (res) {
-                    var obj = JSON.parse(res);
+                    //var obj = JSON.parse(res);
                     
-                    var strObj = JSON.stringify(res);
-                    //console.log(obj);                  
+                    //var strObj = JSON.stringify(res);
+                                      
+
+                   /*$.each(res,function(i, user)
+                   {
+                      //console.log(user);
+                   });*/
+
+                   for (var i = 0; i < res.length; i++) {
+                      tr = $('<tr/>');
+                      tr.append("<td>" + res[i].user_surname + "</td>");
+                      tr.append("<td>" + res[i].user_name + "</td>");
+                      tr.append("<td>" + res[i].user_jcef_function + "</td>");
+                      $('#users_trombinoscope > #trombiUsers').append(tr);
+                  }   
 
 
-                   $("#users_trombinoscope > #trombiUsers").append('GGHYGFHIUUTFGHJ');
+
+                      
+                      //$("#users_trombinoscope > #trombiUsers").append(res[i].user_surname);
+                   
+                   
                    
 
                     },
@@ -347,8 +364,19 @@ function WStrombinoscope_events(){
 
 
 function WSedit_user(){
-    $("#user_profil > user_surname").append('UFIUEFIEGIFGUEGF');
-    //alert("jnninin");
+    res = JSON.parse(window.localStorage["active_user_profil"]);
+    $('input[name=user_surname]').val(res.user_surname);
+    $('input[name=user_name]').val(res.user_name);
+    $('input[name=user_nation]').val(res.user_nation);
+    $('input[name=user_company]').val(res.user_company);
+    $('input[name=user_subscription_date]').val(res.user_subscription_date);
+    $('input[name=user_email_jcef]').val(res.user_email_jcef);
+    $('input[name=user_birth]').val(res.user_birth);
+    $('input[name=user_sex]').val(res.user_sex);
+    $('input[name=user_skype]').val(res.user_skype);
+    $('input[name=user_weixin]').val(res.user_weixin);
+    $('input[name=user_jcef_function]').val(res.user_jcef_function);
+    
 }
 
 //A MODIF fonction qui récupère le contenu associé à un user_uuid appelée depuis user_profil.html
@@ -367,77 +395,23 @@ function WSuser_profil(){
             async: false,
             statusCode: {
                 200: function (res) {
-                    //var obj = JSON.parse(userJSON);
-                    //var div = document.getElementById("tg");
-                    //var php_var = div.textContent;
-                    
-                    //localStorage.setItem('php_var', php_var);
-                    
-                    //var toto = local$.map(res.fields);
-                    var strObj = JSON.stringify(res);
-                    console.log(res);
-
-                    //var success =  $($.parseHTML(res)).filter("#tg").childNodes.data; 
-                    //console.log(success); // div#success
-
-
-                    //var div = $('#tg', $(res));
-                    //$('#targetDiv').html(div);
-
-                    //var div = $("div",res);
-
-                    //var php_var = div.textContent;
-                    //var strObj = JSON.stringify(success);
-                    //alert(strObj); 
-                    //var obj = JSON.parse(strObj);
-                    //alert(obj.user_surname);
-
-
-
-
-
-                    //document.write('Nom :');
-                    //document.write(obj.user_name);
-
-                    //window.localStorage["user_jcef_function"] = obj.user_jcef_function;
-                    /*window.localStorage["user_surname"] = obj.user_surname;
-                    window.localStorage["user_name"] = obj.user_name;
-                    window.localStorage["user_company"] = obj.user_company;
-                    window.localStorage["user_subscription_date"] = obj.user_subscription_date;
-                    window.localStorage["user_email_jcef"] = obj.user_email_jcef;
-                    window.localStorage["user_birth"] = obj.user_birth;
-                    window.localStorage["user_sex"] = obj.user_sex;
-                    window.localStorage["user_skype"] = obj.user_skype;
-                    window.localStorage["user_weixin"] = obj.user_weixin;
-                    window.localStorage["user_picture"] = obj.user_picture;*/
                     
 
 
-                   $("#user_profil > #user_picture").append('<img src="'+window.localStorage["user_picture"]+'"</img>');
-                   $("#user_profil > #user_surname").append(' '+window.localStorage["user_surname"]);
-                   $("#user_profil > #user_name").append(' '+window.localStorage["user_name"]);
-                   //$("#user_profil > #user_jcef_function").append(' '+window.localStorage["user_jcef_function"]);
+                   $("#user_profil > #user_picture").append('<img src="'+res.user_picture+'"</img>');
+                   $("#user_profil > #user_surname").append(' '+res.user_surname);
+                   $("#user_profil > #user_name").append(' '+res.user_name);
+                   $("#user_profil > #user_nation").append(' '+res.user_nation);
+                   $("#user_profil > #user_company").append(' '+res.user_company);
+                   $("#user_profil > #user_subscription_date").append(' '+res.user_subscription_date);
+                   $("#user_profil > #user_email_jcef").append(' '+res.user_email_jcef);
+                   $("#user_profil > #user_birth").append(' '+res.user_birth);
+                   $("#user_profil > #user_sex").append(' '+res.user_sex);
+                   $("#user_profil > #user_skype").append(' '+res.user_skype);
+                   $("#user_profil > #user_weixin").append(' '+res.user_weixin);
+                   $("#user_profil > #user_jcef_function").append(' '+res.user_jcef_function);
 
-                    
-                
-                    /*$user_concerned->user_nation
-                
-                    $user_concerned->user_company
-                
-                    $user_concerned->user_subscription_date
-                
-                    $user_concerned->user_email_jcef
-               
-                    $user_concerned->user_birth
-               
-                    $user_concerned->user_sex
-               
-                    $user_concerned->user_skype
-                
-                    $user_concerned->user_weixin*/
-
-
-
+                   window.localStorage["active_user_profil"] = JSON.stringify(res);
 
 
                     },
