@@ -84,7 +84,8 @@ function onGlobal(){
     
 
     $(document).on("pageshow",  "#settings", function(event, ui) {
-                   $("#account").append(' '+window.localStorage["user_uuid"]+'.');
+                   $("#settings > #account").append(' '+window.localStorage["user_surname"]+window.localStorage["user_name"]+'.');
+                   alert('zeefezfzefzeffe');
                    } );
 
     $(document).on("pageshow",  "#trombinoscope", function(event, ui) {
@@ -157,6 +158,7 @@ function openComTrombi() {
 
 //fonction appelée ailleurs pour ouvrir proprement la page settings
 function openSettings(){
+    $("#settings > #account").append(' '+window.localStorage["user_surname"]+' '+window.localStorage["user_name"]+'.');
     $(':mobile-pagecontainer').pagecontainer('change', '#settings');
 }
 
@@ -290,21 +292,23 @@ function WStrombinoscope_users(){
             async: false,
             statusCode: {
                 200: function (res) {
-                    //var obj = JSON.parse(res);
+                    
                     
                     //var strObj = JSON.stringify(res);
-                                      
+                    //var obj = JSON.parse(res);
+                    //var obj = jQuery.parseJSON(res);
+                                     
 
-                   /*$.each(res,function(i, user)
+                   $.each(obj,function(i, user)
                    {
-                      //console.log(user);
-                   });*/
+                     console.log(user);
+                   });
 
                    for (var i = 0; i < res.length; i++) {
                       tr = $('<tr/>');
-                      tr.append("<td>" + res[i].user_surname + "</td>");
-                      tr.append("<td>" + res[i].user_name + "</td>");
-                      tr.append("<td>" + res[i].user_jcef_function + "</td>");
+                      tr.append("<td>" + obj[i].user_surname + "</td>");
+                      tr.append("<td>" + obj[i].user_name + "</td>");
+                      tr.append("<td>" + obj[i].user_jcef_function + "</td>");
                       $('#users_trombinoscope > #trombiUsers').append(tr);
                   }   
 
@@ -364,7 +368,7 @@ function WStrombinoscope_events(){
 
 
 function WSedit_user(){
-    res = JSON.parse(window.localStorage["active_user_profil"]);
+    res = JSON.parse(window.localStorage["selected_user_profil"]);
     $('input[name=user_surname]').val(res.user_surname);
     $('input[name=user_name]').val(res.user_name);
     $('input[name=user_nation]').val(res.user_nation);
@@ -411,12 +415,12 @@ function WSuser_profil(){
                    $("#user_profil > #user_weixin").append(' '+res.user_weixin);
                    $("#user_profil > #user_jcef_function").append(' '+res.user_jcef_function);
 
-                   window.localStorage["active_user_profil"] = JSON.stringify(res);
+                   window.localStorage["selected_user_profil"] = JSON.stringify(res);
 
 
                     },
                 400: function(){
-                    self.showAlert(current, "votre champs ISBN ne contient pas un ISBN valide", "erreur");
+                    self.showAlert(current, "L'utilisateur n'existe pas.", "erreur");
                     },
                 401: function(){
                     self.showAlert(current, "Connexion impossible, Vous avez été déconnecté", "erreur");
@@ -428,16 +432,123 @@ function WSuser_profil(){
                         }
                     },
                 404: function(){
-                    //je teste si ma zone de stockage pour ISBNNoContentList a été initialisée
-                    if (window.sessionStorage["ISBNNoContentList"]!= undefined){
-                        //Si oui alors j'ajoute le nouvel ISBN à mon tableau
-                        var ISBNNoContentList = JSON.parse(window.sessionStorage["ISBNNoContentList"]);
-                        ISBNNoContentList.push(i);
-                        window.sessionStorage["ISBNNoContentList"]=JSON.stringify(ISBNNoContentList);
-                    } else {
-                    //Sinon j'initialise
-                        window.sessionStorage["ISBNNoContentList"]=JSON.stringify([i]);
+                    
+                    },
+                500: function(){
+                    self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
                     }
+                    }
+            });
+    //} else {
+      //  $("#submit").removeAttr("disabled");
+    //}
+    return false;
+}
+
+
+function WSevent_profil(){
+    var URL = "http://localhost/ITJCEFCarte/Site/Controller/WSevent_profil.php";
+    var contentElem;
+    //if(user != '') {
+        $.ajax({
+            //type: 'POST',
+            //url: URL +"?user="+user_uuid,
+            url: URL,
+            //contentType: "application/json",
+            dataType: "json",
+            beforeSend: setHeader,
+            //data: data,
+            async: false,
+            statusCode: {
+                200: function (res) {
+                    
+
+
+                   $("#event_profil > #event_picture").append('<img src="'+res.ev_picture+'"</img>');
+                   $("#event_profil > #event_name").append(' '+res.ev_name);
+                   $("#event_profil > #event_address").append(' '+res.ev_address);
+                   $("#event_profil > #event_date").append(' '+res.ev_date);
+                   $("#event_profil > #event_description").append(' '+res.ev_description);
+                   $("#event_profil > #event_max_participants").append(' '+res.ev_max_participants);
+                   $("#event_profil > #event_participants").append(' '+res.ev_participants);
+                   $("#event_profil > #event_price").append(' '+res.ev_price);
+                   $("#event_profil > #event_nb_subscribed").append(' '+res.ev_nb_subscribed);
+                   $("#event_profil > #event_charged_member").append(' '+res.ev_charged_member);
+                   $("#event_profil > #event_com_linked").append(' '+res.ev_com_linked);
+                   
+
+                   window.localStorage["selected_event_profil"] = JSON.stringify(res);
+
+
+                    },
+                400: function(){
+                    self.showAlert(current, "L'event n'existe pas.", "erreur");
+                    },
+                401: function(){
+                    self.showAlert(current, "Connexion impossible, Vous avez été déconnecté", "erreur");
+                    if (checkPreAuth()) {
+                        self.showAlert(current, "reconnecté ! réessayez", "information");
+                    } else {
+                        self.showAlert(current, "reconnexion impossible, vérifiez vos identifiants","erreur");
+                        logout();
+                        }
+                    },
+                404: function(){
+                    
+                    },
+                500: function(){
+                    self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
+                    }
+                    }
+            });
+    //} else {
+      //  $("#submit").removeAttr("disabled");
+    //}
+    return false;
+}
+
+
+
+function WScommission_profil(){
+    var URL = "http://localhost/ITJCEFCarte/Site/Controller/WScom_profil.php";
+    var contentElem;
+    //if(user != '') {
+        $.ajax({
+            //type: 'POST',
+            //url: URL +"?user="+user_uuid,
+            url: URL,
+            //contentType: "application/json",
+            dataType: "json",
+            beforeSend: setHeader,
+            //data: data,
+            async: false,
+            statusCode: {
+                200: function (res) {
+                    
+
+
+                   $("#commission_profil > #commission_picture").append('<img src="'+res.com_picture+'"</img>');
+                   $("#commission_profil > #commission_name").append(' '+res.com_name);
+                   $("#commission_profil > #commission_description").append(' '+res.com_description);              
+
+                   window.localStorage["selected_com_profil"] = JSON.stringify(res);
+
+
+                    },
+                400: function(){
+                    self.showAlert(current, "La Commisssion n'existe pas.", "erreur");
+                    },
+                401: function(){
+                    self.showAlert(current, "Connexion impossible, Vous avez été déconnecté", "erreur");
+                    if (checkPreAuth()) {
+                        self.showAlert(current, "reconnecté ! réessayez", "information");
+                    } else {
+                        self.showAlert(current, "reconnexion impossible, vérifiez vos identifiants","erreur");
+                        logout();
+                        }
+                    },
+                404: function(){
+                    
                     },
                 500: function(){
                     self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");

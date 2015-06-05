@@ -51,8 +51,8 @@
                     <div data-role="header" id="mainHeader">
                         <div class="maxWidth">
                             <hgroup>
-                                <h1>Appli JCEF</h1>
-                                <p>Bienvenue sur l'Application dédiée à la JCEF de Shanghai</p>
+                                <h1>App JCEF</h1>
+                                <p>Bienvenue sur l'App de JCEF de Shanghai !</p>
                             </hgroup>
                         </div>
                     </header>
@@ -67,7 +67,7 @@
                                     <input type="password" class="largeInput" id="user_password" value="" placeholder="Mot de passe" /> <br/>
                                     <label for"user_password">Mot de passe:</label>
                                 </div>
-                            <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="openUsrTrombi()" data-role="none">Connexion</button>
+                            <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="login()" data-role="none">Connexion</button>
                         </article>
                         <div data-role="popup" id="popupLogin" class="ui-content">
 	                    	<div data-role="header">
@@ -301,14 +301,9 @@
                 <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="link" href="#" onclick="openSettings()">  </a>
             </div>
                 
-            <form action="javascript:openEditUserProfil()" method="POST">
-                <input type="hidden" name="user_uuid" value=""> 
-                <input type="submit" name="submit" value="Editer">
-            </form>
 
+            <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="openEditUserProfil()" data-role="none">Editer</button>
 
-           
-            
         
            <!-- <div id='profilDiv'>-->
                 <p>
@@ -402,7 +397,7 @@
             </div>
                 
        
-           <form action='../../Site/Controller/user_update.php' method='POST'>
+           <form action='../../Site/Controller/user_update.php' method='POST' onsubmit="openUserProfil()">
                 <p>
                 <div id="user_picture">
                 <input type="file" name="user_picture" value="">                    
