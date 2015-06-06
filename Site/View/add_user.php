@@ -186,7 +186,7 @@
 								</tr>
 								<tr>
 									<td>
-										<p>Lien avec la commission : <?php include  '..\Controller\com_list.php' ; echo('</p>'); ?>
+										<p>Lien avec la commission : <?php  $is_add=true; include  '..\Controller\com_list.php' ; echo('</p>'); ?>
 									</td>
 								</tr>
 								<tr>

@@ -2,6 +2,12 @@
 <?php
 	header('Content-type: text/html; charset=UTF-8');
 	session_start();
+	
+	
+	if (isset($_SESSION['user_user_type'])&&$_SESSION['user_user_type']==4&&!isset($is_non_droits))
+	{
+		header("Location: ../View/user_non_droits.php"); 
+	}
 ?>
 
 <!-- start header-->
@@ -268,7 +274,8 @@
 						<!-- account -->
 						<li class="dropdown"><?php
 						if(isset($_SESSION['user_uuid']))
-									{echo('
+									{
+									echo('
 										
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.
 								
@@ -279,8 +286,12 @@
 									else
 									{
 										echo("<li><a tabindex='-1' href='../View/index.php'>Login</a></li>");
+										//redirection si non connecté.
+										if(!isset($is_index)){header("Location: ../View/index.php"); } 
 									}
-								?>
+						
+						
+						?>
 								
 								
 								

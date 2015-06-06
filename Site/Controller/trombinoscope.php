@@ -1,8 +1,8 @@
-<script>
+<!--<script>
 $(document).ready(function() {
     $('#example').DataTable();
 } );
-</script>
+</script>-->
 	<?php	
 		require( '../Model/ViewModel/user_list_trombinoscope.php');
 

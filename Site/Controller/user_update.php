@@ -6,6 +6,7 @@ include '../Model/DataModel/user_full_DM_pk.php';
 // if var required
 $user_array=null;
 
+// les informations relatives aux drotis se front dans la partie admin uniquement.
 
 $user_array['user_cell_phone']=$_POST['user_cell_phone'];
 $user_array['user_land_phone']=$_POST['user_land_phone'];
@@ -21,11 +22,12 @@ $user_array['user_sex']=$_POST['user_sex'];
 $user_array['user_skype']=$_POST['user_skype'];
 $user_array['user_weixin']=$_POST['user_weixin'];
 $user_array['user_member_type']=$_POST['user_member_type'];
-$user_array['user_user_type']=$_POST['user_user_type'];
 $user_array['user_email_company']=$_POST['user_email_company'];
 $user_array['user_email_perso']=$_POST['user_email_perso'];
 $user_array['user_address']=$_POST['user_address'];
 $user_array['user_comment']=$_POST['user_comment'];
+$user_array['user_renew_date']=$_POST['user_renew_date'];
+$user_array['user_last_amount']=$_POST['user_last_amount'];
 
 $user_concerned=new user_full($_POST['user_pk']);
 
@@ -50,17 +52,14 @@ include '../DAL/user_profil_update_var.php';
 
 if(isset($_POST['com_list']))
 {
-	echo 'charlie zero';
 	// nouvelle commission
 	if(!isset($_POST['previous_com']))
 	{
-		echo 'charlie one';
 		include('../DAL/insert_commission_member_user_post.php');
 	}
 	// commission différente
 	else if(!isset($_POST['previous_com'])||$_POST['previous_com']!=$_POST['com_list'])
 	{
-		echo 'charlie TWO';
 		// modification de l'ancienne information
 		include('../DAL/update_commission_member.php');
 		include('../DAL/insert_commission_member_user_post.php');

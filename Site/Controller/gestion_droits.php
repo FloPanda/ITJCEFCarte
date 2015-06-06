@@ -32,7 +32,7 @@ require( '../Model/ViewModel/user_list_trombinoscope.php');
 	foreach($test->user_list as $value)
 	{	
 	
-		if($value->user_member_type==1&&$value->user_user_type!=4)  // Car la gestion des droits s'effectue uniquement pour les membres!
+		if($value->user_member_type==1&&$value->user_user_type!=4)  // Car la gestion des droits s'effectue uniquement pour les membres et pas ceux en attente!
 		{
 	
 			echo '<tr style="border: 1px solid black">';

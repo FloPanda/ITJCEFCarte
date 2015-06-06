@@ -3,6 +3,7 @@
 class user_full
 {
 	var $user_name;
+	var $user_pk;
 	var $user_surname;
 	var $user_is_admin;
 	var $user_birth;
@@ -74,17 +75,18 @@ class user_full
 	$this->user_qr_code_url=$user_array[0]['user_qr_code_url'];
 	$this->user_address=$user_array[0]['user_address'];
 	$this->user_comment=$user_array[0]['user_comment'];
+	$this->user_pk=$user_array[0]['user_pk'];
 	}
 	else
 	{
   
 	$this->user_name="non specifie";
 	$this->user_surname="non specifie";
-	$this->user_is_admin=null;
+	$this->user_is_admin=0;
 	$this->user_birth=null;
 	$this->user_sex=null;
 	$this->user_nation="inconnu";
-	$this->user_user_type=null;
+	$this->user_user_type=4;
 	$this->user_member_type=null;
 	$this->user_jcef_function="non specifie";
 	$this->user_status="non specifie";
@@ -94,7 +96,7 @@ class user_full
 	$this->user_land_phone=null;
 	$this->user_subscription_date=null;
 	$this->user_renew_date=null;
-	$this->user_last_amount=null;
+	$this->user_last_amount=0;
 	$this->user_picture="../Ressources/Images/nopic.jpg";
 	$this->user_uuid=null;
 	$this->user_password="achanger";

@@ -11,10 +11,11 @@ class user_login
 	var $user_surname;
 	var $user_password;
 	var $user_is_admin;
+	var $user_user_type;
 
   public function __construct(array $value) 
   {
-	
+	$this->user_user_type=$value['user_user_type'];
 	$this->user_name=$value['user_name'];
 	$this->user_surname=$value['user_surname'];
 	$this->user_uuid=$value['user_uuid'];

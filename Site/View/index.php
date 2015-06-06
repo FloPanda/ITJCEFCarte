@@ -2,6 +2,9 @@
 <html>
 
 <?php
+
+	$is_index=true;
+	
 	include 'header.php';
 	include 'head.html';
 	include 'dashboard.php';

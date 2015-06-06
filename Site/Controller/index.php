@@ -34,12 +34,16 @@
 					echo ("OK!");
 					
 					//$user_concerned=new user_full($_POST['user_uuid']);
+					$_SESSION['user_user_type'] = $value->user_user_type;
 					$_SESSION['user_surname'] = $value->user_surname;
 					$_SESSION['user_uuid'] = $value->user_uuid;
 					$_SESSION['user_is_admin'] = $value->user_is_admin;
 					$_SESSION['user_pk'] = $value->user_pk;
 					ob_end_clean();
-					header('Location: ..\View\trombinoscope.php');
+					
+					//refus des membres en attente
+					if($value->user_user_type==4){header('Location: ..\View\user_non_droits.php');}
+					else{header('Location: ..\View\trombinoscope.php');}
 
 					break;
 				}

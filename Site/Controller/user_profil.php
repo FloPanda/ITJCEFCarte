@@ -34,17 +34,26 @@ echo('
 										
 										if(isset($_SESSION['user_uuid'])&&($_SESSION['user_uuid']==$user_concerned->user_uuid||$_SESSION['user_is_admin']==1))
 										{
-											echo('
-											<form action=".././Controller/delete_user.php" method="POST">
-												<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
-												<input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet utilisateur">
-											</form>
-												<form action="../View/edit_user.php" method="POST">
+											echo(
+											'<form action="../View/edit_user.php" method="POST">
 													<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
 													<input class="btn btn-primary" type="submit" name="submit" value="Editer">
 												</form>
+											<form action="../View/edit_user_password.php" method="POST">
+													<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
+													<input class="btn btn-primary" type="submit" name="submit" value="Changer le mot de passe">
+												</form>'
 												
-											');
+												
+												);
+												if($_SESSION['user_is_admin']==1)
+												{ 
+												echo('
+											<form action=".././Controller/delete_user.php" method="POST">
+												<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
+												<input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet utilisateur">
+											</form>')
+												;}
 										}
 
 									echo('

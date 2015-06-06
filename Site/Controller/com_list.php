@@ -4,10 +4,11 @@
 
 require( '../Model/ViewModel/com_list_trombinoscope.php');
 $liste=new com_list_trombinoscope();
+$count=0;
 
 foreach($liste->com_list as $value)
 {
-	if(isset($com_concerned)&&$com_concerned->com_pk==$value->com_pk)
+	if((isset($com_concerned)&&$com_concerned->com_pk==$value->com_pk)||($count==0&&$is_add==true))
 	{
 		echo "<OPTION  SELECTED VALUE=".$value->com_pk.">".$value->com_name;
 	}
@@ -20,7 +21,7 @@ foreach($liste->com_list as $value)
 		echo "<OPTION VALUE=".$value->com_pk.">".$value->com_name;
 	}
 	
-	
+	$count++;
 }
 ?>
 

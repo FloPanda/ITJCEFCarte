@@ -82,7 +82,7 @@ class user_full
   
 	$this->user_name="non specifie";
 	$this->user_surname="non specifie";
-	$this->user_is_admin=null;
+	$this->user_is_admin=0;
 	$this->user_birth=null;
 	$this->user_sex=null;
 	$this->user_nation="inconnu";
@@ -96,7 +96,7 @@ class user_full
 	$this->user_land_phone=null;
 	$this->user_subscription_date=null;
 	$this->user_renew_date=null;
-	$this->user_last_amount=null;
+	$this->user_last_amount=0;
 	$this->user_picture="../Ressources/Images/nopic.jpg";
 	$this->user_uuid=null;
 	$this->user_password="achanger";
