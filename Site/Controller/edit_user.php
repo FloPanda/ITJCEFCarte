@@ -12,7 +12,7 @@ $qrcode=$user_concerned->user_qr_code_url;
 //affichage pré-rempli des informations à modifier
 echo('
 						            <form method="POST" action="../Controller/user_update.php">    
-						                <img style="display:block; width:150px;height:150px;" src='.$user_concerned->user_picture.' class="img-rounded">
+						                <img style="display:block; max-width:250px;height:auto;" src='.$user_concerned->user_picture.' class="img-rounded">
 
 
 						                <h4 class="modal-title">'.$titlecontent.'</h4> <input class="btn btn-primary" type="submit" name="submit" value="Sauvegarder">
@@ -22,7 +22,6 @@ echo('
 										<input type="hidden" name="user_pk" value="'.$user_concerned->user_pk.'">
 										<p>Nom : <input type="text" name="user_surname" value="'.$user_concerned->user_surname.'"</p>
 										<p>Prénom : <input type="text" name="user_name" value="'.$user_concerned->user_name.'"</p>
-										<p>Photo : <input type="text" name="user_picture" value="'.$user_concerned->user_picture.'"</p>
 						                <p>Fonction : <input type="text" name="user_jcef_function" value="'.$user_concerned->user_jcef_function.'"</p>
 						                <p>Pays : <input type="text" name="user_nation" value="'.$user_concerned->user_nation.'"</p>
 						                <p>Entreprise : <input type="text" name="user_company" value="'.$user_concerned->user_company.'"</p>
@@ -79,6 +78,6 @@ echo('
 												<input type="hidden" name="previous_com" value="'.$previous_com.'">
 												');
 											}								
-											echo('</p></form>'); 
+											echo('</br></br></p></form>'); 
 										}
 ?>

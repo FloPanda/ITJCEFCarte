@@ -21,7 +21,6 @@
     user_subscription_date = "'.$_POST['user_subscription_date'].'",
     user_renew_date = "'.$_POST['user_renew_date'].'",
     user_last_amount = "'.$_POST['user_last_amount'].'",
-    user_picture = "'.$_POST['user_picture'].'",
     user_uuid = "'.$_POST['user_uuid'].'",
     user_email_jcef = "'.$_POST['user_email_jcef'].'",
     user_email_company = "'.$_POST['user_email_company'].'",
@@ -39,9 +38,10 @@
     //user_is_admin = "'.$_POST['user_is_admin'].'",
     //user_user_type = "'.$_POST['user_user_type'].'",
 	
-	// autre:
+	// autre/géré autre part:
 	//user_qr_code_url = "'.$_POST['user_qr_code_url'].'",
     //user_password = "'.$_POST['user_password'].'",
+    //user_picture = "'.$_POST['user_picture'].'",
 	
 	// retiré:
     //user_status = "'.$_POST['user_status'].'",

@@ -20,9 +20,11 @@ $user_concerned=new user_full($event_concerned->ev_charged_member);
 
 echo('
 
-						                <img style="display:block; width:250px;height:150px;" src='.$event_concerned->ev_picture.' class="img-rounded">
-						                <h4 class="modal-title">'.$event_concerned->ev_name.'</h4>
+<img style="display:block; max-width:250px;height:auto;" src='.$event_concerned->ev_picture.' class="img-rounded">
+<h4 class="modal-title">'.$event_concerned->ev_name.'</h4>
 ');
+
+//Restriction affichage en fonction des droits
 if(isset($_SESSION['user_uuid']))
 {
 	if($_SESSION['user_is_admin']==1||$_SESSION['user_user_type']==1||$_SESSION['user_user_type']==2)
@@ -37,10 +39,13 @@ if(isset($_SESSION['user_uuid']))
 				<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 				<input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet evenement">
 			</form>
+			<form action=".././Controller/event_attendance.php" method="GET">
+				<input class="btn btn-primary" type="submit" name="submit" value="présent à cet evenement">
+			</form>
 		');
 }
 	include '..\DAL\participe_ev_pk_user_uuid.php';
-	
+// inscription à l'évènement
 	if(isset($part_array[0]['part_ev_pk']))
 	{
 		echo('
@@ -53,7 +58,7 @@ if(isset($_SESSION['user_uuid']))
 	else
 	{
 		echo ('
-		<form action=".././Controller/attend_event.php" method="POST">
+		<form action=".././Controller/subscribe_event.php" method="POST">
 			<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 			<input type="hidden" name="user_uuid" value="'.$_SESSION['user_uuid'].'">
 			<input class="btn btn-primary" type="submit" name="submit" value="Je participe à cet evenement">
@@ -77,9 +82,9 @@ echo('
 	
 	<p>----------------------------------<p>
 	Liste des participants:</br>
-	<font color="green"> A payé - Fut présent </font></br>
-	<font color="orange"> A payé </font></br>
-	<font color="red"> N a pas payé </font></br>
+	<font color="green"> S\'est inscrit - Fut présent </font></br>
+	<font color="orange"> Non inscrit - Fut présent </font></br>
+	<font color="red"> S\'est inscrit - Non présent </font></br>
 	</br>
 	
 	');

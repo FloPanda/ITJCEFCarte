@@ -26,7 +26,8 @@
 			  )
 	WHERE ev_pk = "'.$event_array['ev_pk'].'" 
 	');	
-	echo('
+	
+	/*echo('
 	UPDATE 
 	event
 	SET 
@@ -48,7 +49,7 @@
 			   WHERE com_pk = '.$event_array['ev_com_linked'].'
 			  )
 	WHERE ev_pk = "'.$event_array['ev_pk'].'" 
-	');	
+	');	*/
 	
 	
 

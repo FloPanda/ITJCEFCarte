@@ -8,7 +8,7 @@
 	WHERE
 	part_ev_pk="'.$event_concerned->ev_pk.'"
 	and
-	part_user_pk="'.$_SESSION['user_pk'].'"
+	part_user_pk="'.$user_get.'"
 	');	// DAL
 	$compte=0;
 	

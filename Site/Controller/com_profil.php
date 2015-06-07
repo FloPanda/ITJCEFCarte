@@ -8,7 +8,7 @@ $com_concerned=new commission_full($_POST['com_pk']);
 
 
 echo('
-						                <img style="display:block; width:250px;height:150px;" src='.$com_concerned->com_picture.' class="img-rounded">
+						                <img style="display:block; max-width:250px;height:auto;" src='.$com_concerned->com_picture.' class="img-rounded">
 						                <h4 class="modal-title">'.$com_concerned->com_name.'</h4>');
 						                
 if(isset($_SESSION['user_uuid']))

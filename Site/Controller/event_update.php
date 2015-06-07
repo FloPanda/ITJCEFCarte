@@ -2,7 +2,7 @@
 // if var required
 $event_array=null;
 
-$event_array['ev_picture']=$_POST['ev_picture'];
+$event_array['ev_picture']="../Ressources/Images/".$_POST['ev_picture'];
 $event_array['ev_address']=$_POST['ev_address'];
 $event_array['ev_date']=$_POST['ev_date'];
 $event_array['ev_description']=$_POST['ev_description'];
@@ -13,8 +13,26 @@ $event_array['ev_nb_subscribed']=$_POST['ev_nb_subscribed'];
 $event_array['ev_charged_member']=$_POST['user_list'];
 $event_array['ev_com_linked']=$_POST['com_list'];
 
+if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==1)
+{ 
+	$is_subscribe=1;
+	$event_array['ev_pk']=$_POST['ev_pk'];
+	$event_array['participant']=$_POST['attender'];
+	include '../DAL/event_profil_update_post_user_pk.php'; 
+	include '../DAL/insert_participant.php'; 
+}
+else if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==0)
+{ 
+	$is_subscribe=0;
+	$event_array['ev_pk']=$_POST['ev_pk'];
+	$event_array['participant']=$_POST['attender'];
+	include '../DAL/event_profil_update_post_user_pk.php'; 
+	include '../DAL/delete_participant.php'; 
+}
+
 if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
 { 
+	$is_participe=1;
 	$event_array['ev_pk']=$_POST['ev_pk'];
 	$event_array['participant']=$_POST['attender'];
 	include '../DAL/event_profil_update_post_user_pk.php'; 
@@ -22,11 +40,13 @@ if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
 }
 else if(isset($_POST['is_attend'])&&$_POST['is_attend']==0)
 { 
+	$is_participe=0;
 	$event_array['ev_pk']=$_POST['ev_pk'];
 	$event_array['participant']=$_POST['attender'];
 	include '../DAL/event_profil_update_post_user_pk.php'; 
 	include '../DAL/delete_participant.php'; 
 }
+
 else
 { include '../DAL/event_profil_update_var.php'; }
 

@@ -42,6 +42,10 @@ echo('
 											<form action="../View/edit_user_password.php" method="POST">
 													<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
 													<input class="btn btn-primary" type="submit" name="submit" value="Changer le mot de passe">
+												</form>
+											<form action="../View/user_new_image.php" method="POST">
+													<input type="hidden" name="user_uuid" value="'.$user_concerned->user_uuid.'"> 
+													<input class="btn btn-primary" type="submit" name="submit" value="Changer la photo de l\'utilisateur">
 												</form>'
 												
 												

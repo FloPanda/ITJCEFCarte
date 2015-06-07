@@ -24,8 +24,8 @@ error_reporting(E_ALL);
 			   FROM event
 			   WHERE ev_pk = '.$event_array['ev_pk'].'
 			  ),
-			1,
-			0
+			0,
+			1
 			)'
 			);
 			

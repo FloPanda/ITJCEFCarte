@@ -10,7 +10,6 @@ $user_array=null;
 
 $user_array['user_cell_phone']=$_POST['user_cell_phone'];
 $user_array['user_land_phone']=$_POST['user_land_phone'];
-$user_array['user_picture']=$_POST['user_picture'];
 $user_array['user_jcef_function']=$_POST['user_jcef_function'];
 $user_array['user_nation']=$_POST['user_nation'];
 $user_array['user_company']=$_POST['user_company'];
@@ -78,7 +77,7 @@ echo('
 		</form>
 		
 		<script language="JavaScript">
-		document.uuid.submit();
+			document.uuid.submit();
 		</script>
 	</body>
 </html>
