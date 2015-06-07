@@ -263,6 +263,7 @@
                 <a class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" title=" Home " data-form="ui-icon" data-role="button" role="button" onclick="return openLogin();"> Home </a>
                 <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Trombinoscope</h1>
                 <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="link" href="#" onclick="openSettings()">  </a>
+                <a class="ui-btn-right  ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="link" href="#" onclick="openSettings()">  </a>
             </div>
                 
             
@@ -501,10 +502,7 @@
                 <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="link" href="#" onclick="openSettings()">  </a>
             </div>
                 
-            <form action="javascript:openEditUserProfil()" method="POST">
-                <input type="hidden" name="user_uuid" value=""> 
-                <input type="submit" name="submit" value="Editer">
-            </form>
+            <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="openEditEventProfil()" data-role="none">Editer</button>
 
 
            
@@ -593,7 +591,7 @@
             </div>
                 
        
-           <form action='' method='POST'>
+           <form action='../../Site/Controller/event_update.php' method='POST' onsubmit="openEventProfil()">
                 <p>
                 <div id="ev_picture">
                 <input type="file" name="ev_picture" value="">                    
@@ -691,10 +689,7 @@
                 <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="link" href="#" onclick="openSettings()">  </a>
             </div>
                 
-            <form action="javascript:openEditUserProfil()" method="POST">
-                <input type="hidden" name="user_uuid" value=""> 
-                <input type="submit" name="submit" value="Editer">
-            </form>
+            <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="openEditCommissionProfil()" data-role="none">Editer</button>
 
 
            
@@ -745,7 +740,7 @@
             </div>
                 
        
-           <form action='' method='POST'>
+           <form action='../../Site/Controller/commission_update.php' method='POST' onsubmit="openCommissionProfil()">
                 <p>
                 <div id="com_picture">
                 <input type="file" name="com_picture" value="">                    

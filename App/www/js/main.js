@@ -119,7 +119,7 @@ function openLogin(){
 }
 
 function openUserProfil(){
-    WSuser_profil();
+    WSuser_profil(JSON.parse(window.localStorage["selected_user_profil"]).user_uuid);
     $.mobile.pageContainer.pagecontainer('change', "#user_profil");   
 }
 
@@ -251,7 +251,7 @@ function login(){
                //window.localStorage["user_is_admin"] = a;
                window.localStorage["token"]=res.token;
                window.localStorage["expireAt"]=res.expireAt;
-               openUserProfil(); 
+               openUsrTrombi(); 
                },
                401 : function(){
                self.showAlert(current,"Connexion impossible, le couple identifiant/mot de passe n'a pas été reconnu", "erreur");
@@ -285,7 +285,7 @@ function WStrombinoscope_users(){
             //type: 'POST',
             //url: URL +"?user="+user_uuid,
             url: URL,
-            //contentType: "application/json",
+            contentType: "application/json",
             dataType: "json",
             beforeSend: setHeader,
             //data: data,
@@ -294,23 +294,28 @@ function WStrombinoscope_users(){
                 200: function (res) {
                     
                     
+                    
                     //var strObj = JSON.stringify(res);
                     //var obj = JSON.parse(res);
                     //var obj = jQuery.parseJSON(res);
                                      
 
-                   $.each(obj,function(i, user)
+                   $.each(res,function(i, user)
                    {
                      console.log(user);
+                     // alert(user);
                    });
 
-                   for (var i = 0; i < res.length; i++) {
-                      tr = $('<tr/>');
-                      tr.append("<td>" + obj[i].user_surname + "</td>");
-                      tr.append("<td>" + obj[i].user_name + "</td>");
-                      tr.append("<td>" + obj[i].user_jcef_function + "</td>");
-                      $('#users_trombinoscope > #trombiUsers').append(tr);
-                  }   
+                   var arrayOfObjects = eval(res);
+
+                  for (var i = 0; i < arrayOfObjects.length; i++) {
+                      var object = arrayOfObjects[i];
+                      for (var property in object) {
+                        alert('item ' + i + ': ' + property + '=' + object[property]);
+                  }
+    // If property names are known beforehand, you can also just do e.g.
+    // alert(object.id + ',' + object.Title);
+}
 
 
 
@@ -384,14 +389,14 @@ function WSedit_user(){
 }
 
 //A MODIF fonction qui récupère le contenu associé à un user_uuid appelée depuis user_profil.html
-function WSuser_profil(){
+function WSuser_profil(user_uuid){
     var URL = "http://localhost/ITJCEFCarte/Site/Controller/WSuser_profil.php";
     var contentElem;
     //if(user != '') {
         $.ajax({
-            //type: 'POST',
+            type: 'GET',
             //url: URL +"?user="+user_uuid,
-            url: URL,
+            url: URL+"?user_uuid="+user_uuid,
             //contentType: "application/json",
             dataType: "json",
             beforeSend: setHeader,

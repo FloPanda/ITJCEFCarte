@@ -1,9 +1,9 @@
 <?php 
 
-class user_list_trombinoscope
+class user_list_trombinoscope implements JsonSerializable
 {
 	
-  var $user_list;
+  public $user_list;
 
   public function __construct() 
   {
@@ -24,6 +24,15 @@ class user_list_trombinoscope
   
   
   }
+
+
+	public function jsonSerialize() {
+        return ['user_list' => $this->user_list];
+    }
+
+
+
+
   
 }
 

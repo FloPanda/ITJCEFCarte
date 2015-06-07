@@ -3,7 +3,7 @@
 	require ('../DAL/sql_connect.php');
 
 	$ult = new user_list_trombinoscope();
-	$ultusers = $ult->user_list;
+	$ultusers = $ult->jsonSerialize();
 	$ultusersenc = json_encode($ultusers);
 
 	/*echo "[";
