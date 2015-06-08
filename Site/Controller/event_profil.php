@@ -24,7 +24,9 @@ echo('
 <h4 class="modal-title">'.$event_concerned->ev_name.'</h4>
 ');
 
+///////////////////////////////////////	
 //Restriction affichage en fonction des droits
+///////////////////////////////////////
 if(isset($_SESSION['user_uuid']))
 {
 	if($_SESSION['user_is_admin']==1||$_SESSION['user_user_type']==1||$_SESSION['user_user_type']==2)
@@ -39,13 +41,44 @@ if(isset($_SESSION['user_uuid']))
 				<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 				<input class="btn btn-primary" type="submit" name="submit" value="Supprimer cet evenement">
 			</form>
-			<form action=".././Controller/event_attendance.php" method="GET">
-				<input class="btn btn-primary" type="submit" name="submit" value="présent à cet evenement">
-			</form>
 		');
 }
 	include '..\DAL\participe_ev_pk_user_uuid.php';
+	
+///////////////////////////////////////	
+//présence à l'event (similation scan qr code)
+///////////////////////////////////////
+
+if(isset($part_array[0]['part_ev_pk'])&&$part_array[0]['part_present']==1)
+	{
+	}
+	else
+	{
+		echo ('
+		<form action=".././Controller/attend_event.php" method="POST">');
+		
+		//si l'utilisateur est dejà dans la base. Sert à éviter de le réajouter.
+		if(isset($part_array[0]['part_ev_pk']))
+		{ echo('
+			<input type="hidden" name="exist" value="1"> ');
+		}else
+		{ echo('
+			<input type="hidden" name="exist" value="0"> ');
+		}
+		echo('	
+			
+			
+				<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
+				<input type="hidden" name="user_uuid" value="'.$_SESSION['user_uuid'].'">
+				<input class="btn btn-primary" type="submit" name="submit" value="Présent à cet evenement">
+		</form>
+	');
+	}
+	
+///////////////////////////////////////	
 // inscription à l'évènement
+///////////////////////////////////////
+
 	if(isset($part_array[0]['part_ev_pk'])&&$part_array[0]['part_subscribed']==1)
 	{
 		echo('
@@ -77,6 +110,11 @@ if(isset($_SESSION['user_uuid']))
 	');
 	}
 }
+
+///////////////////////////////////////	
+// Affichage des données event
+///////////////////////////////////////
+
 echo('
 </div>
 <div class="modal-body">

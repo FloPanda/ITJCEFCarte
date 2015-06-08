@@ -13,6 +13,7 @@ $event_array['ev_nb_subscribed']=$_POST['ev_nb_subscribed'];
 $event_array['ev_charged_member']=$_POST['user_list'];
 $event_array['ev_com_linked']=$_POST['com_list'];
 
+//inscription
 if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==1)
 { 
 	$is_subscribe=1;
@@ -24,6 +25,7 @@ if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==1)
 	if($_POST['exist']==1)
 	{include '../DAL/update_participant_subscribe.php'; }
 }
+//désinscription
 else if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==0)
 { 
 	$is_subscribe=0;
@@ -32,14 +34,19 @@ else if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==0)
 	include '../DAL/event_profil_update_post_user_pk.php'; 
 	include '../DAL/update_participant_subscribe.php'; 
 }
+//présence
 else if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
 { 
 	$is_participe=1;
 	$event_array['ev_pk']=$_POST['ev_pk'];
 	$event_array['participant']=$_POST['attender'];
 	include '../DAL/event_profil_update_post_user_pk.php'; 
-	include '../DAL/insert_participant.php'; 
+	if($_POST['exist']==0)
+	{include '../DAL/insert_participant.php'; }
+	if($_POST['exist']==1)
+	{include '../DAL/update_participant_participe.php'; }
 }
+//non présence
 else if(isset($_POST['is_attend'])&&$_POST['is_attend']==0)
 { 
 	$is_participe=0;
@@ -48,6 +55,7 @@ else if(isset($_POST['is_attend'])&&$_POST['is_attend']==0)
 	include '../DAL/event_profil_update_post_user_pk.php'; 
 	include '../DAL/delete_participant.php'; 
 }
+//modification n'ayant pas de rapport avec la participation d'un membre
 else
 { include '../DAL/event_profil_update_var.php'; }
 
