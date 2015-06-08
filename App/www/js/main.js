@@ -1,6 +1,6 @@
 //todo : vérifier en permanence que le mec est connecté
-//var host = "http://dev-app.jcef-shanghai.com/Cartes/Site/View/";
-var host = "../../../ITJCEFCarte/Site";
+var host = "http://localhost:8888/ITJCEFCarte/Site";
+//var host = "../../../ITJCEFCarte/Site";
 var debug = true;
 function log(mess) {
     if (debug) {
@@ -142,6 +142,7 @@ function openEditUserProfil(){
 function openUsrTrombi() {
     WStrombinoscope_users();
     $.mobile.pageContainer.pagecontainer('change', "#users_trombinoscope");
+    drawTrombiUsers();
 }
 
 //fonction appelée ailleurs pour ouvrir proprement la page events_trombinoscope
@@ -172,7 +173,7 @@ function deviceReady() {
     $(document).on("pageshow", "#launching", function(event, ui){
                    $("body").addClass("ios7");
                    onGlobal();
-                   liveForm();
+                 //  liveForm();
                    
                         openLogin();
                    
@@ -239,7 +240,7 @@ function login(){
         $.ajax({
                type:'POST',
                //url: host + "/2/sessions",
-               url: "http://localhost/ITJCEFCarte/Site/Controller/index.php",
+               url: host + "/Controller/index.php",
                data: {user_uuid:u,user_password:p},
                async: false,
                statusCode:
@@ -278,53 +279,22 @@ function login(){
 
 //A MODIF. Affiche trombi user.
 function WStrombinoscope_users(){
-    var URL = "http://localhost/ITJCEFCarte/Site/Controller/WStrombinoscope.php";
+    var URL = host +"/Controller/WStrombinoscope.php";
     var contentElem;
     
         $.ajax({
-            //type: 'POST',
-            //url: URL +"?user="+user_uuid,
+            type: 'GET',
             url: URL,
             contentType: "application/json",
             dataType: "json",
             beforeSend: setHeader,
-            //data: data,
             async: false,
             statusCode: {
                 200: function (res) {
-                    
-                    
-                    
-                    //var strObj = JSON.stringify(res);
+                    var strObj = JSON.stringify(res);
+                    window.localStorage["users"] = strObj;
                     //var obj = JSON.parse(res);
-                    //var obj = jQuery.parseJSON(res);
-                                     
-
-                   $.each(res,function(i, user)
-                   {
-                     console.log(user);
-                     // alert(user);
-                   });
-
-                   var arrayOfObjects = eval(res);
-
-                  for (var i = 0; i < arrayOfObjects.length; i++) {
-                      var object = arrayOfObjects[i];
-                      for (var property in object) {
-                        alert('item ' + i + ': ' + property + '=' + object[property]);
-                  }
-    // If property names are known beforehand, you can also just do e.g.
-    // alert(object.id + ',' + object.Title);
-}
-
-
-
-                      
-                      //$("#users_trombinoscope > #trombiUsers").append(res[i].user_surname);
-                   
-                   
-                   
-
+                    //var obj = jQuery.parseJSON(res);            
                     },
                 400: function(){
                     self.showAlert(current, "votre champs ISBN ne contient pas un ISBN valide", "erreur");
@@ -779,4 +749,18 @@ function drawContents() {
 }
 
 
-
+//Fonction chargée de dessiner le trombinoscope
+// TODO : rendre propre la mise en forme et choisir les éléments à afficher.
+// à faire dans le fichier template.html
+function drawTrombiUsers() {
+    $('#trombiUsers').html('');
+    if (window.localStorage["users"]!= undefined){
+        $.get('js/template.html', function(template) {
+              // charge le fichier templates et récupère le contenu de la
+              var users = JSON.parse(window.localStorage["users"]);
+              var template = $(template).filter('#tpl-trombiUsers').html();
+              var html = Mustache.to_html(template, users);
+              $('#trombiUsers').html(html).trigger('create');
+              },'html');}
+    
+}
