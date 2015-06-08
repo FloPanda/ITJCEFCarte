@@ -46,11 +46,12 @@ if(isset($_SESSION['user_uuid']))
 }
 	include '..\DAL\participe_ev_pk_user_uuid.php';
 // inscription à l'évènement
-	if(isset($part_array[0]['part_ev_pk']))
+	if(isset($part_array[0]['part_ev_pk'])&&$part_array[0]['part_subscribed']==1)
 	{
 		echo('
 		<form action=".././Controller/unsuscribe_event.php" method="POST">
 			<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
+			<input type="hidden" name="user_uuid" value="'.$_SESSION['user_uuid'].'">
 			<input class="btn btn-primary" type="submit" name="submit" value="Je ne participe plus à cet evenement">
 		</form>
 		');
@@ -58,7 +59,17 @@ if(isset($_SESSION['user_uuid']))
 	else
 	{
 		echo ('
-		<form action=".././Controller/subscribe_event.php" method="POST">
+		<form action=".././Controller/subscribe_event.php" method="POST">');
+		
+		//si l'utilisateur est dejà dans la base. Sert à éviter de le réajouter.
+		if(isset($part_array[0]['part_ev_pk']))
+		{ echo('
+			<input type="hidden" name="exist" value="1"> ');
+		}else
+		{ echo('
+			<input type="hidden" name="exist" value="0"> ');
+		}
+		echo('	
 			<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'"> 
 			<input type="hidden" name="user_uuid" value="'.$_SESSION['user_uuid'].'">
 			<input class="btn btn-primary" type="submit" name="submit" value="Je participe à cet evenement">
@@ -99,7 +110,7 @@ echo('
 			 if($value->part_subscribed==1&&$value->part_present==1){ echo ('<p> - <font color="green">'); }
 			 if($value->part_subscribed==1&&$value->part_present==0){ echo ('<p> - <font color="orange">'); }
 			 if($value->part_subscribed==0&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
-			 echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </br></font></p>');					
+			 if($value->part_subscribed!=0||$value->part_present!=0){ echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </br></font></p>');}				
 		}
 	
 	}

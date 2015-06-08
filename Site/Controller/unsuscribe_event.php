@@ -4,15 +4,11 @@
 <?php	
 
 
-include '../View/header.php';
-include '../View/head.html';
-include '../View/dashboard.php';
-
 include '..\Model\DataModel\event_full_DM.php';
 
 $event_concerned=new event_full($_POST['ev_pk']);
 
-$event_concerned->ev_participants=$event_concerned->ev_participants-1;
+$event_concerned->ev_nb_subscribed=$event_concerned->ev_nb_subscribed-1;
 
 echo('
 <html>
@@ -32,8 +28,8 @@ echo('
 			<input type="hidden" name="ev_nb_subscribed" value="'.$event_concerned->ev_nb_subscribed.'" />
 			<input type="hidden" name="user_list" value="'.$event_concerned->ev_charged_member.'" />
 			<input type="hidden" name="com_list" value="'.$event_concerned->ev_com_linked.'" />
-			<input type="hidden" name="attender" value="'.$_SESSION['user_uuid'].'" />
-			<input type="hidden" name="is_attend" value=0 />
+			<input type="hidden" name="attender" value="'.$_POST['user_uuid'].'" />
+			<input type="hidden" name="is_subscribe" value=0 />
 		</form>
 		
 		<script language="JavaScript">

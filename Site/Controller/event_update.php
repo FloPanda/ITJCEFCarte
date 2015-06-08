@@ -19,7 +19,10 @@ if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==1)
 	$event_array['ev_pk']=$_POST['ev_pk'];
 	$event_array['participant']=$_POST['attender'];
 	include '../DAL/event_profil_update_post_user_pk.php'; 
-	include '../DAL/insert_participant.php'; 
+	if($_POST['exist']==0)
+	{include '../DAL/insert_subscribe.php'; }
+	if($_POST['exist']==1)
+	{include '../DAL/update_participant_subscribe.php'; }
 }
 else if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==0)
 { 
@@ -27,10 +30,9 @@ else if(isset($_POST['is_subscribe'])&&$_POST['is_subscribe']==0)
 	$event_array['ev_pk']=$_POST['ev_pk'];
 	$event_array['participant']=$_POST['attender'];
 	include '../DAL/event_profil_update_post_user_pk.php'; 
-	include '../DAL/delete_participant.php'; 
+	include '../DAL/update_participant_subscribe.php'; 
 }
-
-if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
+else if(isset($_POST['is_attend'])&&$_POST['is_attend']==1)
 { 
 	$is_participe=1;
 	$event_array['ev_pk']=$_POST['ev_pk'];
@@ -46,7 +48,6 @@ else if(isset($_POST['is_attend'])&&$_POST['is_attend']==0)
 	include '../DAL/event_profil_update_post_user_pk.php'; 
 	include '../DAL/delete_participant.php'; 
 }
-
 else
 { include '../DAL/event_profil_update_var.php'; }
 

@@ -8,7 +8,7 @@ $count=0;
 
 foreach($liste->com_list as $value)
 {
-	if((isset($com_concerned)&&$com_concerned->com_pk==$value->com_pk)||($count==0&&$is_add==true))
+	if((isset($com_concerned)&&$com_concerned->com_pk==$value->com_pk)||($count==0&&isset($is_add)))
 	{
 		echo "<OPTION  SELECTED VALUE=".$value->com_pk.">".$value->com_name;
 	}

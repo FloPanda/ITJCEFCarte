@@ -27,7 +27,9 @@
 	WHERE ev_pk = "'.$_POST['ev_pk'].'" 
 	');	
 	
-	echo('UPDATE 
+	echo(
+	'
+	UPDATE 
 	event
 	SET 
 	
@@ -47,7 +49,8 @@
 			   FROM commission
 			   WHERE com_pk = '.$event_array['ev_com_linked'].'
 			  )
-	WHERE ev_pk = "'.$_POST['ev_pk'].'" ');
+	WHERE ev_pk = "'.$_POST['ev_pk'].'" 
+	');	
 
 ?>
 <!--,

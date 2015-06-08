@@ -6,19 +6,30 @@
 	'UPDATE 
 	`participant` 
 	SET 
-	part_present=,
-	part_subscribe=
+	part_subscribed='.$is_subscribe.'
 	WHERE
 	part_user_pk=(SELECT user_pk
 			   FROM user
-			   WHERE user_uuid = '.$event_array['participant'].')
+			   WHERE user_uuid = '.$event_array["participant"].')
 	and
 	part_ev_pk=(SELECT ev_pk
 			   FROM event
-			   WHERE ev_pk = '.$event_array['ev_pk'].'
-			  ),		   
-	')
-	or die('Error: '.mysqli_error($link));
+			   WHERE ev_pk = '.$event_array["ev_pk"].'
+			  )'	);
+	echo('UPDATE 
+	`participant` 
+	SET 
+	part_subscribed='.$is_subscribe.'
+	WHERE
+	part_user_pk=(SELECT user_pk
+			   FROM user
+			   WHERE user_uuid = '.$event_array["participant"].')
+	and
+	part_ev_pk=(SELECT ev_pk
+			   FROM event
+			   WHERE ev_pk = '.$event_array["ev_pk"].'
+			  )');
+	//or die('Error: '.mysqli_error($link));
 	
 	
 

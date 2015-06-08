@@ -28,6 +28,7 @@ echo('
 			<input type="hidden" name="ev_nb_subscribed" value="'.$event_concerned->ev_nb_subscribed.'" />
 			<input type="hidden" name="user_list" value="'.$event_concerned->ev_charged_member.'" /> 
 			<input type="hidden" name="com_list" value="'.$event_concerned->ev_com_linked.'" />
+			<input type="hidden" name="exist" value="'.$_POST['exist'].'" />
 			<input type="hidden" name="attender" value="'.$_POST['user_uuid'].'" />
 			<input type="hidden" name="is_subscribe" value=1 />
 		</form>

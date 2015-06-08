@@ -6,8 +6,7 @@
 	'UPDATE 
 	`participant` 
 	SET 
-	part_present=,
-	part_subscribe=
+	part_present='.$is_participe.'
 	WHERE
 	part_user_pk=(SELECT user_pk
 			   FROM user
@@ -16,7 +15,7 @@
 	part_ev_pk=(SELECT ev_pk
 			   FROM event
 			   WHERE ev_pk = '.$event_array['ev_pk'].'
-			  ),		   
+			  )	   
 	')
 	or die('Error: '.mysqli_error($link));
 	
