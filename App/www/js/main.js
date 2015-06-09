@@ -79,7 +79,7 @@ function handleLogin(u,p) {
 function onGlobal(){
     
     $(document).on("pageshow", "#login", function() {
-                   if(checkPreAuth()){openTrombi();}
+                   if(checkPreAuth()){openMenu();}
                    });
     
 
@@ -118,6 +118,10 @@ function openLogin(){
     $.mobile.pageContainer.pagecontainer('change', "#login");   
 }
 
+function openMenu(){
+	$.mobile.pageContainer.pagecontainer('change',"#menu");
+}
+
 function openUserProfil(){
     WSuser_profil(JSON.parse(window.localStorage["selected_user_profil"]).user_uuid);
     $.mobile.pageContainer.pagecontainer('change', "#user_profil");   
@@ -126,6 +130,11 @@ function openUserProfil(){
 function openEventProfil(){
     WSevent_profil();
     $.mobile.pageContainer.pagecontainer('change', "#event_profil");   
+}
+
+function openMyProfil(){
+	WSuser_profil(window.localStorage["user_uuid"]);
+	$.mobile.pageContainer.pagecontainer('change',"#user_profil");
 }
 
 function openCommissionProfil(){
@@ -252,7 +261,7 @@ function login(){
                //window.localStorage["user_is_admin"] = a;
                window.localStorage["token"]=res.token;
                window.localStorage["expireAt"]=res.expireAt;
-               openUsrTrombi(); 
+               openUserProfil; 
                },
                401 : function(){
                self.showAlert(current,"Connexion impossible, le couple identifiant/mot de passe n'a pas été reconnu", "erreur");
@@ -360,12 +369,11 @@ function WSedit_user(){
 
 //A MODIF fonction qui récupère le contenu associé à un user_uuid appelée depuis user_profil.html
 function WSuser_profil(user_uuid){
-    var URL = "http://localhost/ITJCEFCarte/Site/Controller/WSuser_profil.php";
+    var URL = host + "/Controller/WSuser_profil.php";
     var contentElem;
     //if(user != '') {
         $.ajax({
             type: 'GET',
-            //url: URL +"?user="+user_uuid,
             url: URL+"?user_uuid="+user_uuid,
             //contentType: "application/json",
             dataType: "json",
