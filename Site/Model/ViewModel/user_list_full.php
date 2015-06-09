@@ -12,7 +12,7 @@ class user_list_full
 	$user_array=null;
 
 	
-	include 'user_full.php';
+	include_once 'user_full.php';
 	include '../DAL/user_full.php';
 	foreach($user_array as $value)
 	{

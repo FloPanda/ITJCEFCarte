@@ -24,12 +24,21 @@
 								<li><a href="../View/add_user.php">Ajout Utilisateur</a></li>
 								<li><a href="../View/add_event.php">Ajout Evenement</a></li>
 								<li><a href="../View/add_commission.php">Ajout Commission</a></li>
-								<li><a href="../View/statistiques.php">Statistiques</a></li>
 								<li><a href="../View/gestion_droits.php">Gestion des droits</a></li>
 								<li><a href="../View/user_confirm.php">Utilisateurs en attente</a></li>
 								<!--<li><a href="../Controller/user_profil.php">page test</a></li>
 								<li><a href="../Controller/event_detailled.php">page test</a></li>
 								<li><a href="../Controller/commission_detailled.php">page test</a></li>-->
+								
+							</ul>
+						</li>
+						');
+						
+						echo('
+						<li class="dropdown-list">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown-list">Statistiques</a>
+							<ul class="dropdown-menu">
+								<li><a href="../View/statistiques.php">Statistiques</a></li>
 								
 							</ul>
 						</li>

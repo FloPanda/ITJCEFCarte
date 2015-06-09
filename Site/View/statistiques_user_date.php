@@ -24,15 +24,9 @@
 										<div class="modal-header">
 <?php
 
-	include '..\Controller\statistiques.php';
+	include '..\Controller\statistiques_user_date.php';
 	
 ?>
-						<h2> Statistiques membres par période </h2>
-						<form action="../View/statistiques_user_date.php" method="POST">
-						du <input type="date" name="user_date_1" >
-						au <input type="date" name="user_date_2" >
-						<input type="submit" value="Recherche" name="submit">
-						</form>
 
 													       
 						            </div>

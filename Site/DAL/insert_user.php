@@ -50,7 +50,7 @@
 			"'.$us->user_company_title.'",
 			"'.$us->user_cell_phone.'",
 			"'.$us->user_land_phone.'",
-			"'.$us->user_subscription_date.'",
+			NOW(),
 			"'.$us->user_renew_date.'",
 			"'.$us->user_last_amount.'",
 			"'.$us->user_picture.'",
@@ -67,7 +67,7 @@
 			)');
 			
 	
-
+//"'.$us->user_subscription_date.'",
 
 ?>
 
