@@ -113,7 +113,7 @@
                     
 
             <!-- popup modèle -->
-            <div data-role="popup" class="popupBasic">
+        <div data-role="popup" class="popupBasic">
             	<h2></h2>
             	<p></p>       
             	<a data-inline="true" data-role="button" data-rel="back" href="#">Ok</a>        
@@ -126,7 +126,6 @@
             <a id="okbutton" data-inline="true" data-role="button" href="#">Confirmer</a>
         </div>
         
-        </div>
         
         
 
@@ -272,13 +271,6 @@
                 
                 
             </div>
-            <div class="smallItem">
-                
-            </div>
-            <div class ="footer">
-                <p>Visitez notre site internet :<a href="http://dev-app.jcef-shanghai.com/Cartes/Site/View/">
-                    http://dev-app.jcef-shanghai.com</a> </p>  
-            </div>
 
 
         <!-- Dashboard utilisateur -->
@@ -302,13 +294,6 @@
                 
                 
             </div>
-            <div class="smallItem">
-                
-            </div>
-            <div class ="footer">
-                <p>Visitez notre site internet :<a href="http://dev-app.jcef-shanghai.com/Cartes/Site/View/">
-                    http://dev-app.jcef-shanghai.com</a> </p>  
-            </div>
 
 
 
@@ -326,17 +311,19 @@
             <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="openEditUserProfil()" data-role="none">Editer</button>
 
         
-           <!-- <div id='profilDiv'>-->
-                <p>
-                <div id="user_picture">                    
+            <div id='userDetails'>
+               <p>
+                <div id="user_picture">             
                 </div>
                 </p>
+                <p>
                 <div id="user_surname">
-                    Prénom : 
+                    Prénom : <span id="userVisuSurname"></span>
                 </div>
+                </p>
                 <p>
                 <div id="user_name">
-                    Nom : 
+                    Nom :  
                 </div>
                 </p>
                 <p>
@@ -390,11 +377,7 @@
                     <img src="https://chart.googleapis.com/chart?cht=qr&chl='.$user_concerned->user_qr_code_url.'&chs=100x100&choe=UTF-8&chld=L|2" alt="">
                 </div>
                 </p>
-                <!--</div>-->
-
-                
-                
-            </div>
+            </div> 
             <div class="smallItem">
                 
             </div>
@@ -524,69 +507,7 @@
                 
             <button data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-btn-icon-left ui-shadow ui-corner-all ui-icon-check" onclick="openEditEventProfil()" data-role="none">Editer</button>
 
-
-           
-            
-        
-           <!-- <div id='profilDiv'>-->
-                <p>
-                <div id="ev_picture">                    
-                </div>
-                </p>
-                <div id="ev_name">
-                    Nom : 
-                </div>
-                <p>
-                <div id="ev_address">
-                    Adresse : 
-                </div>
-                </p>
-                <p>
-                <div id="ev_date">
-                    Date : 
-                </div>
-                </p>
-                <p>
-                <div id="ev_description">
-                    Description : 
-                </div>
-                </p>
-                <p>
-                <div id="ev_max_participants">
-                    Nombre de Participants Max : 
-                </div>
-                </p>
-                <p>
-                <div id="ev_participants">
-                    Nombre de Participants : 
-                </div>
-                </p>
-                <p>
-                <div id="ev_price">
-                    Prix :
-                </div>
-                </p>
-                <p>
-                <div id="ev_nb_subscribed">
-                    Nombre d'Inscrits :
-                </div>
-                </p>
-                <p>
-                <div id="ev_charged_member">
-                    Responsable : 
-                </div>
-                </p>
-                <p>
-                <div id="ev_com_linked">
-                    Commission : 
-                </div>
-                </p>
-                
-                <!--</div>-->
-
-                
-                
-            </div>
+            <div id='userDetails'></div>
             <div class="smallItem">
                 
             </div>
@@ -595,104 +516,6 @@
                     http://dev-app.jcef-shanghai.com</a> </p>  
             </div>
 
-
-
-
-
-
-               <!-- Edition event -->
-        <div data-role="page" id="edit_event">
-            <div class= "statusBar">&nbsp;</div>
-
-            <div data-role="header" role="banner">
-                <a class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" title=" Home " data-form="ui-icon" data-role="button" role="button" onclick="return openLogin();"> Home </a>
-                <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Edition de l'Evenement</h1>
-                <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="link" href="#" onclick="openSettings()">  </a>
-            </div>
-                
-       
-           <form action='../../Site/Controller/event_update.php' method='POST' onsubmit="openEventProfil()">
-                <p>
-                <div id="ev_picture">
-                <input type="file" name="ev_picture" value="">                    
-                </div>
-                </p>
-                <div id="ev_name">
-                    Nom :
-                    <input type="text" name="ev_name" value="">
-                </div>
-                <p>
-                <div id="ev_address">
-                    Adresse :
-                    <input type="text" name="ev_address" value="">
-                </div>
-                </p>
-                <p>
-                <div id="ev_date">
-                    Date :
-                    <input type="date" name="ev_date" value=""> 
-                </div>
-                </p>
-                <p>
-                <div id="ev_description">
-                    Description :
-                    <textarea name="ev_description"></textarea> 
-                </div>
-                </p>
-                <p>
-                <div id="ev_max_participants">
-                    Nombre de Participants Max :
-                    <input type="text" name="ev_max_participants" value=""> 
-                </div>
-                </p>
-                <p>
-                <div id="ev_participants">
-                    Nombre de Participants :
-                    <input type="text" name="ev_participants" value=""> 
-                </div>
-                </p>
-                <p>
-                <div id="ev_price">
-                    Prix :
-                    <input type="text" name="ev_price" value="">
-                </div>
-                </p>
-                <p>
-                <div id="ev_nb_subscribed">
-                    Nombre d'Inscrits :
-                    <input type="text" name="ev_nb_subscribed" value="">
-                </div>
-                </p>
-                <p>
-                <div id="ev_charged_member">
-                    Responsable :
-                    <input type="text" name="ev_charged_member" value=""> 
-                </div>
-                </p>
-                <p>
-                <div id="ev_com_linked">
-                    Commission :
-                    <input type="text" name="ev_com_linked" value=""> 
-                </div>
-                </p>
-                
-                <p>
-                <input type="submit" name="submit" value="Valider">
-                </p>
-            </form>
-                <!--</div>-->
-                
-           
-                
-                
-            </div>
-            <div class="smallItem">
-                
-            </div>
-            <div class ="footer">
-                <p>Visitez notre site internet :<a href="http://dev-app.jcef-shanghai.com/Cartes/Site/View/">
-                    http://dev-app.jcef-shanghai.com</a> </p>  
-            </div>
 
 
 
@@ -716,18 +539,15 @@
             
         
            <!-- <div id='profilDiv'>-->
-                <p>
                 <div id="com_picture">                    
                 </div>
-                </p>
                 <div id="com_name">
                     Nom : 
                 </div>
-                <p>
                 <div id="com_description">
                     Description : 
                 </div>
-                </p>
+
                 
                 <!--</div>-->
 
@@ -818,7 +638,7 @@
             <a id="okbutton" data-inline="true" data-role="button" href="#">Confirmer</a>
         </div>
         
-        </div>
+        
 
 
 

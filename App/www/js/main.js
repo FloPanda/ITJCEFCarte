@@ -44,7 +44,7 @@ function handleLogin(u,p) {
                async: false,
                statusCode:
                {
-               200 : function(res){
+               200 : function (res){
                //j'enregistre l'id, le mot de passe, le token et la date de fin
                window.localStorage["token"]=res.token;
                window.localStorage["expireAt"]=res.expireAt;
@@ -80,7 +80,6 @@ function onGlobal(){
 
     $(document).on("pageshow",  "#settings", function(event, ui) {
                    $("#settings > #account").append(' '+window.localStorage["user_surname"]+window.localStorage["user_name"]+'.');
-                   alert('zeefezfzefzeffe');
                    } );
 
     $(document).on("pageshow",  "#trombinoscope", function(event, ui) {
@@ -88,7 +87,6 @@ function onGlobal(){
                    } );
 
     $(document).on("pageshow",  "#user_profil", function(event, ui) {
-                   alert('zeefezfzefzeffe');
                    //$("#user_profil > #user_surname").append(' '+window.localStorage["user_surname"]);
                    //$("#user_name").append(' '+window.localStorage["user_name"]);
                    //$("#user_jcef_function").append(' '+window.localStorage["user_jcef_function"]);
@@ -124,6 +122,7 @@ function openUserProfilDirect(id){
 
 function openUserProfil(){
     WSuser_profil(JSON.parse(window.localStorage["selected_user_profil"]).user_uuid);
+    drawUserDetails();
     $.mobile.pageContainer.pagecontainer('change', "#user_profil");   
 }
 
@@ -134,6 +133,7 @@ function openEventProfil(){
 
 function openMyProfil(){
 	WSuser_profil(window.localStorage["user_uuid"]);
+    drawUserDetails();
 	$.mobile.pageContainer.pagecontainer('change',"#user_profil");
 }
 
@@ -316,9 +316,8 @@ function WStrombinoscope_users(){
 
 //A MODIF. Affiche trombi commissions.
 function WStrombinoscope_commissions(){
-    var URL = host +"/Controller/WStrombinoscope_commission.php";
-    var contentElem;
-    
+    var URL = host +"/Controller/WStrombinoscope_commissions.php";
+    var contentElem; 
         $.ajax({
             type: 'GET',
             url: URL,
@@ -400,10 +399,12 @@ function WSuser_profil(user_uuid){
             async: false,
             statusCode: {
                 200: function (res) {
-                  window.localStorage["selected_user_profil"] = JSON.stringify(res);
+                    //TODO : Ajouter tous les autres champs pertinents. Attention les id doivent être uniques, ils ne l'étaient pas.
+                    $('#userVisuSurname').html( res.user_surname ).enhanceWithin();
+                    window.localStorage["selected_user_profil"] = JSON.stringify(res);
                     },
                 404: function(){
-                    
+                    self.showAlert(current, "Le serveur ne répond pas.", "erreur");
                     },
                 500: function(){
                     self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
@@ -543,75 +544,6 @@ function setHeaderTags(xhr){
 }
 
 
-//Fonction appelée par makeCodes qui va créer en sessionStorage deux tableaux : ISBNSelected et ContentSelected à partir de ce qu'a sélectionné l'utilisateur dans son formulaire ChoosContent.html
-function memorizeContentSelected(ids){
-    var idSelected=ids
-    var contentSelected = [];
-    var ISBNSelected = [];
-    var content={};
-    var contentsList = JSON.parse(window.sessionStorage["contenus"]);
-    var contentInOneISBN = [];
-    var ISBNList= JSON.parse(window.sessionStorage["ISBNContentList"]);
-    for (var i=0, c=idSelected.length; i<c; i++){
-        for (var j=0, d=ISBNList.length; j<d; j++){
-            contentInOneISBN = JSON.parse(contentsList[j]);
-            for (var k=0, e=contentInOneISBN.length; k<e; k++){
-                content = contentInOneISBN[k];
-                if (content.id == idSelected[i]){
-                    idSelected[i]="default";
-                    contentSelected.push(content);
-                    ISBNSelected.push(ISBNList[j]);
-                }
-                content={};
-            }
-            contentInOneISBN = [];
-        }
-    }
-    window.sessionStorage["ISBNSelected"] = JSON.stringify(ISBNSelected);
-    window.sessionStorage["contentSelected"] = JSON.stringify(contentSelected);
-}
-
-//fontion appelée par makeCodes qui renvoie le tableau des ids sélectionnés
-function selectedIds (){
-    var selectedItems=[];
-    $("input[type=checkbox]:checked").each(function(){
-                                           selectedItems.push($(this).attr('name'));
-                                           });
-    return selectedItems;
-}
-
-//fonction globale appelée par chooseContent.html, elle parcourt la liste des contenus, ajoute ceux qui sont sélectionnés à un tableau puis pour chacun des éléments du tableau elle appelle generateQRCode
-//je dois créer des tableaux : content qui contient : {ISBN, res.contentText} puis contentSelected qui contient {ISBN, res.contentText}
-//je parcourt les deux, l'un pour
-function makeCodes(){
-    var ISBNSelected=[];
-    var current=$("#choice");
-    // je récupère dans un tableau ma liste des Ids sélectionnés
-    var selectedItems = selectedIds();
-    // Je mémorise les infos relatives à ces Ids
-    memorizeContentSelected(selectedItems);
-    var contentSelected = JSON.parse(window.sessionStorage["contentSelected"]);
-    ISBNSelected = JSON.parse(window.sessionStorage["ISBNSelected"]);
-    //Je calcule le total à rajouter à la vente du livre physique
-    var total = calculateTotal(contentSelected);
-    if (total > 0) {
-        self.showModal(current, "Avez vous bien facturé " + total + " euros au client en plus de sa commande de livres physiques ? Sinon, annuler et rester sur cette page", "information", function () {
-                       for (i=0, c=selectedItems.length; i<c; i++){
-                       generateQRCode(ISBNSelected[i], contentSelected[i].id, current);
-                       }
-                       openVisualizeTag();
-                       });
-    } else {
-        for (i=0, c=selectedItems.length; i<c; i++){
-            generateQRCode(ISBNSelected[i], contentSelected[i].id, current);
-        }
-        openVisualizeTag();
-    }
-        return false;
-}
-
-
-
 //fonction qui envoie le formulaire d'inscription
 function subscribe (){
     var name = $("#name").val();
@@ -661,8 +593,6 @@ function subscribe (){
     return false;
 }
 
-
-
 //fontion pour revenir à l'accueil et effacer la vente actuelle TODO savoir où je suis
 function backToHome(current){
     var bool = false;
@@ -705,8 +635,6 @@ function logout() {
     });
 }
 
-
-
 //fonction qui génère la page chooseContent.html
 function drawContents() {
     $('#articleKOContent').html('');
@@ -744,7 +672,6 @@ function drawContents() {
     
 }
 
-
 //Fonction chargée de dessiner le trombinoscope
 // TODO : rendre propre la mise en forme et choisir les éléments à afficher.
 // à faire dans le fichier template.html
@@ -759,4 +686,8 @@ function drawTrombiUsers() {
               $('#trombiUsers').html(html).trigger('create');
               },'html');}
     
+}
+
+//fonction affichant le détail d'un utilisateur
+function drawUserDetails() {
 }
