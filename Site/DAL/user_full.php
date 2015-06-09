@@ -5,8 +5,7 @@
 	$sql=mysqli_query($link,"SELECT * FROM user");	// DAL
 	$compte=0;
 	while($row = mysqli_fetch_array($sql)) 
-	{
-		
+	{	
 		$user_array[$compte]['user_user_type']=$row['user_user_type'];
 		$user_array[$compte]['user_name']=$row['user_name'];
 		$user_array[$compte]['user_surname']=$row['user_surname'];
@@ -40,11 +39,8 @@
 		
 		$compte++;
 	}
-
 	if ($compte==0)
 	{
 	 echo "fail ici";
 	}
-
 ?>
-

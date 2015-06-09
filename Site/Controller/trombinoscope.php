@@ -1,8 +1,10 @@
-<!--<script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-</script>-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#table_trombi").dataTable();
+	
+});
+</script>
 	<?php	
 		require( '../Model/ViewModel/user_list_trombinoscope.php');
 

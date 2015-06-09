@@ -1,12 +1,7 @@
 //todo : vérifier en permanence que le mec est connecté
 var host = "http://localhost:8888/ITJCEFCarte/Site";
 //var host = "../../../ITJCEFCarte/Site";
-var debug = true;
-function log(mess) {
-    if (debug) {
-        console.log(mess);
-    }
-}
+
 
 function init() {
 	document.addEventListener("deviceready", deviceReady, true);
@@ -120,6 +115,11 @@ function openLogin(){
 
 function openMenu(){
 	$.mobile.pageContainer.pagecontainer('change',"#menu");
+}
+
+function openUserProfilDirect(id){
+    WSuser_profil(id);
+    $.mobile.pageContainer.pagecontainer('change', "#user_profil");   
 }
 
 function openUserProfil(){
@@ -301,53 +301,71 @@ function WStrombinoscope_users(){
             statusCode: {
                 200: function (res) {
                     var strObj = JSON.stringify(res);
-                    window.localStorage["users"] = strObj;
-                    //var obj = JSON.parse(res);
-                    //var obj = jQuery.parseJSON(res);            
-                    },
-                400: function(){
-                    self.showAlert(current, "votre champs ISBN ne contient pas un ISBN valide", "erreur");
-                    },
-                401: function(){
-                    self.showAlert(current, "Connexion impossible, Vous avez été déconnecté", "erreur");
-                    if (checkPreAuth()) {
-                        self.showAlert(current, "reconnecté ! réessayez", "information");
-                    } else {
-                        self.showAlert(current, "reconnexion impossible, vérifiez vos identifiants","erreur");
-                        logout();
-                        }
+                    window.localStorage["users"] = strObj;        
                     },
                 404: function(){
-                    //je teste si ma zone de stockage pour ISBNNoContentList a été initialisée
-                    if (window.sessionStorage["ISBNNoContentList"]!= undefined){
-                        //Si oui alors j'ajoute le nouvel ISBN à mon tableau
-                        var ISBNNoContentList = JSON.parse(window.sessionStorage["ISBNNoContentList"]);
-                        ISBNNoContentList.push(i);
-                        window.sessionStorage["ISBNNoContentList"]=JSON.stringify(ISBNNoContentList);
-                    } else {
-                    //Sinon j'initialise
-                        window.sessionStorage["ISBNNoContentList"]=JSON.stringify([i]);
-                    }
+                    self.showAlert(current, "serveur introuvable, le serveur est hors ligne", "erreur");
                     },
                 500: function(){
                     self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
                     }
                     }
             });
-    //} else {
-      //  $("#submit").removeAttr("disabled");
-    //}
     return false;
 }
 
 //A MODIF. Affiche trombi commissions.
 function WStrombinoscope_commissions(){
+    var URL = host +"/Controller/WStrombinoscope_commission.php";
+    var contentElem;
     
+        $.ajax({
+            type: 'GET',
+            url: URL,
+            contentType: "application/json",
+            dataType: "json",
+            async: false,
+            statusCode: {
+                200: function (res) {
+                    var strObj = JSON.stringify(res);
+                    window.localStorage["commissions"] = strObj;        
+                    },
+                404: function(){
+                    self.showAlert(current, "serveur introuvable, le serveur est hors ligne", "erreur");
+                    },
+                500: function(){
+                    self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
+                    }
+                    }
+            });
+    return false; 
 }
 
 //A MODIF. Affiche trombi events.
 function WStrombinoscope_events(){
+    var URL = host +"/Controller/WStrombinoscope_events.php";
+    var contentElem;
     
+        $.ajax({
+            type: 'GET',
+            url: URL,
+            contentType: "application/json",
+            dataType: "json",
+            async: false,
+            statusCode: {
+                200: function (res) {
+                    var strObj = JSON.stringify(res);
+                    window.localStorage["events"] = strObj;        
+                    },
+                404: function(){
+                    self.showAlert(current, "serveur introuvable, le serveur est hors ligne", "erreur");
+                    },
+                500: function(){
+                    self.showAlert(current, "erreur interne au serveur, veuillez réessayer plus tard", "erreur");
+                    }
+                    }
+            });
+    return false; 
 }
 
 
@@ -382,37 +400,7 @@ function WSuser_profil(user_uuid){
             async: false,
             statusCode: {
                 200: function (res) {
-                    
-
-
-                   $("#user_profil > #user_picture").append('<img src="'+res.user_picture+'"</img>');
-                   $("#user_profil > #user_surname").append(' '+res.user_surname);
-                   $("#user_profil > #user_name").append(' '+res.user_name);
-                   $("#user_profil > #user_nation").append(' '+res.user_nation);
-                   $("#user_profil > #user_company").append(' '+res.user_company);
-                   $("#user_profil > #user_subscription_date").append(' '+res.user_subscription_date);
-                   $("#user_profil > #user_email_jcef").append(' '+res.user_email_jcef);
-                   $("#user_profil > #user_birth").append(' '+res.user_birth);
-                   $("#user_profil > #user_sex").append(' '+res.user_sex);
-                   $("#user_profil > #user_skype").append(' '+res.user_skype);
-                   $("#user_profil > #user_weixin").append(' '+res.user_weixin);
-                   $("#user_profil > #user_jcef_function").append(' '+res.user_jcef_function);
-
-                   window.localStorage["selected_user_profil"] = JSON.stringify(res);
-
-
-                    },
-                400: function(){
-                    self.showAlert(current, "L'utilisateur n'existe pas.", "erreur");
-                    },
-                401: function(){
-                    self.showAlert(current, "Connexion impossible, Vous avez été déconnecté", "erreur");
-                    if (checkPreAuth()) {
-                        self.showAlert(current, "reconnecté ! réessayez", "information");
-                    } else {
-                        self.showAlert(current, "reconnexion impossible, vérifiez vos identifiants","erreur");
-                        logout();
-                        }
+                  window.localStorage["selected_user_profil"] = JSON.stringify(res);
                     },
                 404: function(){
                     

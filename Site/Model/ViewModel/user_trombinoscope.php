@@ -1,11 +1,6 @@
 <?php
-
-
-
-
 class user_trombinoscope
-{
-		
+{		
 	var $user_uuid;
 	var $user_name;
 	var $user_surname;
@@ -19,8 +14,7 @@ class user_trombinoscope
 	var $user_member_type;
 
   public function __construct(array $value) 
-  {
-	
+  {	
 	$this->user_name=$value['user_name'];
 	$this->user_surname=$value['user_surname'];
 	$this->user_jcef_function=$value['user_jcef_function'];
@@ -32,9 +26,7 @@ class user_trombinoscope
 	$this->user_uuid=$value['user_uuid'];
 	$this->user_user_type=$value['user_user_type'];
 	$this->user_member_type=$value['user_member_type'];
-
   }
-  
 }
 
 ?>
