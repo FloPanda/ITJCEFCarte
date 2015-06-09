@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <?php
@@ -21,7 +22,8 @@
 							<div class="row-fluid">
 								<div class="span8"><center>
 <?php
-	include '..\Controller\trombinoscope.php';
+	include '../Controller/trombinoscope.php';
+	
 ?>
 
 					</center>
