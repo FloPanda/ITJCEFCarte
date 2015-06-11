@@ -9,7 +9,7 @@
 	// }
 	
 	ob_start( );
-	include '..\Model\DataModel\user_full_DM.php';
+	include '../Model/DataModel/user_full_DM.php';
 	include('../Model/ViewModel/user_list_login.php');
 	include '../View/header.php';
 
@@ -18,7 +18,7 @@
 	
 	if(!($_POST['user_uuid']))
 	{
-		header('Location: ' . '..\View\index.php', true);
+		header('Location: ' . '../View/index.php', true);
 		die();
 	}
 	
@@ -42,8 +42,8 @@
 					ob_end_clean();
 					
 					//refus des membres en attente
-					if($value->user_user_type==4){header('Location: ..\View\user_non_droits.php');}
-					else{header('Location: ..\View\trombinoscope.php');}
+					if($value->user_user_type==4){header('Location: ../View/user_non_droits.php');}
+					else{header('Location: ../View/trombinoscope.php');}
 
 					break;
 				}

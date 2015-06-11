@@ -10,11 +10,6 @@ $com_array['com_is_open']=$_POST['com_is_open'];
 include '../DAL/commission_profil_update_var.php';
 
 echo('
-<html>
-<head>
-
-</head>
-	<body>
 		<form id="pk" method="POST" name="pk" action="../View/com_profil.php">
 		  <input type="hidden" name="com_pk" value="'.$_POST['com_pk'].'" />
 		</form>
@@ -22,9 +17,6 @@ echo('
 		<script language="JavaScript">
 			document.pk.submit();
 		</script>
-	</body>
-</html>
-
 ');
 
 ?>

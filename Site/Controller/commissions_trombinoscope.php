@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <?php	
 	require( '../Model/ViewModel/com_list_trombinoscope.php');
 ?>

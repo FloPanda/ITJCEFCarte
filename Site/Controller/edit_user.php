@@ -1,6 +1,6 @@
 <?php 
 // classe user
-include '..\Model\DataModel\user_full_DM.php';
+include '../Model/DataModel/user_full_DM.php';
 
 
 $user_concerned=new user_full($_POST['user_uuid']);
@@ -58,7 +58,7 @@ echo('
 								
 								');
 										
-										include  '..\DAL\commission_member_from_user_pk.php' ;
+										include  '../DAL/commission_member_from_user_pk.php' ;
 										
 										// gestion des droits
 										if(isset($_SESSION['user_is_admin'])&&$_SESSION['user_is_admin']==1) //TODO||(isset($_SESSION['user_type'])&&$_SESSION['user_type']==1)
@@ -68,7 +68,7 @@ echo('
 											/* Chargement de la commission attachée à l'utilisateur dans la base et création d'une liste déroulante avec 
 											la commission déjà selectionnée */
 											
-											include  '..\Controller\com_list.php' ;
+											include  '../Controller/com_list.php' ;
 											
 											if (isset($cm_array[0]['comm_pk'])) 
 											{ 

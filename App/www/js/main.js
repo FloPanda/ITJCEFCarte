@@ -1,5 +1,6 @@
 //todo : vérifier en permanence que le mec est connecté
-var host = "http://localhost:8888/ITJCEFCarte/Site";
+//var host = "http://localhost:8888/ITJCEFCarte/Site";
+var host = "http://dev-app.jcef-shanghai.com/ITJCEFCarte/Site";
 //var host = "../../../ITJCEFCarte/Site";
 
 

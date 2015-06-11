@@ -1,6 +1,6 @@
 <?php 
 // classe user
-include '..\Model\DataModel\user_full_DM.php';
+include '../Model/DataModel/user_full_DM.php';
 
 					
 $titlecontent=" Modification du mot de passe";
@@ -37,19 +37,17 @@ echo '<h4 class="modal-title">'.$titlecontent.'</h4> ';
 										 }
 										
 										</script>
-									
-						            <form onsubmit="return verify(this.user_password, this.user_password_confirm)"  method="POST" action="../Controller/user_update_password.php">    
-						            </div>
+                                        <form onsubmit="return verify(this.user_password, this.user_password_confirm)"  method="POST" action="../Controller/user_update_password.php">   
+						            
 						            <div class="modal-body">
 									
 						            	<?php echo('<input type="hidden" name="user_uuid" value="'.$_POST['user_uuid'].'">') ;?>
 										
 										<p>Nouveau mot de passe : <input type="text" name="user_password"></p>
-										<p>Confirmer : <input type="text" name="user_password_confirm"></p></br>
+										<p>Confirmer : <input type="text" name="user_password_confirm"></p><br/ >
 										<input class="btn btn-primary" type="submit" name="submit" value="Sauvegarder">
 										
 										
 															
-									</p>
 									</div>
 									</form>

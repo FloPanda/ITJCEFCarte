@@ -41,7 +41,8 @@ class user_list_trombinoscope implements JsonSerializable
   }
     
 	public function jsonSerialize() {
-        return ['user_list' => $this->user_list];
+        $res = array('user_list' => $this->user_list);
+        return $res;
     }
 }
 ?>

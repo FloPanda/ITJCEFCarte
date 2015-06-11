@@ -1,6 +1,6 @@
 <?php 
 
-include '..\Model\DataModel\commission_full_DM.php';
+include '../Model/DataModel/commission_full_DM.php';
 
 
 $com_concerned=new commission_full($_POST['com_pk']);

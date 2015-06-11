@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html>
-
 <?php	
 
 
-include '..\Model\DataModel\event_full_DM.php';
+include '../Model/DataModel/event_full_DM.php';
 
 $event_concerned=new event_full($_POST['ev_pk']);
 
 $event_concerned->ev_participants=$event_concerned->ev_participants+1;
 
 echo('
-<html>
-<head>
-
-</head>
-	<body>
 		<form id="pk" method="POST" name="pk" action="../Controller/event_update.php">
 			<input type="hidden" name="ev_pk" value="'.$event_concerned->ev_pk.'" />
 			<input type="hidden" name="ev_picture" value="'.$event_concerned->ev_picture.'" />
@@ -36,7 +28,5 @@ echo('
 		<script language="JavaScript">
 			document.pk.submit();
 		</script>
-	</body>
-</html>
-
 ');
+?>
