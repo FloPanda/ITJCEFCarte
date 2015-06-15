@@ -2,6 +2,7 @@
 // TODO : rendre fonctionnel
 $bool = true;
 
+header('Access-Control-Allow-Origin: *');
 if ($bool){
 	header('Content-type: application/json');
 	echo("ok");
