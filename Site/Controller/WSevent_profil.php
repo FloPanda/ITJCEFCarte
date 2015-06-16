@@ -1,6 +1,6 @@
 	<?php	
 		require( '../Model/DataModel/event_full_DM.php');
-		require ('../DAL/sql_connect.php');
-		$event=new event_full();
-		echo json_encode($event);	
-	?>
+        header('Content-type: application/json');
+		$event=new event_full($_GET['user_uuid']);
+		echo json_encode($event);		
+?>
