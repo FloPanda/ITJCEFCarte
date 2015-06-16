@@ -1,2 +1,10 @@
 
 Site/DAL/sql_connect.php
+
+.idea/.name
+
+.idea/deployment.xml
+
+*.xml
+
+.idea/ITJCEFCarte.iml
