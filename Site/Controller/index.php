@@ -9,6 +9,7 @@
 	// }
 	
 	ob_start( );
+	$is_index=true;
 	include '../Model/DataModel/user_full_DM.php';
 	include('../Model/ViewModel/user_list_login.php');
 	include '../View/header.php';

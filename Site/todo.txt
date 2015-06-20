@@ -1,9 +1,0 @@
-problèmes:
-- utilisateur peut gérer si membre ou pengyou // checked
-- participe event marche plus //remarche!
-- user lambda peut modifier event // checked!
-- peut modifier commission // PIPAPOU
-- pas d edition du mot de passe // checked
-- mettre une commission par défaut (wesh)
-- membre en attente peut faire ce qu il veut lààààààààà // checked
-- nom prenom inversé

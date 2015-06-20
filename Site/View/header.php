@@ -285,7 +285,7 @@
 									}
 									else
 									{
-										echo("<li><a tabindex='-1' href='../View/index.php'>Login</a></li>");
+									 echo("<li><a tabindex='-1' href='../View/index.php'>Login</a></li>");
 										//redirection si non connecté.
 										if(!isset($is_index)){header("Location: ../View/index.php"); } 
 									}
