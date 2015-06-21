@@ -13,7 +13,7 @@
             $_SESSION['user_is_admin'] = $value->user_is_admin;
             $_SESSION['user_pk'] = $value->user_pk;
             header('Content-type: application/json');
-            echo($value->user_user_type);
+            echo json_encode($value);
             //ob_end_clean();
             break;
         }
