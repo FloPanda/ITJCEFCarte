@@ -24,7 +24,7 @@
 										<div class="modal-header">
 <?php
 
-	include '..\Controller\statistiques.php';
+	include '..\Controller\statistiques_user.php';
 	
 ?>
 						<h2> Statistiques membres par période </h2>

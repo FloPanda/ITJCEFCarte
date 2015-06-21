@@ -11,9 +11,9 @@ class user_list_full
 	$this->user_list=array();
 	$user_array=null;
 
-	
 	include_once 'user_full.php';
 	include '../DAL/user_full.php';
+	
 	foreach($user_array as $value)
 	{
 		

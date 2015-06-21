@@ -73,11 +73,11 @@ echo('
 						                <p>Naissance : '.$user_concerned->user_birth.'</p>
 						                <p>Sexe : '.$user_concerned->user_sex.'</p>
 						                <p>QR Code : 
-						                <img src="https://chart.googleapis.com/chart?cht=qr&chl='.$user_concerned->user_qr_code_url.'&chs=100x100&choe=UTF-8&chld=L|2" alt="">
+						                <a href="../View/trombinoscope.php"><img src="https://chart.googleapis.com/chart?cht=qr&chl='.$user_concerned->user_qr_code_url.'&chs=100x100&choe=UTF-8&chld=L|2" alt=""></a>
 						                </p>
 						                <p>Skype : '.$user_concerned->user_skype.'</p>
 						                <p>WeChat : '.$user_concerned->user_weixin.'</p>
-
+										<p>UUID : '.$user_concerned->user_uuid.'</p>
 						                						       
 						            </div>
 						                

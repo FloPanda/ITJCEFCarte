@@ -2,10 +2,7 @@
 <html>
 <?php	
 	require( '../Model/ViewModel/ev_list_trombinoscope.php');
-?>
 
-							
-					<?php 
 					$count=0;
 					$test=new ev_list_trombinoscope();
 					echo "<table>";
@@ -45,7 +42,10 @@
 					}
 					echo "</table>";
 					
+					
+					
 					echo '<br><br><br>Evenements passes :<br><br>';
+					echo "<table>";
 					$count=0;
 					foreach($test->ev_list as $value)
 					{	
@@ -79,4 +79,5 @@
 							
 						}												
 					}
+					echo "</table>";
 					?>

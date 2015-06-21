@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 $(document).ready(function(){
 $("#table_trombi").dataTable();
@@ -6,7 +5,7 @@ $("#table_trombi").dataTable();
 });
 </script>
 	<?php	
-		require( '../Model/ViewModel/user_list_trombinoscope.php');
+					require( '../Model/ViewModel/user_list_trombinoscope.php');
 
 		
 					$count=0;
@@ -56,7 +55,7 @@ $("#table_trombi").dataTable();
 						echo "<td><!--<div class='col-md-1'>-->";
 						
 						echo '<div style="height:150px;width:150px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal'.$count.'">';
-						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-circle'>";											
+						echo "<center><img style='display:block; width:80px;height:80px;' src=".$value->user_picture." class='img-square'>";											
 						echo '<h5 class="modal-title">'.$value->user_surname." ";
 						echo $value->user_name."</h5>";
 						echo '<h6 class="modal-title">'.$value->user_jcef_function."</h6>";
@@ -68,5 +67,4 @@ $("#table_trombi").dataTable();
 						}												
 					}
 					echo "</table>";
-					?>
-					
+?>

@@ -17,7 +17,7 @@
 				<div class="content-inner">
 
 						<div class="container-fluid">
-							<h1 class="modal-title" align=center>Events</h1>
+							<h1 class="modal-title" align=center>Evenements</h1>
 							<div class="row-fluid">
 								<div class="span8"><center>
 <?php

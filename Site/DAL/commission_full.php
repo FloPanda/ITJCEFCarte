@@ -11,14 +11,14 @@
 			$com_array[$compte]['com_name']=$row['com_name'];
 			$com_array[$compte]['com_description']=$row['com_description'];
 			$com_array[$compte]['com_picture']=$row['com_picture'];
-			
+			$com_array[$compte]['com_is_open']=$row['com_is_open'];
 			$compte++;
 		
 	}
 
 	if ($compte==0)
 	{
-	 echo "fail ici comm";
+	 echo "erreur commission";
 	}
 
 ?>

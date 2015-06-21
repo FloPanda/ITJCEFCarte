@@ -38,8 +38,9 @@
 						<li class="dropdown-list">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown-list">Statistiques</a>
 							<ul class="dropdown-menu">
-								<li><a href="../View/statistiques.php">Statistiques</a></li>
-								
+								<li><a href="../View/statistiques_user.php">Statistiques Membres</a></li>
+								<li><a href="../View/statistiques_com.php">Statistiques Commissions</a></li>
+								<li><a href="../View/statistiques_events.php">Statistiques Evenements</a></li>
 							</ul>
 						</li>
 						');
