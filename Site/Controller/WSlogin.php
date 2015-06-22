@@ -15,7 +15,7 @@
             header('Content-type: application/json');
             echo json_encode($value);
             //ob_end_clean();
-            break;
+            //break;
         }
         else
         {
