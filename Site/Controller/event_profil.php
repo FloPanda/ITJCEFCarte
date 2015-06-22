@@ -146,8 +146,8 @@ echo('
 		{	
 			 $user_concerned=new user_full($value->part_user_pk);
 			 if($value->part_subscribed==1&&$value->part_present==1){ echo ('<p> - <font color="green">'); }
-			 if($value->part_subscribed==1&&$value->part_present==0){ echo ('<p> - <font color="orange">'); }
-			 if($value->part_subscribed==0&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
+			 if($value->part_subscribed==0&&$value->part_present==1){ echo ('<p> - <font color="orange">'); }
+			 if($value->part_subscribed==1&&$value->part_present==0){ echo ('<p> - <font color="red">'); }
 			 if($value->part_subscribed!=0||$value->part_present!=0){ echo ($user_concerned->user_name.' '.$user_concerned->user_surname.' </br></font></p>');}				
 		}
 	
